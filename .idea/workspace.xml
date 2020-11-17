@@ -11,12 +11,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="889652ea-e43b-4a7b-a717-b2eee9ecbf8b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/E-School.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/E-School.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/E-School.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Personne.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Personne.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,6 +135,9 @@
       <path value="$PROJECT_DIR$/vendor/symfony/dom-crawler" />
       <path value="$PROJECT_DIR$/vendor/symfony/debug-bundle" />
       <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
     </include_path>
   </component>
   <component name="ProjectId" id="1kNgPLNqXXXrwgZlJ2aneYE8XcK" />
@@ -160,7 +165,7 @@
       <updated>1605546437549</updated>
       <workItem from="1605546439127" duration="1300000" />
       <workItem from="1605564372699" duration="606000" />
-      <workItem from="1605628681637" duration="5259000" />
+      <workItem from="1605628681637" duration="8225000" />
     </task>
     <servers />
   </component>
@@ -184,6 +189,10 @@
       <screen x="0" y="0" width="1600" height="870" />
     </state>
     <state x="465" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1600.870@0.0.1600.870" timestamp="1605638477088" />
+    <state x="672" y="331" key="Github.ShareDialog" timestamp="1605640363031">
+      <screen x="0" y="0" width="1600" height="870" />
+    </state>
+    <state x="672" y="331" key="Github.ShareDialog/0.0.1600.870@0.0.1600.870" timestamp="1605640363031" />
     <state x="301" y="78" key="SettingsEditor" timestamp="1605546468779">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
