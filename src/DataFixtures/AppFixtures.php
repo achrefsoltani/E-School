@@ -25,7 +25,7 @@ class AppFixtures extends Fixture
                     ->setSexe('female');
             }
             $personne
-                ->setNom($faker->name)
+                ->setNom($faker->lastName)
                 ->setLieuNaissance($faker->city)
                 ->setCin($faker->randomNumber(8))
                 ->setEmail($faker->email)

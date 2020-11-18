@@ -11,36 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="889652ea-e43b-4a7b-a717-b2eee9ecbf8b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fa-brands-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fa-brands-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fa-brands-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fa-brands-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fa-brands-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fa-regular-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fa-regular-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fa-regular-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fa-regular-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fa-regular-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fa-solid-900.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fa-solid-900.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fa-solid-900.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fa-solid-900.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fa-solid-900.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fontawesome-all.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/avatars/avatar1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/avatars/avatar2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/avatars/avatar3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/avatars/avatar4.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/avatars/avatar5.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/theme.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Personne.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Personne.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Classe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Classe.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +168,7 @@
       <workItem from="1605546439127" duration="1300000" />
       <workItem from="1605564372699" duration="606000" />
       <workItem from="1605628681637" duration="10297000" />
-      <workItem from="1605687769437" duration="3412000" />
+      <workItem from="1605687769437" duration="3778000" />
     </task>
     <servers />
   </component>
@@ -220,10 +192,10 @@
       <screen x="0" y="0" width="1600" height="870" />
     </state>
     <state x="586" y="141" key="#com.intellij.ide.util.MemberChooser/0.0.1600.870@0.0.1600.870" timestamp="1605690523212" />
-    <state x="465" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1605638477088">
+    <state x="465" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1605692884231">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state x="465" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1600.870@0.0.1600.870" timestamp="1605638477088" />
+    <state x="465" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1600.870@0.0.1600.870" timestamp="1605692884231" />
     <state x="672" y="331" key="Github.ShareDialog" timestamp="1605640363031">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
@@ -232,9 +204,9 @@
       <screen x="0" y="0" width="1600" height="870" />
     </state>
     <state x="301" y="78" key="SettingsEditor/0.0.1600.870@0.0.1600.870" timestamp="1605546468779" />
-    <state x="392" y="167" key="Vcs.Push.Dialog.v2" timestamp="1605643181520">
+    <state x="392" y="167" key="Vcs.Push.Dialog.v2" timestamp="1605692724693">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state x="392" y="167" key="Vcs.Push.Dialog.v2/0.0.1600.870@0.0.1600.870" timestamp="1605643181520" />
+    <state x="392" y="167" key="Vcs.Push.Dialog.v2/0.0.1600.870@0.0.1600.870" timestamp="1605692724693" />
   </component>
 </project>

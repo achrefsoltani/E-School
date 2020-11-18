@@ -48,7 +48,7 @@ class Classe
     /**
      * @ORM\ManyToMany(targetEntity=Matiere::class, mappedBy="classes")
      */
-    private $classes;
+    private $matieres;
 
     /**
      * @ORM\OneToMany(targetEntity=Seance::class, mappedBy="classe", orphanRemoval=true)
@@ -63,7 +63,7 @@ class Classe
     public function __construct()
     {
         $this->membres = new ArrayCollection();
-        $this->classes = new ArrayCollection();
+        $this->matieres = new ArrayCollection();
         $this->seances = new ArrayCollection();
         $this->notes = new ArrayCollection();
     }
@@ -148,15 +148,15 @@ class Classe
     /**
      * @return Collection|Matiere[]
      */
-    public function getClasses(): Collection
+    public function getMatieres(): Collection
     {
-        return $this->classes;
+        return $this->matieres;
     }
 
     public function addClass(Matiere $class): self
     {
-        if (!$this->classes->contains($class)) {
-            $this->classes[] = $class;
+        if (!$this->matieres->contains($class)) {
+            $this->matieres[] = $class;
             $class->addClass($this);
         }
 
@@ -165,7 +165,7 @@ class Classe
 
     public function removeClass(Matiere $class): self
     {
-        if ($this->classes->removeElement($class)) {
+        if ($this->matieres->removeElement($class)) {
             $class->removeClass($this);
         }
 
