@@ -4,6 +4,11 @@ namespace App\Form;
 
 use App\Entity\Personne;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,16 +19,24 @@ class PersonneType extends AbstractType
         $builder
             ->add('nom')
             ->add('prenom')
-            ->add('sexe')
-            ->add('date_naissance')
+            ->add('sexe', ChoiceType::class,
+                ['choices' =>[
+                    'Male' => 'male',
+                    'Female' => 'female'
+                    ],
+                ])
+            ->add('date_naissance', BirthdayType::class, [
+                'placeholder' => [
+                    'year' => 'Année', 'month' => 'Mois', 'day' => 'Jour',
+                ]
+            ])
             ->add('lieu_naissance')
             ->add('cin')
-            ->add('email')
+            ->add('email',EmailType::class)
             ->add('num_tel')
             ->add('adresse')
-            ->add('role')
             ->add('login')
-            ->add('mdp')
+            ->add('mdp',PasswordType::class)
             ->add('classe')
         ;
     }

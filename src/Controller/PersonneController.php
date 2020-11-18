@@ -23,6 +23,7 @@ class PersonneController extends AbstractController
     public function new(Request $request, string $role): Response
     {
         $personne = new Personne();
+        $personne->setRole($role);
         $form = $this->createForm(PersonneType::class, $personne);
         $form->handleRequest($request);
 
