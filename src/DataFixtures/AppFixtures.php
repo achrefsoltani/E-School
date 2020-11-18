@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Personne;
+use App\Entity\Salle;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker;
@@ -42,7 +43,13 @@ class AppFixtures extends Fixture
 
             $manager->persist($personne);
         }
-
+        for($i=0; $i < 30; $i++){
+            $salle = new Salle();
+            $salle->setNumero($i+1)
+                ->setCapacite($faker->numberBetween(20,35))
+                ->setCaracteristique($faker->text(20));
+            $manager->persist($salle);
+        }
         $manager->flush();
     }
 }
