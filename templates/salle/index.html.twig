@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste Salles{% endblock %}
+
+{% block body %}
+    <h1>Liste des salles</h1>
+    <div><a href="{{ path('salle_new') }}" >Ajouter</a></div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Numero</th>
+                <th>Capacite</th>
+                <th>Caracteristique</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for salle in salles %}
+            <tr>
+                <td>{{ salle.id }}</td>
+                <td>{{ salle.numero }}</td>
+                <td>{{ salle.capacite }}</td>
+                <td>{{ salle.caracteristique }}</td>
+                <td>
+                    <a href="{{ path('salle_show', {'id': salle.id}) }}">Détails</a>
+                    <a href="{{ path('salle_edit', {'id': salle.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Liste vide...</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}
