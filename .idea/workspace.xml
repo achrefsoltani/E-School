@@ -11,14 +11,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="889652ea-e43b-4a7b-a717-b2eee9ecbf8b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/E-School.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/E-School.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fa-brands-400.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fa-brands-400.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fa-brands-400.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fa-brands-400.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fa-brands-400.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fa-regular-400.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fa-regular-400.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fa-regular-400.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fa-regular-400.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fa-regular-400.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fa-solid-900.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fa-solid-900.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fa-solid-900.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fa-solid-900.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fa-solid-900.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fontawesome-all.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/avatars/avatar1.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/avatars/avatar2.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/avatars/avatar3.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/avatars/avatar4.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/avatars/avatar5.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/theme.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Personne.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Personne.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,6 +163,9 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1kNgPLNqXXXrwgZlJ2aneYE8XcK" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -150,10 +175,15 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Achref\Desktop\E-School Project\E-School\public" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -165,7 +195,8 @@
       <updated>1605546437549</updated>
       <workItem from="1605546439127" duration="1300000" />
       <workItem from="1605564372699" duration="606000" />
-      <workItem from="1605628681637" duration="8225000" />
+      <workItem from="1605628681637" duration="10297000" />
+      <workItem from="1605687769437" duration="3412000" />
     </task>
     <servers />
   </component>
@@ -185,6 +216,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="586" y="141" key="#com.intellij.ide.util.MemberChooser" timestamp="1605690523212">
+      <screen x="0" y="0" width="1600" height="870" />
+    </state>
+    <state x="586" y="141" key="#com.intellij.ide.util.MemberChooser/0.0.1600.870@0.0.1600.870" timestamp="1605690523212" />
     <state x="465" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1605638477088">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
@@ -197,5 +232,9 @@
       <screen x="0" y="0" width="1600" height="870" />
     </state>
     <state x="301" y="78" key="SettingsEditor/0.0.1600.870@0.0.1600.870" timestamp="1605546468779" />
+    <state x="392" y="167" key="Vcs.Push.Dialog.v2" timestamp="1605643181520">
+      <screen x="0" y="0" width="1600" height="870" />
+    </state>
+    <state x="392" y="167" key="Vcs.Push.Dialog.v2/0.0.1600.870@0.0.1600.870" timestamp="1605643181520" />
   </component>
 </project>

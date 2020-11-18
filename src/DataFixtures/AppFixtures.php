@@ -39,6 +39,8 @@ class AppFixtures extends Fixture
             }else{
                 $personne->setDateNaissance($faker->dateTimeBetween('-80 years','-20 years'));
             }
+            $personne->setCreated(new \DateTime('now'));
+            $personne->setUpdated(new \DateTime('now'));
             $manager->persist($personne);
         }
 

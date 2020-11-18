@@ -3,10 +3,11 @@
 namespace App\Entity;
 
 use App\Repository\PersonneRepository;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints\DateTime;
+
 
 /**
  * @ORM\Entity(repositoryClass=PersonneRepository::class)
@@ -344,6 +345,38 @@ class Personne
      * @ORM\Column(type="datetime", nullable = true)
      */
     protected $created;
+
+    /**
+     * @return DateTime
+     */
+    public function getCreated(): DateTime
+    {
+        return $this->created;
+    }
+
+    /**
+     * @param DateTime $created
+     */
+    public function setCreated(DateTime $created): void
+    {
+        $this->created = $created;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getUpdated(): DateTime
+    {
+        return $this->updated;
+    }
+
+    /**
+     * @param DateTime $updated
+     */
+    public function setUpdated(DateTime $updated): void
+    {
+        $this->updated = $updated;
+    }
 
     /**
      * @var datetime $updated
