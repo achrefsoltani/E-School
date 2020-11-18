@@ -4,7 +4,7 @@
 
 {% block body %}
     <h1>Liste des {{ role }}s</h1>
-
+    <div style="text-align: right"><a href="/list/new/{{ role }}" style="margin-right: 40px" >Ajouter</a></div>
     <table class="table">
         <thead>
             <tr>
@@ -33,17 +33,15 @@
 
 
                 <td>
-                    <a href='{{ path('personne_show',{'id': personne.id}) }}'>show</a>
-                    <a href="{{ path('personne_edit', {'id': personne.id}) }}">edit</a>
+                    <a href='{{ path('personne_show',{'id': personne.id}) }}'>Details</a>
+                    <a href="{{ path('personne_edit', {'id': personne.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="16">no records found</td>
+                <td colspan="16">Liste vide...</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('personne_new') }}">Create new</a>
 {% endblock %}

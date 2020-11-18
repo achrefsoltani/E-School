@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Personne{% endblock %}
+{% block title %}Ajout {{ role }}{% endblock %}
 
 {% block body %}
-    <h1>Create new Personne</h1>
+    <h1>Ajout d'un {{ role }}</h1>
 
     {{ include('personne/_form.html.twig') }}
 
-    <a href="/list/{{ personne.role }}">back to list</a>
+    <a href="/list/{{ personne.role }}">Retour à la liste</a>
 {% endblock %}

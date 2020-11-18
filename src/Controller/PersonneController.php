@@ -18,9 +18,9 @@ class PersonneController extends AbstractController
 
 
     /**
-     * @Route("/new", name="personne_new", methods={"GET","POST"})
+     * @Route("/new/{role}", name="personne_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, string $role): Response
     {
         $personne = new Personne();
         $form = $this->createForm(PersonneType::class, $personne);
@@ -37,6 +37,7 @@ class PersonneController extends AbstractController
         return $this->render('personne/new.html.twig', [
             'personne' => $personne,
             'form' => $form->createView(),
+            'role' => $role
         ]);
     }
 
