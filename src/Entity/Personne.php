@@ -82,7 +82,7 @@ class Personne
     private $mdp;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Classe::class, mappedBy="eleves")
+     * @ORM\ManyToMany(targetEntity=Classe::class, mappedBy="membres")
      */
     private $classe;
 
@@ -339,70 +339,5 @@ class Personne
         return $this;
     }
 
-    /**
-     * @var datetime $created
-     *
-     * @ORM\Column(type="datetime", nullable = true)
-     */
-    protected $created;
 
-    /**
-     * @return DateTime
-     */
-    public function getCreated(): DateTime
-    {
-        return $this->created;
-    }
-
-    /**
-     * @param DateTime $created
-     */
-    public function setCreated(DateTime $created): void
-    {
-        $this->created = $created;
-    }
-
-    /**
-     * @return DateTime
-     */
-    public function getUpdated(): DateTime
-    {
-        return $this->updated;
-    }
-
-    /**
-     * @param DateTime $updated
-     */
-    public function setUpdated(DateTime $updated): void
-    {
-        $this->updated = $updated;
-    }
-
-    /**
-     * @var datetime $updated
-     *
-     * @ORM\Column(type="datetime", nullable = true)
-     */
-    protected $updated;
-
-
-    /**
-     * Gets triggered only on insert
-
-     * @ORM\PrePersist
-     */
-    public function onPrePersist()
-    {
-        $this->created = new \DateTime("now");
-    }
-
-    /**
-     * Gets triggered every time on update
-
-     * @ORM\PreUpdate
-     */
-    public function onPreUpdate()
-    {
-        $this->updated = new \DateTime("now");
-    }
 }

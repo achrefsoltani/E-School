@@ -12,7 +12,7 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $faker = Faker\Factory::create("fr_FR");
-        for($i=0; $i < 50; $i++){
+        for($i=0; $i < 300; $i++){
             $personne = new Personne();
             $sexe = $faker->boolean;
             if($sexe){
@@ -39,8 +39,7 @@ class AppFixtures extends Fixture
             }else{
                 $personne->setDateNaissance($faker->dateTimeBetween('-80 years','-20 years'));
             }
-            $personne->setCreated(new \DateTime('now'));
-            $personne->setUpdated(new \DateTime('now'));
+
             $manager->persist($personne);
         }
 

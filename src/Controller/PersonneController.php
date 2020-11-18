@@ -11,19 +11,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/personne")
+ * @Route("/list")
  */
 class PersonneController extends AbstractController
 {
-    /**
-     * @Route("/", name="personne_index", methods={"GET"})
-     */
-    public function index(PersonneRepository $personneRepository): Response
-    {
-        return $this->render('personne/index.html.twig', [
-            'personnes' => $personneRepository->findAll(),
-        ]);
-    }
+
 
     /**
      * @Route("/new", name="personne_new", methods={"GET","POST"})
@@ -39,7 +31,7 @@ class PersonneController extends AbstractController
             $entityManager->persist($personne);
             $entityManager->flush();
 
-            return $this->redirectToRoute('personne_index');
+            return $this->redirectToRoute('personne_index',['role'=>$personne->getRole()]);
         }
 
         return $this->render('personne/new.html.twig', [
@@ -49,7 +41,7 @@ class PersonneController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="personne_show", methods={"GET"})
+     * @Route("/show/{id}", name="personne_show", methods={"GET"})
      */
     public function show(Personne $personne): Response
     {
@@ -69,17 +61,18 @@ class PersonneController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('personne_index');
+            return $this->redirectToRoute('personne_index',['role'=>$personne->getRole()]);
         }
 
         return $this->render('personne/edit.html.twig', [
             'personne' => $personne,
             'form' => $form->createView(),
+            'role' => $personne->getRole()
         ]);
     }
 
     /**
-     * @Route("/{id}", name="personne_delete", methods={"DELETE"})
+     * @Route("/delete/{id}", name="personne_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Personne $personne): Response
     {
@@ -89,6 +82,17 @@ class PersonneController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('personne_index');
+        return $this->redirectToRoute('personne_index',['role'=>$personne->getRole()]);
+    }
+
+    /**
+     * @Route("/{role}", name="personne_index", methods={"GET"})
+     */
+    public function index(string $role, PersonneRepository $personneRepository): Response
+    {
+        return $this->render('personne/index.html.twig', [
+            'personnes' => $personneRepository->findBy(['role'=>$role],['nom'=>'ASC']),
+            'role' => $role
+        ]);
     }
 }

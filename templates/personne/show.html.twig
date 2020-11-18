@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Personne{% endblock %}
+{% block title %}{{ personne.nom }} {{ personne.prenom }}{% endblock %}
 
 {% block body %}
-    <h1>Personne</h1>
+    <h1>{{ personne.nom }} {{ personne.prenom }}</h1>
 
     <table class="table">
         <tbody>
@@ -59,18 +59,11 @@
                 <th>Mdp</th>
                 <td>{{ personne.mdp }}</td>
             </tr>
-            <tr>
-                <th>Created</th>
-                <td>{{ personne.created ? personne.created|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Updated</th>
-                <td>{{ personne.updated ? personne.updated|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
+
         </tbody>
     </table>
 
-    <a href="{{ path('personne_index') }}">back to list</a>
+    <a href="/list/{{ personne.role }}">back to list</a> <br>
 
     <a href="{{ path('personne_edit', {'id': personne.id}) }}">edit</a>
 

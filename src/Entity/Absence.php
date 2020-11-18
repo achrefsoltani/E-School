@@ -25,13 +25,13 @@ class Absence
 
     /**
      * @ORM\ManyToOne(targetEntity=Personne::class, inversedBy="absences")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=True)
      */
     private $personne;
 
     /**
      * @ORM\ManyToOne(targetEntity=Seance::class, inversedBy="absences")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=True)
      */
     private $seance;
 
