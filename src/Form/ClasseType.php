@@ -38,7 +38,7 @@ class ClasseType extends AbstractType
                 return 'list des enseignants';
                 },
                 'multiple' => true,
-                'expanded' => true,
+                'expanded' => false,
 
                 ])
 
