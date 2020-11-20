@@ -356,5 +356,10 @@ class Personne
         return $this;
     }
 
+    public function __toString()
+    {
+        return $this->getId() . "- " . $this->getNom() . " " . $this->getPrenom();
+    }
+
 
 }
