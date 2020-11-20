@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Classe{% endblock %}
+{% block title %}Classe {{ classe.nom }}{% endblock %}
 
 {% block body %}
-    <h1>Classe</h1>
+    <h1>Classe {{ classe.nom }}</h1>
 
     <table class="table">
         <tbody>
@@ -16,7 +16,7 @@
                 <td>{{ classe.nom }}</td>
             </tr>
             <tr>
-                <th>Nb_eleve</th>
+                <th>Nombre des eleves</th>
                 <td>{{ classe.nbEleve }}</td>
             </tr>
             <tr>
@@ -40,9 +40,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('classe_index') }}">back to list</a>
+    <a href="{{ path('classe_index') }}">Retour a la liste</a>
 
-    <a href="{{ path('classe_edit', {'id': classe.id}) }}">edit</a>
+    <a href="{{ path('classe_edit', {'id': classe.id}) }}">Modifier</a>
 
     {{ include('classe/_delete_form.html.twig') }}
 {% endblock %}
