@@ -13,7 +13,7 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $faker = Faker\Factory::create("fr_FR");
-        for($i=0; $i < 300; $i++){
+        for($i=0; $i < 2000; $i++){
             $personne = new Personne();
             $sexe = $faker->boolean;
             if($sexe){
@@ -34,9 +34,11 @@ class AppFixtures extends Fixture
                 ->setAdresse($faker->address)
                 ->setLogin($faker->userName)
                 ->setMdp($faker->password)
-                ->setRole($faker->randomElement(['eleve','parent','enseignant','admin']));
+
+                ->setRole($faker->randomElement(['eleve','eleve','eleve','eleve','eleve','eleve','eleve','eleve','eleve','eleve','parent','parent','parent','parent','parent','enseignant','admin']));
             if($personne->getRole() == 'eleve'){
-                $personne->setDateNaissance($faker->dateTimeBetween('-20 years','-6 years'));
+                $personne->setNiveau($faker->randomDigit)
+                    ->setDateNaissance($faker->dateTimeBetween('-20 years','-6 years'));
             }else{
                 $personne->setDateNaissance($faker->dateTimeBetween('-80 years','-20 years'));
             }

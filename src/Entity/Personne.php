@@ -96,6 +96,11 @@ class Personne
      */
     private $notes;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $niveau;
+
     public function __construct()
     {
         $this->classe = new ArrayCollection();
@@ -335,6 +340,18 @@ class Personne
                 $note->setEleve(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getNiveau(): ?int
+    {
+        return $this->niveau;
+    }
+
+    public function setNiveau(?int $niveau): self
+    {
+        $this->niveau = $niveau;
 
         return $this;
     }
