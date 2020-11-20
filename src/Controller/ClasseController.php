@@ -25,15 +25,18 @@ class ClasseController extends AbstractController
         ]);
     }
 
+
+
     /**
-     * @Route("/new", name="classe_new", methods={"GET","POST"})
+     * @Route("/niveau/{niveau}/new", name="classe_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, int $niveau): Response
     {
         $classe = new Classe();
+        $classe->setNiveau($niveau);
         $form = $this->createForm(ClasseType::class, $classe);
         $form->handleRequest($request);
-
+        $classe->setNbEleve($classe->getMembres()->count());
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($classe);
@@ -49,12 +52,30 @@ class ClasseController extends AbstractController
     }
 
     /**
+     * @Route("/niveau", name="classe_niveau", methods={"GET"})
+     */
+    public function Niveau(): Response
+    {
+
+        return $this->render('classe/niveau.html.twig');
+
+    }
+
+    /**
      * @Route("/{id}", name="classe_show", methods={"GET"})
      */
     public function show(Classe $classe): Response
     {
+        $list = $classe->getMembres()->toArray();
+
+
+        usort($list, function($a, $b) {
+            return $a->getNom() > $b->getNom() ? 1 : -1;
+        });
+
         return $this->render('classe/show.html.twig', [
             'classe' => $classe,
+            'eleves' => $list,
         ]);
     }
 
@@ -91,4 +112,6 @@ class ClasseController extends AbstractController
 
         return $this->redirectToRoute('classe_index');
     }
+
+
 }

@@ -27,6 +27,16 @@
                 <th>Niveau</th>
                 <td>{{ classe.niveau }}</td>
             </tr>
+            <tr>
+                <th>Les eleves</th>
+                <td>
+                    <ol>
+                        {% for eleve in eleves %}
+                            <li><a href='{{ path('personne_show',{'id': eleve.id}) }}'> {{ eleve }}</a> </li>
+                        {% endfor %}
+                    </ol>
+                </td>
+            </tr>
         </tbody>
     </table>
 
