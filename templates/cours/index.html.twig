@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cours index{% endblock %}
+
+{% block body %}
+    <h1>liste des support des cours</h1>
+    <a type="button" class="btn btn-primary" href="{{ path('cours_new') }}">Ajouter un nouveau support de cours </a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Contenu</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cour in cours %}
+            <tr>
+                <td>{{ cour.id }}</td>
+                <td>{{ cour.Nom }}</td>
+                <td>{{ cour.contenu }}</td>
+                <td>
+                    <a href="{{ path('cours_show', {'id': cour.id}) }}">details</a>
+                    <a href="{{ path('cours_edit', {'id': cour.id}) }}">modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}
