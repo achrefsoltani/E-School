@@ -33,12 +33,12 @@ class ClasseType extends AbstractType
                     },
                 'group_by'=> function($choice, $key, $value){
                 if ($choice->getRole() == 'eleve'){
-                    return 'list des élèves:';
+                    return '-----------------liste des élèves:-----------------';
                 }
-                return 'list des enseignants';
+                return '-----------------liste des enseignants:-----------------';
                 },
                 'multiple' => true,
-                'expanded' => false,
+                'expanded' => true,
 
                 ])
 

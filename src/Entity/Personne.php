@@ -358,7 +358,7 @@ class Personne
 
     public function __toString()
     {
-        return  $this->getNom() . " " . $this->getPrenom() . "    " . $this->getRole();
+        return  $this->getNom() . " " . $this->getPrenom() . "    [" . $this->getRole() . "]";
     }
 
 
