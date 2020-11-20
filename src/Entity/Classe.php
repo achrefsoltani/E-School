@@ -60,12 +60,15 @@ class Classe
      */
     private $notes;
 
+
+
     public function __construct()
     {
         $this->membres = new ArrayCollection();
         $this->matieres = new ArrayCollection();
         $this->seances = new ArrayCollection();
         $this->notes = new ArrayCollection();
+        $this->enseignants = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -129,18 +132,18 @@ class Classe
         return $this->membres;
     }
 
-    public function addElefe(Personne $elefe): self
+    public function addMembre(Personne $membre): self
     {
-        if (!$this->membres->contains($elefe)) {
-            $this->membres[] = $elefe;
+        if (!$this->membres->contains($membre)) {
+            $this->membres[] = $membre;
         }
 
         return $this;
     }
 
-    public function removeElefe(Personne $elefe): self
+    public function removeMembre(Personne $eleve): self
     {
-        $this->membres->removeElement($elefe);
+        $this->membres->removeElement($eleve);
 
         return $this;
     }
@@ -231,6 +234,8 @@ class Classe
 
         return $this;
     }
+
+
 
 
 }

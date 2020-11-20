@@ -269,7 +269,7 @@ class Personne
     {
         if (!$this->classe->contains($classe)) {
             $this->classe[] = $classe;
-            $classe->addElefe($this);
+            $classe->addMembre($this);
         }
 
         return $this;
@@ -278,7 +278,7 @@ class Personne
     public function removeClasse(Classe $classe): self
     {
         if ($this->classe->removeElement($classe)) {
-            $classe->removeElefe($this);
+            $classe->removeMembre($this);
         }
 
         return $this;
