@@ -34,7 +34,7 @@ class ClasseController extends AbstractController
     {
         $classe = new Classe();
         $classe->setNiveau($niveau);
-        $form = $this->createForm(ClasseType::class, $classe);
+        $form = $this->createForm(ClasseType::class, $classe,['niv'=>$niveau]);
         $form->handleRequest($request);
         $classe->setNbEleve($classe->getMembres()->count());
         if ($form->isSubmitted() && $form->isValid()) {

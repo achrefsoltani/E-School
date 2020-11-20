@@ -21,15 +21,15 @@ class ClasseType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-
+        $niveau = $options['niv'];
         $builder
             ->add('nom')
             ->add('capacite')
             ->add('niveau')
             ->add('membres', EntityType::class, [
                 'class' => Personne::class,
-                'query_builder' => function(PersonneRepository $repo) {
-                        return $repo->createchoiceQueryBuilder();
+                'query_builder' => function(PersonneRepository $repo) use ($niveau) {
+                        return $repo->createchoiceQueryBuilder($niveau);
                     },
                 'group_by'=> function($choice, $key, $value){
                 if ($choice->getRole() == 'eleve'){
@@ -50,7 +50,7 @@ class ClasseType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Classe::class,
-            'niv' => Integer::class,
+            'niv' => '1',
         ]);
     }
 }
