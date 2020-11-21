@@ -101,11 +101,17 @@ class Personne
      */
     private $niveau;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Matiere::class, inversedBy="enseignants")
+     */
+    private $matieres;
+
     public function __construct()
     {
         $this->classe = new ArrayCollection();
         $this->absences = new ArrayCollection();
         $this->notes = new ArrayCollection();
+        $this->matieres = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -359,6 +365,30 @@ class Personne
     public function __toString()
     {
         return  $this->getNom() . " " . $this->getPrenom() . "    [" . $this->getRole() . "]";
+    }
+
+    /**
+     * @return Collection|Matiere[]
+     */
+    public function getMatieres(): Collection
+    {
+        return $this->matieres;
+    }
+
+    public function addMatiere(Matiere $matiere): self
+    {
+        if (!$this->matieres->contains($matiere)) {
+            $this->matieres[] = $matiere;
+        }
+
+        return $this;
+    }
+
+    public function removeMatiere(Matiere $matiere): self
+    {
+        $this->matieres->removeElement($matiere);
+
+        return $this;
     }
 
 

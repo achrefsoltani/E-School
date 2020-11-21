@@ -15,6 +15,9 @@
                 <th>Lieu_naissance</th>
                 <th>Email</th>
                 <th>Num_tel</th>
+                {%  if (role == 'enseignant') %}
+                <th>Matieres</th>
+                {% endif %}
 
 
                 <th>actions</th>
@@ -30,6 +33,13 @@
                 <td>{{ personne.lieuNaissance }}</td>
                 <td>{{ personne.email }}</td>
                 <td>{{ personne.numTel }}</td>
+
+                {%  if (personne.role == 'enseignant') %}
+                <td>{% for matiere in personne.matieres %}
+                    {{ matiere }}
+                    {% endfor %}
+                </td>
+                {% endif %}
 
 
                 <td>

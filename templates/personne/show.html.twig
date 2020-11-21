@@ -23,10 +23,20 @@
                 <th>Sexe</th>
                 <td>{{ personne.sexe }}</td>
             </tr>
+            {%  if (personne.role == 'enseignant') %}
+            <tr>
+                <th>Matieres</th>
+                <td>{% for matiere in personne.matieres %}
+                        {{ matiere }}
+                    {% endfor %}</td>
+            </tr>
+            {% endif %}
+            {%  if (personne.role == 'eleve') %}
             <tr>
                 <th>Niveau</th>
                 <td>{{ personne.niveau }}</td>
             </tr>
+            {% endif %}
             <tr>
                 <th>Date_naissance</th>
                 <td>{{ personne.dateNaissance ? personne.dateNaissance|date('Y-m-d') : '' }}</td>

@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Classe;
+use App\Entity\Matiere;
 use App\Entity\Personne;
 use App\Repository\PersonneRepository;
 use Doctrine\ORM\EntityRepository;
@@ -41,7 +42,11 @@ class ClasseType extends AbstractType
                 'multiple' => true,
                 'expanded' => true,
             ])
-            ->add('matieres');
+            ->add('matieres', EntityType::class, [
+                'class' => Matiere::class,
+                'multiple' => true,
+                'expanded' => true,
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
