@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des eleves{% endblock %}
+
+{% block body %}
+    <h1>Liste des eleves</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+
+
+
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for personne in personnes %}
+            {% if personne.role == 'eleve' %}
+            <tr>
+                <td>{{ personne.id }}</td>
+                <td>{{ personne.nom }}</td>
+                <td>{{ personne.prenom }}</td>
+
+
+
+                <td>
+{#                    <a href='{{ path('personne_show',{'id': personne.id}) }}'>Details</a>#}
+                    <a href="{{ path('note_new', {'id': personne.id, 'id1': classe.id}) }}">Ajouter note</a>
+
+                </td>
+            </tr>
+            {% endif %}
+        {% else %}
+            <tr>
+                <td colspan="16">Liste vide...</td>
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des classes{% endblock %}
+
+{% block body %}
+    <h1>Liste des classes</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Nombre Eleve</th>
+            <th>Niveau</th>
+
+
+
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for classe in classes %}
+            <tr>
+                <td>{{ classe.id }}</td>
+                <td>{{ classe.nom }}</td>
+                <td>{{ classe.nbEleve }}</td>
+                <td>{{ classe.niveau }}</td>
+
+
+
+                <td>
+                   <a href='{{ path('eleveliste',{'id': classe.id}) }}'>liste de eleves </a>
+{#                    <a href="{{ path('personne_edit', {'id': personne.id}) }}">Modifier</a>#}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="16">Liste vide...</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+
