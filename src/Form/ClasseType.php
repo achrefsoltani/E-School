@@ -18,7 +18,6 @@ class ClasseType extends AbstractType
 {
 
 
-
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $niveau = $options['niv'];
@@ -26,24 +25,23 @@ class ClasseType extends AbstractType
             ->add('nom')
             ->add('capacite')
             ->add('niveau')
-            ->add('membres', EntityType::class, [
+            ->add('eleves', EntityType::class, [
                 'class' => Personne::class,
-                'query_builder' => function(PersonneRepository $repo) use ($niveau) {
-                        return $repo->createchoiceQueryBuilder($niveau);
-                    },
-                'group_by'=> function($choice, $key, $value){
-                if ($choice->getRole() == 'eleve'){
-                    return '-----------------liste des élèves:-----------------';
-                }
-                return '-----------------liste des enseignants:-----------------';
+                'query_builder' => function (PersonneRepository $repo) use ($niveau) {
+                    return $repo->createchoiceEleveQueryBuilder($niveau);
                 },
                 'multiple' => true,
                 'expanded' => true,
-
-                ])
-
-            ->add('matieres')
-        ;
+            ])
+            ->add('enseignants', EntityType::class, [
+                'class' => Personne::class,
+                'query_builder' => function (PersonneRepository $repo) {
+                    return $repo->createchoiceEnseignatQueryBuilder();
+                },
+                'multiple' => true,
+                'expanded' => true,
+            ])
+            ->add('matieres');
     }
 
     public function configureOptions(OptionsResolver $resolver)

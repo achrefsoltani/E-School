@@ -48,11 +48,21 @@ class PersonneRepository extends ServiceEntityRepository
     }
     */
 
-    public function createchoiceQueryBuilder(int $niv)
+
+
+    public function createchoiceEleveQueryBuilder(int $niv)
     {
         return $this->createQueryBuilder('personne')
-            ->where("(personne.role in ('eleve','enseignant')) and((personne.niveau = :i) or (personne.niveau is null))")
+            ->where("personne.role = 'eleve' and personne.niveau = :i" )
             ->orderBy('personne.nom', 'ASC')
-            ->setParameter('i',$niv);
+            ->setParameter('i', $niv);
+    }
+
+    public function createchoiceEnseignatQueryBuilder()
+    {
+        return $this->createQueryBuilder('personne')
+            ->where("personne.role = 'enseignant'")
+            ->orderBy('personne.nom', 'ASC');
+
     }
 }

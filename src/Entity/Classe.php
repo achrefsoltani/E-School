@@ -60,6 +60,16 @@ class Classe
      */
     private $notes;
 
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $eleves = [];
+
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $enseignants = [];
+
 
 
     public function __construct()
@@ -68,7 +78,7 @@ class Classe
         $this->matieres = new ArrayCollection();
         $this->seances = new ArrayCollection();
         $this->notes = new ArrayCollection();
-        $this->enseignants = new ArrayCollection();
+
     }
 
     public function getId(): ?int
@@ -231,6 +241,30 @@ class Classe
                 $note->setClasse(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getEleves(): ?array
+    {
+        return $this->eleves;
+    }
+
+    public function setEleves(?array $eleves): self
+    {
+        $this->eleves = $eleves;
+
+        return $this;
+    }
+
+    public function getEnseignants(): ?array
+    {
+        return $this->enseignants;
+    }
+
+    public function setEnseignants(?array $enseignants): self
+    {
+        $this->enseignants = $enseignants;
 
         return $this;
     }

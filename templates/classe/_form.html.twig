@@ -2,8 +2,13 @@
     {{ form_row(form.nom) }}
     {{ form_row(form.niveau) }}
     {{ form_row(form.capacite) }}
-    {{ form_label(form.membres) }}
-    <div style="height:500px;width:auto;overflow:auto;border:8px ;padding:2%; column-count: 3">{{ form_widget(form.membres) }}</div>
+
+
+    {{ form_label(form.eleves) }}
+    <div style="height:500px;width:auto;overflow:auto;border:8px ;padding:2%; column-count: 3">{{ form_widget(form.eleves) }}</div>
+
+    {{ form_label(form.enseignants) }}
+    <div style="height:500px;width:auto;overflow:auto;border:8px ;padding:2%; column-count: 3">{{ form_widget(form.enseignants) }}</div>
     {{ form_rest(form) }}
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

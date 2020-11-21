@@ -36,8 +36,14 @@ class ClasseController extends AbstractController
         $classe->setNiveau($niveau);
         $form = $this->createForm(ClasseType::class, $classe,['niv'=>$niveau]);
         $form->handleRequest($request);
-        $classe->setNbEleve($classe->getMembres()->count());
         if ($form->isSubmitted() && $form->isValid()) {
+            $classe->setNbEleve(count($classe->getEleves()));
+            foreach ($classe->getEleves() as $eleve){
+                $classe->addMembre($eleve);
+            }
+            foreach ($classe->getEnseignants() as $enseignant){
+                $classe->addMembre($enseignant);
+            }
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($classe);
             $entityManager->flush();
