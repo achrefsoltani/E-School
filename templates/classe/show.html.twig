@@ -51,6 +51,16 @@
                 </ol>
             </td>
         </tr>
+        <tr>
+            <th>Les Matieres</th>
+            <td>
+                <ul>
+                    {% for matiere in classe.listMatieres %}
+                        <li> {{ matiere }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
         </tbody>
     </table>
 

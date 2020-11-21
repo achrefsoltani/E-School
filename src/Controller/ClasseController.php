@@ -38,6 +38,10 @@ class ClasseController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $classe->setNbEleve(count($classe->getEleves()));
+            $classe->setListMatieres($form['matieres']->getData()->toArray());
+            foreach ($form['matieres']->getData() as $matiere){
+                $classe->addMatiere($matiere);
+            }
             foreach ($classe->getEleves() as $eleve){
                 $classe->addMembre($eleve);
             }
@@ -73,6 +77,7 @@ class ClasseController extends AbstractController
     public function show(Classe $classe): Response
     {
         $list = $classe->getMembres()->toArray();
+
 
 
         usort($list, function($a, $b) {

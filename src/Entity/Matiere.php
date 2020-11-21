@@ -99,6 +99,7 @@ class Matiere
     {
         if (!$this->classes->contains($class)) {
             $this->classes[] = $class;
+            $class->addMatiere($this);
         }
 
         return $this;
@@ -106,7 +107,9 @@ class Matiere
 
     public function removeClass(Classe $class): self
     {
-        $this->classes->removeElement($class);
+        if($this->classes->removeElement($class)){
+            $class->removeMatiere($this);
+        }
 
         return $this;
     }
@@ -202,5 +205,7 @@ class Matiere
 
         return $this;
     }
+
+
 
 }
