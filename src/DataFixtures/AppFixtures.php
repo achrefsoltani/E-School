@@ -19,8 +19,9 @@ class AppFixtures extends Fixture
         foreach ($list_matieres as $mat) {
             $matiere = new Matiere();
             $matiere->setNom($mat)
-                ->setCoefficient(2);
+                ->setCoefficient($faker->numberBetween(1,5));
             $manager->persist($matiere);
+
             // Creation des personnes:
             for ($i = 0; $i < 100; $i++) {
                 $personne = new Personne();

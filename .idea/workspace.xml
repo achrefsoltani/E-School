@@ -6,16 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="889652ea-e43b-4a7b-a717-b2eee9ecbf8b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Classe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Classe.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Matiere.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Matiere.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Personne.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Personne.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ClasseType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ClasseType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/MatiereType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/MatiereType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/classe/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/classe/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/personne/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personne/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/personne/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personne/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/matiere/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/matiere/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +165,7 @@
       <workItem from="1605564372699" duration="606000" />
       <workItem from="1605628681637" duration="10297000" />
       <workItem from="1605687769437" duration="20420000" />
-      <workItem from="1605951926338" duration="12179000" />
+      <workItem from="1605951926338" duration="12520000" />
     </task>
     <servers />
   </component>
