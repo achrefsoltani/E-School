@@ -19,6 +19,14 @@
                 <th>Coefficient</th>
                 <td>{{ matiere.coefficient }}</td>
             </tr>
+            <tr>
+                <th>Les enseignants</th>
+                <td><ul>
+                {% for enseignant in matiere.enseignants %}
+                    <li><a href='{{ path('personne_show',{'id': enseignant.id}) }}'>{{ enseignant.nom }} {{ enseignant.prenom }}</a></li>
+                {% endfor %}
+                    </ul></td>
+            </tr>
         </tbody>
     </table>
 

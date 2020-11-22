@@ -60,6 +60,21 @@ class Classe
      */
     private $notes;
 
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $eleves = [];
+
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $enseignants = [];
+
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $listMatieres = [];
+
 
 
     public function __construct()
@@ -68,7 +83,7 @@ class Classe
         $this->matieres = new ArrayCollection();
         $this->seances = new ArrayCollection();
         $this->notes = new ArrayCollection();
-        $this->enseignants = new ArrayCollection();
+
     }
 
     public function getId(): ?int
@@ -156,20 +171,19 @@ class Classe
         return $this->matieres;
     }
 
-    public function addClass(Matiere $class): self
+    public function addMatiere(Matiere $matiere): self
     {
-        if (!$this->matieres->contains($class)) {
-            $this->matieres[] = $class;
-            $class->addClass($this);
+        if (!$this->matieres->contains($matiere)) {
+            $this->matieres[] = $matiere;
         }
 
         return $this;
     }
 
-    public function removeClass(Matiere $class): self
+    public function removeMatiere(Matiere $matiere): self
     {
-        if ($this->matieres->removeElement($class)) {
-            $class->removeClass($this);
+        if ($this->matieres->removeElement($matiere)) {
+            $matiere->removeClass($this);
         }
 
         return $this;
@@ -235,7 +249,46 @@ class Classe
         return $this;
     }
 
+    public function getEleves(): ?array
+    {
+        return $this->eleves;
+    }
 
+    public function setEleves(?array $eleves): self
+    {
+        $this->eleves = $eleves;
+
+        return $this;
+    }
+
+    public function getEnseignants(): ?array
+    {
+        return $this->enseignants;
+    }
+
+    public function setEnseignants(?array $enseignants): self
+    {
+        $this->enseignants = $enseignants;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return  $this->getNom() ;
+    }
+
+    public function getListMatieres(): ?array
+    {
+        return $this->listMatieres;
+    }
+
+    public function setListMatieres(?array $listMatieres): self
+    {
+        $this->listMatieres = $listMatieres;
+
+        return $this;
+    }
 
 
 

@@ -11,10 +11,15 @@
                 <th>Id</th>
                 <th>Nom</th>
                 <th>Prenom</th>
+                {%  if (role == 'eleve') %}
                 <th>Date_naissance</th>
                 <th>Lieu_naissance</th>
+                {% endif %}
                 <th>Email</th>
                 <th>Num_tel</th>
+                {%  if (role == 'enseignant') %}
+                <th>Matieres</th>
+                {% endif %}
 
 
                 <th>actions</th>
@@ -26,10 +31,21 @@
                 <td>{{ personne.id }}</td>
                 <td>{{ personne.nom }}</td>
                 <td>{{ personne.prenom }}</td>
+                {%  if (personne.role == 'eleve') %}
                 <td>{{ personne.dateNaissance ? personne.dateNaissance|date('Y-m-d') : '' }}</td>
                 <td>{{ personne.lieuNaissance }}</td>
+                {% endif %}
                 <td>{{ personne.email }}</td>
                 <td>{{ personne.numTel }}</td>
+
+                {%  if (personne.role == 'enseignant') %}
+                <td>{% for matiere in personne.matieres %}
+                        <ul style="list-style-type:none;">
+                            <li>{{ matiere }}</li>
+                        </ul>
+                    {% endfor %}
+                </td>
+                {% endif %}
 
 
                 <td>

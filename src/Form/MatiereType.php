@@ -14,7 +14,7 @@ class MatiereType extends AbstractType
         $builder
             ->add('nom')
             ->add('coefficient')
-            ->add('classes')
+           
         ;
     }
 

@@ -45,11 +45,17 @@ class Matiere
      */
     private $cours;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Personne::class, mappedBy="matieres")
+     */
+    private $enseignants;
+
     public function __construct()
     {
         $this->classes = new ArrayCollection();
         $this->notes = new ArrayCollection();
         $this->cours = new ArrayCollection();
+        $this->enseignants = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -93,6 +99,7 @@ class Matiere
     {
         if (!$this->classes->contains($class)) {
             $this->classes[] = $class;
+            $class->addMatiere($this);
         }
 
         return $this;
@@ -100,7 +107,9 @@ class Matiere
 
     public function removeClass(Classe $class): self
     {
-        $this->classes->removeElement($class);
+        if($this->classes->removeElement($class)){
+            $class->removeMatiere($this);
+        }
 
         return $this;
     }
@@ -164,9 +173,39 @@ class Matiere
 
         return $this;
     }
+
     public function __toString()
     {
-        return $this->getNom();
+        return  $this->getNom() ;
     }
+
+    /**
+     * @return Collection|Personne[]
+     */
+    public function getEnseignants(): Collection
+    {
+        return $this->enseignants;
+    }
+
+    public function addEnseignant(Personne $enseignant): self
+    {
+        if (!$this->enseignants->contains($enseignant)) {
+            $this->enseignants[] = $enseignant;
+            $enseignant->addMatiere($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEnseignant(Personne $enseignant): self
+    {
+        if ($this->enseignants->removeElement($enseignant)) {
+            $enseignant->removeMatiere($this);
+        }
+
+        return $this;
+    }
+
+
 
 }
