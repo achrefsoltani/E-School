@@ -58,7 +58,7 @@ class PersonneController extends AbstractController
      */
     public function edit(Request $request, Personne $personne): Response
     {
-        $form = $this->createForm(PersonneType::class, $personne);
+        $form = $this->createForm(PersonneType::class, $personne, ['role'=>$personne->getRole(),]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
