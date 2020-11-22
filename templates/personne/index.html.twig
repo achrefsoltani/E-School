@@ -36,7 +36,9 @@
 
                 {%  if (personne.role == 'enseignant') %}
                 <td>{% for matiere in personne.matieres %}
-                    {{ matiere }}
+                        <ul style="list-style-type:none;">
+                            <li>{{ matiere }}</li>
+                        </ul>
                     {% endfor %}
                 </td>
                 {% endif %}

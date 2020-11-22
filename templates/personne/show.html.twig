@@ -27,7 +27,9 @@
             <tr>
                 <th>Matieres</th>
                 <td>{% for matiere in personne.matieres %}
-                        {{ matiere }}
+                        <ul>
+                        <li>{{ matiere }}</li>
+                        </ul>
                     {% endfor %}</td>
             </tr>
             {% endif %}

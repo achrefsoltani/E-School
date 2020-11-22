@@ -24,7 +24,7 @@ class PersonneController extends AbstractController
     {
         $personne = new Personne();
         $personne->setRole($role);
-        $form = $this->createForm(PersonneType::class, $personne);
+        $form = $this->createForm(PersonneType::class, $personne, ['role'=>$role,]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Matiere;
 use App\Entity\Personne;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -16,6 +18,7 @@ class PersonneType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
         $builder
             ->add('nom')
             ->add('prenom')
@@ -36,15 +39,21 @@ class PersonneType extends AbstractType
             ->add('num_tel')
             ->add('adresse')
             ->add('login')
-            ->add('mdp',PasswordType::class)
-            ->add('classe')
-        ;
+            ->add('mdp',PasswordType::class);
+        if ($options['role'] == 'enseignant'){
+            $builder->add('matieres',EntityType::class,[
+                'class' => Matiere::class,
+                'multiple' => true,
+                'expanded' => true,
+            ]);
+        }
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
             'data_class' => Personne::class,
+            'role' => null,
         ]);
     }
 }
