@@ -106,6 +106,11 @@ class Personne
      */
     private $matieres;
 
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $listMatieres = [];
+
     public function __construct()
     {
         $this->classe = new ArrayCollection();
@@ -364,7 +369,22 @@ class Personne
 
     public function __toString()
     {
-        return  $this->getNom() . " " . $this->getPrenom() . "    [" . $this->getRole() . "]";
+        $str = $this->getNom() . " " . $this->getPrenom();
+        if ($this->getRole() == 'enseignant'){
+            $str = $str . " [ ";
+            foreach ($this->getListMatieres() as $mat){
+                $str = $str . $mat->getNom() . " ";
+            }
+            $str = $str . "]";
+        }
+        return  $str;
+    }
+
+    public function fullName()
+    {
+        $str = $this->getNom() . " " . $this->getPrenom();
+
+        return  $str;
     }
 
     /**
@@ -387,6 +407,18 @@ class Personne
     public function removeMatiere(Matiere $matiere): self
     {
         $this->matieres->removeElement($matiere);
+
+        return $this;
+    }
+
+    public function getListMatieres(): ?array
+    {
+        return $this->listMatieres;
+    }
+
+    public function setListMatieres(?array $listMatieres): self
+    {
+        $this->listMatieres = $listMatieres;
 
         return $this;
     }

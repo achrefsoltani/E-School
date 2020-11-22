@@ -32,31 +32,28 @@
             <td>
                 <ol>
                     {% for eleve in eleves %}
-                        {% if (eleve.getRole()=='eleve') %}
-                            <li><a href='{{ path('personne_show',{'id': eleve.id}) }}'> {{ eleve }}</a></li>
-                        {% endif %}
+
+                        <li><a href='{{ path('personne_show',{'id': eleve.id}) }}'> {{ eleve }}</a></li>
+
                     {% endfor %}
                 </ol>
             </td>
         </tr>
-        <tr>
-            <th>Les enseignants</th>
-            <td>
-                <ol>
-                    {% for eleve in eleves %}
-                        {% if (eleve.getRole()=='enseignant') %}
-                            <li><a href='{{ path('personne_show',{'id': eleve.id}) }}'> {{ eleve }}</a></li>
-                        {% endif %}
-                    {% endfor %}
-                </ol>
-            </td>
-        </tr>
+
         <tr>
             <th>Les Matieres</th>
             <td>
                 <ul>
                     {% for matiere in classe.listMatieres %}
-                        <li> {{ matiere }}</li>
+                        <li> {{ matiere }} :
+                            {% for enseignant in enseignants %}
+                                {% for mat in enseignant.listMatieres %}
+                                    {% if (mat.nom == matiere) %}
+                                        <a href='{{ path('personne_show',{'id': enseignant.id}) }}'> {{ enseignant.fullName() }}</a>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                        </li>
                     {% endfor %}
                 </ul>
             </td>

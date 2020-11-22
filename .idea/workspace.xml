@@ -8,9 +8,8 @@
     <list default="true" id="889652ea-e43b-4a7b-a717-b2eee9ecbf8b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ClasseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ClasseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Classe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Classe.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Matiere.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Matiere.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/classe/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/classe/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Personne.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Personne.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/classe/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/classe/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -171,6 +170,7 @@
       <workItem from="1605628681637" duration="10297000" />
       <workItem from="1605687769437" duration="20420000" />
       <workItem from="1605951926338" duration="15826000" />
+      <workItem from="1606045117309" duration="3386000" />
     </task>
     <servers />
   </component>

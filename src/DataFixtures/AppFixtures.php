@@ -54,6 +54,7 @@ class AppFixtures extends Fixture
                 } else {
                     $personne->setDateNaissance($faker->dateTimeBetween('-80 years', '-20 years'));
                 }
+                $personne->setListMatieres($personne->getMatieres()->toArray());
 
                 $manager->persist($personne);
             }

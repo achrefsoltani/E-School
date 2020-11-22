@@ -76,17 +76,15 @@ class ClasseController extends AbstractController
      */
     public function show(Classe $classe): Response
     {
-        $list = $classe->getMembres()->toArray();
-
-
-
-        usort($list, function($a, $b) {
-            return $a->getNom() > $b->getNom() ? 1 : -1;
-        });
+        $list_eleves = $classe->getEleves();
+        sort($list_eleves);
+        $list_enseignants = $classe->getEnseignants();
+        sort($list_enseignants);
 
         return $this->render('classe/show.html.twig', [
             'classe' => $classe,
-            'eleves' => $list,
+            'eleves' => $list_eleves,
+            'enseignants' => $list_enseignants,
         ]);
     }
 
