@@ -11,8 +11,10 @@
                 <th>Id</th>
                 <th>Nom</th>
                 <th>Prenom</th>
+                {%  if (role == 'eleve') %}
                 <th>Date_naissance</th>
                 <th>Lieu_naissance</th>
+                {% endif %}
                 <th>Email</th>
                 <th>Num_tel</th>
                 {%  if (role == 'enseignant') %}
@@ -29,8 +31,10 @@
                 <td>{{ personne.id }}</td>
                 <td>{{ personne.nom }}</td>
                 <td>{{ personne.prenom }}</td>
+                {%  if (personne.role == 'eleve') %}
                 <td>{{ personne.dateNaissance ? personne.dateNaissance|date('Y-m-d') : '' }}</td>
                 <td>{{ personne.lieuNaissance }}</td>
+                {% endif %}
                 <td>{{ personne.email }}</td>
                 <td>{{ personne.numTel }}</td>
 

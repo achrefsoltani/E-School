@@ -28,6 +28,7 @@ class PersonneController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $personne->setListMatieres($personne->getMatieres()->toArray());
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($personne);
             $entityManager->flush();
