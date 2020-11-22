@@ -93,11 +93,11 @@ class ClasseController extends AbstractController
      */
     public function edit(Request $request, Classe $classe): Response
     {
-        $form = $this->createForm(ClasseType::class, $classe);
+        $form = $this->createForm(ClasseType::class, $classe,['niv'=>$classe->getNiveau()]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('classe_index');
