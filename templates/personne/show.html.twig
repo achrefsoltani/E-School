@@ -32,6 +32,14 @@
                         </ul>
                     {% endfor %}</td>
             </tr>
+                <tr>
+                    <th>Classes</th>
+                    <td>{% for classe in personne.classe %}
+                            <ul>
+                                <li><a href='{{ path('classe_show',{'id': classe.id}) }}'>{{ classe }}</a></li>
+                            </ul>
+                        {% endfor %}</td>
+                </tr>
             {% endif %}
             {%  if (personne.role == 'eleve') %}
             <tr>
