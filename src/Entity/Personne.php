@@ -372,7 +372,7 @@ class Personne
         $str = $this->getNom() . " " . $this->getPrenom();
         if ($this->getRole() == 'enseignant'){
             $str = $str . " [ ";
-            foreach ($this->getListMatieres() as $mat){
+            foreach ($this->getMatieres() as $mat){
                 $str = $str . $mat->getNom() . " ";
             }
             $str = $str . "]";
