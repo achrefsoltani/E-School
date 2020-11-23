@@ -111,12 +111,18 @@ class Personne
      */
     private $listMatieres = [];
 
+    /**
+     * @ORM\OneToMany(targetEntity=Demande::class, mappedBy="personne")
+     */
+    private $demandes;
+
     public function __construct()
     {
         $this->classe = new ArrayCollection();
         $this->absences = new ArrayCollection();
         $this->notes = new ArrayCollection();
         $this->matieres = new ArrayCollection();
+        $this->demandes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -419,6 +425,36 @@ class Personne
     public function setListMatieres(?array $listMatieres): self
     {
         $this->listMatieres = $listMatieres;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Demande[]
+     */
+    public function getDemandes(): Collection
+    {
+        return $this->demandes;
+    }
+
+    public function addDemande(Demande $demande): self
+    {
+        if (!$this->demandes->contains($demande)) {
+            $this->demandes[] = $demande;
+            $demande->setPersonne($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDemande(Demande $demande): self
+    {
+        if ($this->demandes->removeElement($demande)) {
+            // set the owning side to null (unless already changed)
+            if ($demande->getPersonne() === $this) {
+                $demande->setPersonne(null);
+            }
+        }
 
         return $this;
     }

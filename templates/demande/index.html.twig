@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Demande index{% endblock %}
+
+{% block body %}
+    <h1>Demande index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Categorie</th>
+                <th>Objet</th>
+                <th>Etat</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for demande in demandes %}
+            <tr>
+                <td>{{ demande.id }}</td>
+                <td>{{ demande.categorie }}</td>
+                <td>{{ demande.objet }}</td>
+                <td>{{ demande.etat }}</td>
+                <td>
+                    <a href="{{ path('demande_show', {'id': demande.id}) }}">show</a>
+                    <a href="{{ path('demande_edit', {'id': demande.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

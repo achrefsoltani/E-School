@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Demande{% endblock %}
+
+{% block body %}
+    <h1>Demande</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Demande numéro </th>
+                <td>{{ demande.id }}</td>
+            </tr>
+            <tr>
+                <th>Parent</th>
+                <td>{{ demande.personne.nom }} {{ demande.personne.prenom }}</td>
+            </tr>
+
+            <tr>
+                <th>Categorie</th>
+                <td>{{ demande.categorie }}</td>
+            </tr>
+            <tr>
+                <th>Objet</th>
+                <td>{{ demande.objet }}</td>
+            </tr>
+            <tr>
+                <th>Message</th>
+                <td>{{ demande.message }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ demande.etat }}</td>
+            </tr>
+            <tr>
+                <th>Reponse</th>
+                <td>{{ demande.reponse }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('demande_index') }}">back to list</a>
+
+    <a href="{{ path('demande_edit', {'id': demande.id}) }}">edit</a>
+
+
+{% endblock %}
