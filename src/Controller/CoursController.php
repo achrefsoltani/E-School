@@ -6,8 +6,12 @@ use App\Entity\Cours;
 use App\Form\CoursType;
 use App\Repository\CoursRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Filesystem\Exception\ExceptionInterface;
+use Symfony\Component\Filesystem\Exception\FileNotFoundException;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -105,5 +109,12 @@ class CoursController extends AbstractController
         }
 
         return $this->redirectToRoute('cours_index');
+    }
+    /**
+     * @Route("/download/{id}", name="download_file")
+     **/
+    public function downloadFileAction(cours $cours,Request $request ){
+
+
     }
 }

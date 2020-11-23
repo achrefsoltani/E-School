@@ -24,6 +24,7 @@
                 <td>
                     <a href="{{ path('cours_show', {'id': cour.id}) }}">details</a>
                     <a href="{{ path('cours_edit', {'id': cour.id}) }}">modifier</a>
+                    <a href="{{ asset( cour.contenu)}}" class="btn btn-success">voir cour</a>
                 </td>
             </tr>
         {% else %}
