@@ -16,7 +16,8 @@ class NewsType extends AbstractType
             ->add('nom')
             ->add('titre')
             ->add('description')
-            ->add('image',FileType::class)
+            ->add('image',FileType::class,
+                ['mapped'=>false,'required'=>false,])
         ;
     }
 

@@ -76,6 +76,18 @@ class NewsController extends AbstractController
     }
 
     /**
+     * @Route("/{id}/activer", name="news_activer", methods={"GET"})
+     */
+    public function activer(NewsRepository $newsRepository ,News $news): Response
+    {
+        $news->setActive(!($news->getActive()));
+        $this->getDoctrine()->getManager()->flush();
+        return $this->render('news/home.html.twig', [
+           'news' => $newsRepository->findAll(),
+        ]);
+    }
+
+    /**
      * @Route("/{id}/edit", name="news_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, News $news): Response
@@ -84,6 +96,14 @@ class NewsController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $fileInfos = $form->get('image')->getData();
+            if ($fileInfos) {
+                $fileName = $fileInfos->getClientOriginalName();
+                $newFileName = md5(uniqid()).$fileName;
+                $fileInfos->move($this->getParameter('news_directory'),
+                    $newFileName);
+                $news->setContenu('uploads/cours/'.$newFileName);
+            }
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('news_index');

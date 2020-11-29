@@ -4,25 +4,31 @@ Home
 {% endblock %}
 {% block body %}
 <div class="card-deck">
-    {% for i in range(0,2) %}
+    {% for news in news %}
+        {% if (news.active) %}
     <div class="card">
         <img
                 style="height: 350px"
-                src={{ asset(news[i].image) }}
+                src={{ asset(news.image) }}
                 class="card-img-top"
                 alt="..."
         />
         <div class="card-body">
-            <h5 class="card-title">{{ news[i].titre }}</h5>
+            <h5 class="card-title">{{ news.titre }}</h5>
             <p class="card-text">
-                {{ news[i].description}}
+                {{ news.description}}
             </p>
-            <a href="#!" class="btn btn-primary">Détails</a>
+            <a href="{{ path('news_show', {'id': news.id}) }}" class="btn btn-primary">Détails</a>
         </div>
     </div>
+        {% endif %}
     {% endfor %}
 
+
+
 </div>
+<br>
+    <p style="text-align: center"><a href="{{ path('news_index') }}" class="btn btn-primary">Gestion Acceuil</a></p>
 {% endblock %}
 
 
