@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+Home
+{% endblock %}
+{% block body %}
+<div class="card-deck">
+    {% for i in range(0,2) %}
+    <div class="card">
+        <img
+                style="height: 350px"
+                src={{ asset(news[i].image) }}
+                class="card-img-top"
+                alt="..."
+        />
+        <div class="card-body">
+            <h5 class="card-title">{{ news[i].titre }}</h5>
+            <p class="card-text">
+                {{ news[i].description}}
+            </p>
+            <a href="#!" class="btn btn-primary">Détails</a>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %}
+
+
+
+
+

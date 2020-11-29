@@ -1,41 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
+    <expand />
     <select />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="889652ea-e43b-4a7b-a717-b2eee9ecbf8b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2020_22_42_[Default_Changelist]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2020_22_42_[Default_Changelist]1/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2020_22_42__Default_Changelist_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2020_22_42__Default_Changelist_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20201122223317.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20201122230527.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/DemandeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/ParentDController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Demande.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/DemandeType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/DemandeRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/demande/_delete_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/demande/_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/demande/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/demande/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/demande/index1.html.tiwg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/demande/new.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/demande/pEdit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/demande/show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/demande/showP.html.tiwg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/parent_d/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/news/home.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_20_2020_10_37_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_20_2020_10_37_AM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_11_2020_20_02__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_11_2020_20_02__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_11_2020_20_10__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_11_2020_20_10__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_11_2020_9_11_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_11_2020_9_11_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_2020_21_51__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_2020_21_51__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_2020_8_11_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_2020_8_11_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_11_2020_12_31_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_11_2020_12_31_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_11_2020_18_43__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_11_2020_18_43__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2020_22_42__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2020_22_42__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2020_22_42__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2020_22_42__Default_Changelist_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2020_8_50_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2020_8_50_PM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Personne.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Personne.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/personne/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personne/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,14 +209,19 @@
       <screen x="0" y="0" width="1600" height="870" />
     </state>
     <state x="586" y="141" key="#com.intellij.ide.util.MemberChooser/0.0.1600.870@0.0.1600.870" timestamp="1605690523212" />
-    <state x="465" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1605692884231">
+    <state x="465" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1606646615630">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state x="465" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1600.870@0.0.1600.870" timestamp="1605692884231" />
-    <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605911345916">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="465" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1600.870@0.0.1600.870" timestamp="1606646615630" />
+    <state x="530" y="180" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606648057748">
+      <screen x="0" y="0" width="1600" height="870" />
+    </state>
+    <state x="530" y="180" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1600.870@0.0.1600.870" timestamp="1606648057748" />
+    <state x="484" y="141" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606647145174">
+      <screen x="0" y="0" width="1600" height="870" />
     </state>
     <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1605911345916" />
+    <state x="484" y="141" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.870@0.0.1600.870" timestamp="1606647145174" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1606164991835">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
