@@ -1,10 +1,10 @@
 {{ form_start(form) }}
     {{ form_row(form.nom) }}
     {{ form_row(form.prenom) }}
-
+{% if (form.matieres is defined) %}
     {{ form_label(form.matieres) }}
     <div style="height:150px;width:auto;overflow:auto;border:8px ;padding:2%; column-count: 3">{{ form_widget(form.matieres) }}</div>
-
+{% endif %}
     {{ form_rest(form) }}
     <button class="btn">{{ button_label|default('Enregistrer') }}</button>
 {{ form_end(form) }}
