@@ -116,6 +116,7 @@ class Personne
      */
     private $demandes;
 
+
     public function __construct()
     {
         $this->classe = new ArrayCollection();
@@ -123,6 +124,8 @@ class Personne
         $this->notes = new ArrayCollection();
         $this->matieres = new ArrayCollection();
         $this->demandes = new ArrayCollection();
+        $this->participants = new ArrayCollection();
+        $this->message = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -458,6 +461,9 @@ class Personne
 
         return $this;
     }
+
+
+
 
 
 }
