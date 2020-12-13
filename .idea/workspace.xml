@@ -10,7 +10,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="889652ea-e43b-4a7b-a717-b2eee9ecbf8b" name="Default Changelist" comment="" />
+    <list default="true" id="889652ea-e43b-4a7b-a717-b2eee9ecbf8b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -172,6 +174,14 @@
       <workItem from="1606160720356" duration="6088000" />
       <workItem from="1606167853432" duration="398000" />
     </task>
+    <task id="LOCAL-00001" summary="timestamp">
+      <created>1607900038311</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1607900038311</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,6 +220,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1605911345916" />
+    <state x="393" y="0" key="CommitChangelistDialog2" timestamp="1607900037195">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="393" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1607900037195" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1606164991835">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -222,9 +236,10 @@
       <screen x="0" y="0" width="1600" height="870" />
     </state>
     <state x="301" y="78" key="SettingsEditor/0.0.1600.870@0.0.1600.870" timestamp="1605546468779" />
-    <state x="392" y="167" key="Vcs.Push.Dialog.v2" timestamp="1605724509748">
-      <screen x="0" y="0" width="1600" height="870" />
+    <state x="376" y="158" key="Vcs.Push.Dialog.v2" timestamp="1607900049575">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="376" y="158" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607900049575" />
     <state x="392" y="167" key="Vcs.Push.Dialog.v2/0.0.1600.870@0.0.1600.870" timestamp="1605724509748" />
     <state x="94" y="14" width="581" height="801" key="find.popup" timestamp="1606166126127">
       <screen x="0" y="0" width="1536" height="824" />
