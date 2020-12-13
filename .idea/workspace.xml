@@ -10,33 +10,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="889652ea-e43b-4a7b-a717-b2eee9ecbf8b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2020_22_42_[Default_Changelist]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2020_22_42_[Default_Changelist]1/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2020_22_42__Default_Changelist_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2020_22_42__Default_Changelist_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20201122223317.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20201122230527.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/DemandeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/ParentDController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Demande.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/DemandeType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/DemandeRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/demande/_delete_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/demande/_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/demande/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/demande/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/demande/index1.html.tiwg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/demande/new.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/demande/pEdit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/demande/show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/demande/showP.html.tiwg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/parent_d/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Personne.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Personne.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/personne/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personne/index.html.twig" afterDir="false" />
-    </list>
+    <list default="true" id="889652ea-e43b-4a7b-a717-b2eee9ecbf8b" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -214,6 +188,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="timestamp" />
+    <option name="LAST_COMMIT_MESSAGE" value="timestamp" />
   </component>
   <component name="WindowStateProjectService">
     <state x="434" y="187" key="#Notifications" timestamp="1606167934862">
