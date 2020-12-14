@@ -55,6 +55,7 @@
                 <td>
                     <a href='{{ path('personne_show',{'id': personne.id}) }}'>Details</a>
                     <a href="{{ path('personne_edit', {'id': personne.id}) }}">Modifier</a>
+                    <a href="{{ path('personne_absence', {'id': personne.id}) }}">liste des absences</a>
                     {%  if (personne.role == 'parent') %}
 
                     <a href="{{ path('demandeliste', {'id': personne.id}) }}">Liste des demande</a>

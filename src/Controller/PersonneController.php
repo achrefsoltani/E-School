@@ -52,7 +52,15 @@ class PersonneController extends AbstractController
             'personne' => $personne,
         ]);
     }
-
+    /**
+     * @Route("/show1/{id}", name="personne_absence", methods={"GET"})
+     */
+    public function showAb(Personne $personne): Response
+    {
+        return $this->render('personne/showab.html.twig', [
+            'personne' => $personne,
+        ]);
+    }
     /**
      * @Route("/{id}/edit", name="personne_edit", methods={"GET","POST"})
      */

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Absence{% endblock %}
+
+{% block body %}
+    <h1>Create new Absence</h1>
+Numero de la seance: {{ absence.seance.id }} <br>
+Nom de l'enseignant : {{ absence.personne.nom}} <br>
+Prenom de l'enseignant : {{ absence.personne.prenom}} <br>
+    {{ include('absence/_form.html.twig') }}
+
+    <a href="{{ path('absence_index') }}">chercher</a>
+{% endblock %}

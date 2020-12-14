@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}chercher{% endblock %}
+
+{% block body %}
+    <h1>Choisir date</h1>
+
+    {{ form(form) }}
+    <a href="{{ path('absence_index') }}">Ajouter absence</a>
+    <a href="{{ path('absence_index1') }}">Modifier absence</a>
+{% endblock %}
