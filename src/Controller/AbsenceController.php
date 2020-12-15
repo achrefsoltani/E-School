@@ -77,7 +77,7 @@ class AbsenceController extends AbstractController
             $entityManager->persist($absence);
             $entityManager->flush();
 
-            return $this->redirectToRoute('absence_index');
+            return $this->redirectToRoute('absence_index1');
         }
 
         return $this->render('absence/new.html.twig', [
@@ -102,6 +102,8 @@ class AbsenceController extends AbstractController
     public function edit(Request $request, Absence $absence): Response
     {
         $form = $this->createForm(AbsenceType::class, $absence);
+        $form->remove('seance');
+        $form->remove('personne');
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

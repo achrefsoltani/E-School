@@ -12,6 +12,14 @@
                 <td>{{ absence.id }}</td>
             </tr>
             <tr>
+                <th>Nom enseignant </th>
+                <td>{{ absence.personne.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prénom enseignant </th>
+                <td>{{ absence.personne.prenom }}</td>
+            </tr>
+            <tr>
                 <th>Justifie</th>
                 <td>{{ absence.Justifie ? 'Yes' : 'No' }}</td>
             </tr>
