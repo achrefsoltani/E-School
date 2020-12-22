@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}absence eleve {% endblock %}
+
+{% block body %}
+    <h1>Marquer l'absence</h1>
+    classe: {{ absence.seance.classe }} <br>
+    Nom: {{ absence.personne.nom}} <br>
+    Prenom: {{ absence.personne.prenom}} <br>
+    {{ include('absence/_form.html.twig') }}
+    {{ include('absence_etudiant/_delete_form.html.twig') }}
+    <a href="{{ path('absence_etudiant_index') }}">retour</a>
+{% endblock %}
+

@@ -47,4 +47,5 @@ class AbsenceRepository extends ServiceEntityRepository
         ;
     }
     */
+
 }

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Absence{% endblock %}
+
+{% block body %}
+    <h1>Absence</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ absence.id }}</td>
+        </tr>
+        <tr>
+            <th>Nom </th>
+            <td>{{ absence.personne.nom }}</td>
+        </tr>
+        <tr>
+            <th>Prénom</th>
+            <td>{{ absence.personne.prenom }}</td>
+        </tr>
+        <tr>
+            <th>Justifie</th>
+            <td>{{ absence.Justifie ? 'Yes' : 'No' }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('absence_etudiant_index') }}">chercher</a>
+
+    <a href="{{ path('modifier_absence', {'id': absence.id}) }}">modifier</a>
+
+{% endblock %}
+
+

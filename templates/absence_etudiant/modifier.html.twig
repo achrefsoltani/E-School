@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}modifier Absence{% endblock %}
+
+{% block body %}
+    <h1>modifier l'absence</h1>
+
+    {{ include('absence/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('absence_etudiant_index') }}">retour</a>
+
+    {{ include('absence/_delete_form.html.twig') }}
+{% endblock %}
+

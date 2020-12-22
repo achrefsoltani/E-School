@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Personne;
+use App\Entity\Seance;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -66,5 +67,14 @@ class PersonneRepository extends ServiceEntityRepository
             ->where("personne.role = 'enseignant'")
             ->orderBy('personne.nom', 'ASC');
 
+    }
+    public function absenceeleve()
+    {
+        return $this->createQueryBuilder('personne')
+            ->addSelect('p')
+            ->leftJoin('personne.absences','s')
+            ->where("personne.role = 'eleve' and s.seance = :i")
+            ->orderBy('personne.nom', 'ASC');
+            //->setParameter('i', $seance);
     }
 }

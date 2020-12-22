@@ -31,7 +31,7 @@ class Absence
 
     /**
      * @ORM\ManyToOne(targetEntity=Seance::class, inversedBy="absences")
-     * @ORM\JoinColumn(nullable=True)
+     *
      */
     private $seance;
 

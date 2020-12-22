@@ -1,0 +1,364 @@
+Index: src/Entity/Seance.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\n\nnamespace App\\Entity;\n\nuse App\\Repository\\SeanceRepository;\nuse Doctrine\\Common\\Collections\\ArrayCollection;\nuse Doctrine\\Common\\Collections\\Collection;\nuse Doctrine\\ORM\\Mapping as ORM;\nuse Symfony\\Component\\Validator\\Constraints\\DateTime;\n\n/**\n * @ORM\\Entity(repositoryClass=SeanceRepository::class)\n */\nclass Seance\n{\n    /**\n     * @ORM\\Id\n     * @ORM\\GeneratedValue\n     * @ORM\\Column(type=\"integer\")\n     */\n    private $id;\n\n    /**\n     * @ORM\\Column(type=\"datetime\")\n     */\n    private $debut;\n\n    /**\n     * @ORM\\Column(type=\"datetime\")\n     */\n    private $fin;\n\n    /**\n     * @ORM\\ManyToOne(targetEntity=Classe::class, inversedBy=\"seances\")\n     * @ORM\\JoinColumn(nullable=false)\n     */\n    private $classe;\n\n    /**\n     * @ORM\\OneToMany(targetEntity=Absence::class, mappedBy=\"seance\", orphanRemoval=true)\n     */\n    private $absences;\n\n    /**\n     * @ORM\\ManyToOne(targetEntity=Salle::class, inversedBy=\"seances\")\n     */\n    private $salle;\n\n    /**\n     * @ORM\\ManyToOne(targetEntity=Personne::class, inversedBy=\"seances\")\n     */\n    private $enseignant;\n\n    public function __construct()\n    {\n        $this->absences = new ArrayCollection();\n    }\n\n    public function getId(): ?int\n    {\n        return $this->id;\n    }\n\n    public function getDebut(): ?\\DateTimeInterface\n    {\n        return $this->debut;\n    }\n\n    public function setDebut(\\DateTimeInterface $debut): self\n    {\n        $this->debut = $debut;\n\n        return $this;\n    }\n\n    public function getFin(): ?\\DateTimeInterface\n    {\n        return $this->fin;\n    }\n\n    public function setFin(\\DateTimeInterface $fin): self\n    {\n        $this->fin = $fin;\n\n        return $this;\n    }\n\n    public function getClasse(): ?Classe\n    {\n        return $this->classe;\n    }\n\n    public function setClasse(?Classe $classe): self\n    {\n        $this->classe = $classe;\n\n        return $this;\n    }\n\n    /**\n     * @return Collection|Absence[]\n     */\n    public function getAbsences(): Collection\n    {\n        return $this->absences;\n    }\n\n    public function addAbsence(Absence $absence): self\n    {\n        if (!$this->absences->contains($absence)) {\n            $this->absences[] = $absence;\n            $absence->setSeance($this);\n        }\n\n        return $this;\n    }\n\n    public function removeAbsence(Absence $absence): self\n    {\n        if ($this->absences->removeElement($absence)) {\n            // set the owning side to null (unless already changed)\n            if ($absence->getSeance() === $this) {\n                $absence->setSeance(null);\n            }\n        }\n\n        return $this;\n    }\n\n    public function getSalle(): ?Salle\n    {\n        return $this->salle;\n    }\n\n    public function setSalle(?Salle $salle): self\n    {\n        $this->salle = $salle;\n\n        return $this;\n    }\n\n    public function getEnseignant(): ?Personne\n    {\n        return $this->enseignant;\n    }\n\n    public function setEnseignant(?Personne $enseignant): self\n    {\n        $this->enseignant = $enseignant;\n\n        return $this;\n    }\n\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Entity/Seance.php	(revision cfa807befa2f47ca5b591ed3beb8a33514457f0b)
++++ src/Entity/Seance.php	(date 1607995164909)
+@@ -38,6 +38,7 @@
+ 
+     /**
+      * @ORM\OneToMany(targetEntity=Absence::class, mappedBy="seance", orphanRemoval=true)
++     * @ORM\JoinColumn(nullable=True)
+      */
+     private $absences;
+ 
+Index: templates/base.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\n<html>\n\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, shrink-to-fit=no\">\n    <title> {% block title %}\n            Dashboard - Brand\n        {% endblock %}\n    </title>\n\n    <link rel=\"stylesheet\" href=\"/css/bootstrap.min.css\">\n    <link href=\"/bootstrap/css/styles.css\" rel=\"stylesheet\" />\n    <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i\">\n    <link rel=\"stylesheet\" href=\"/fonts/fontawesome-all.min.css\">\n</head>\n\n<body id=\"page-top\">\n<div id=\"wrapper\">\n    <nav class=\"navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0\">\n        <div class=\"container-fluid d-flex flex-column p-0\">\n            <a class=\"navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0\" href=\"#\">\n                <div class=\"sidebar-brand-icon rotate-n-15\"><i class=\"fas fa-laugh-wink\"></i></div>\n                <div class=\"sidebar-brand-text mx-3\"><span>E-School</span></div>\n            </a>\n            <hr class=\"sidebar-divider my-0\">\n            <ul class=\"nav navbar-nav text-light\" id=\"accordionSidebar\">\n                <li class=\"nav-item\"><a class=\"nav-link active\" href=\"/news\"><i class=\"fas fa-tachometer-alt\"></i><span>Acceuil</span></a></li>\n                <li class=\"nav-item\"><a class=\"nav-link\" href=\"/list/admin\"><i class=\"fas fa-user\"></i><span>Les Administrateurs </span></a></li>\n                <li class=\"nav-item\"><a class=\"nav-link\" href=\"/list/enseignant\"><i class=\"fas fa-user\"></i><span>Les Enseignants </span></a></li>\n                <li class=\"nav-item\"><a class=\"nav-link\" href=\"/list/eleve\"><i class=\"fas fa-user\"></i><span> Les Eleves </span></a></li>\n                <li class=\"nav-item\"><a class=\"nav-link\" href=\"/list/parent\"><i class=\"fas fa-user\"></i><span> Les Parents </span></a></li>\n                <li class=\"nav-item\"><a class=\"nav-link\" href=\"/classe/\"><i class=\"fas fa-table\"></i><span>Les Classes </span></a></li>\n                <li class=\"nav-item\"><a class=\"nav-link\" href=\"/salle/\"><i class=\"fas fa-table\"></i><span>Les Salles </span></a></li>\n                <li class=\"nav-item\"><a class=\"nav-link\" href=\"/matiere/\"><i class=\"fas fa-table\"></i><span>Les Matieres </span></a></li>\n                <li class=\"nav-item\"><a class=\"nav-link\" href=\"/note/\"><i class=\"fas fa-table\"></i><span>Notes</span></a></li>\n                <li class=\"nav-item\"><a class=\"nav-link\" href=\"/demande/\"><i class=\"far fa-user-circle\"></i><span>Demande</span></a></li>\n                <li class=\"nav-item\"><a class=\"nav-link\" href=\"/absence/\"><i class=\"fas fa-user-circle\"></i><span>Marquer l'absences des enseignant</span></a></li>\n            </ul>\n            <div class=\"text-center d-none d-md-inline\"><button class=\"btn rounded-circle border-0\" id=\"sidebarToggle\" type=\"button\"></button></div>\n        </div>\n    </nav>\n    <div class=\"d-flex flex-column\" id=\"content-wrapper\">\n        <div id=\"content\">\n            <nav class=\"navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top\">\n                <div class=\"container-fluid\"><button class=\"btn btn-link d-md-none rounded-circle mr-3\" id=\"sidebarToggleTop\" type=\"button\"><i class=\"fas fa-bars\"></i></button>\n                    <form class=\"form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search\">\n                        <div class=\"input-group\"><input class=\"bg-light form-control border-0 small\" type=\"text\" placeholder=\"Search for ...\">\n                            <div class=\"input-group-append\"><button class=\"btn btn-primary py-0\" type=\"button\"><i class=\"fas fa-search\"></i></button></div>\n                        </div>\n                    </form>\n                    <ul class=\"nav navbar-nav flex-nowrap ml-auto\">\n                        <li class=\"nav-item dropdown d-sm-none no-arrow\"><a class=\"dropdown-toggle nav-link\" data-toggle=\"dropdown\" aria-expanded=\"false\" href=\"#\"><i class=\"fas fa-search\"></i></a>\n                            <div class=\"dropdown-menu dropdown-menu-right p-3 animated--grow-in\" aria-labelledby=\"searchDropdown\">\n                                <form class=\"form-inline mr-auto navbar-search w-100\">\n                                    <div class=\"input-group\"><input class=\"bg-light form-control border-0 small\" type=\"text\" placeholder=\"Search for ...\">\n                                        <div class=\"input-group-append\"><button class=\"btn btn-primary py-0\" type=\"button\"><i class=\"fas fa-search\"></i></button></div>\n                                    </div>\n                                </form>\n                            </div>\n                        </li>\n                        <li class=\"nav-item dropdown no-arrow mx-1\">\n                            <div class=\"nav-item dropdown no-arrow\"><a class=\"dropdown-toggle nav-link\" data-toggle=\"dropdown\" aria-expanded=\"false\" href=\"#\"></a>\n                                <div class=\"dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in\">\n                                    <h6 class=\"dropdown-header\">alerts center</h6>\n                                    <a class=\"d-flex align-items-center dropdown-item\" href=\"#\">\n                                        <div class=\"mr-3\">\n                                            <div class=\"bg-primary icon-circle\"><i class=\"fas fa-file-alt text-white\"></i></div>\n                                        </div>\n                                        <div><span class=\"small text-gray-500\">December 12, 2019</span>\n                                            <p>A new monthly report is ready to download!</p>\n                                        </div>\n                                    </a>\n                                    <a class=\"d-flex align-items-center dropdown-item\" href=\"#\">\n                                        <div class=\"mr-3\">\n                                            <div class=\"bg-success icon-circle\"><i class=\"fas fa-donate text-white\"></i></div>\n                                        </div>\n                                        <div><span class=\"small text-gray-500\">December 7, 2019</span>\n                                            <p>$290.29 has been deposited into your account!</p>\n                                        </div>\n                                    </a>\n                                    <a class=\"d-flex align-items-center dropdown-item\" href=\"#\">\n                                        <div class=\"mr-3\">\n                                            <div class=\"bg-warning icon-circle\"><i class=\"fas fa-exclamation-triangle text-white\"></i></div>\n                                        </div>\n                                        <div><span class=\"small text-gray-500\">December 2, 2019</span>\n                                            <p>Spending Alert: We've noticed unusually high spending for your account.</p>\n                                        </div>\n                                    </a><a class=\"text-center dropdown-item small text-gray-500\" href=\"#\">Show All Alerts</a></div>\n                            </div>\n                        </li>\n                        <li class=\"nav-item dropdown no-arrow mx-1\">\n                            <div class=\"nav-item dropdown no-arrow\"><a class=\"dropdown-toggle nav-link\" data-toggle=\"dropdown\" aria-expanded=\"false\" href=\"#\"><i class=\"fas fa-envelope fa-fw\"></i><span class=\"badge badge-danger badge-counter\">7</span></a>\n                                <div class=\"dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in\">\n                                    <h6 class=\"dropdown-header\">alerts center</h6>\n                                    <a class=\"d-flex align-items-center dropdown-item\" href=\"#\">\n                                        <div class=\"dropdown-list-image mr-3\"><img class=\"rounded-circle\" src=\"/img/avatars/avatar4.jpeg\">\n                                            <div class=\"bg-success status-indicator\"></div>\n                                        </div>\n                                        <div class=\"font-weight-bold\">\n                                            <div class=\"text-truncate\"><span>Hi there! I am wondering if you can help me with a problem I've been having.</span></div>\n                                            <p class=\"small text-gray-500 mb-0\">Emily Fowler - 58m</p>\n                                        </div>\n                                    </a>\n                                    <a class=\"d-flex align-items-center dropdown-item\" href=\"#\">\n                                        <div class=\"dropdown-list-image mr-3\"><img class=\"rounded-circle\" src=\"/img/avatars/avatar2.jpeg\">\n                                            <div class=\"status-indicator\"></div>\n                                        </div>\n                                        <div class=\"font-weight-bold\">\n                                            <div class=\"text-truncate\"><span>I have the photos that you ordered last month!</span></div>\n                                            <p class=\"small text-gray-500 mb-0\">Jae Chun - 1d</p>\n                                        </div>\n                                    </a>\n                                    <a class=\"d-flex align-items-center dropdown-item\" href=\"#\">\n                                        <div class=\"dropdown-list-image mr-3\"><img class=\"rounded-circle\" src=\"/img/avatars/avatar3.jpeg\">\n                                            <div class=\"bg-warning status-indicator\"></div>\n                                        </div>\n                                        <div class=\"font-weight-bold\">\n                                            <div class=\"text-truncate\"><span>Last month's report looks great, I am very happy with the progress so far, keep up the good work!</span></div>\n                                            <p class=\"small text-gray-500 mb-0\">Morgan Alvarez - 2d</p>\n                                        </div>\n                                    </a>\n                                    <a class=\"d-flex align-items-center dropdown-item\" href=\"#\">\n                                        <div class=\"dropdown-list-image mr-3\"><img class=\"rounded-circle\" src=\"/img/avatars/avatar5.jpeg\">\n                                            <div class=\"bg-success status-indicator\"></div>\n                                        </div>\n                                        <div class=\"font-weight-bold\">\n                                            <div class=\"text-truncate\"><span>Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</span></div>\n                                            <p class=\"small text-gray-500 mb-0\">Chicken the Dog · 2w</p>\n                                        </div>\n                                    </a><a class=\"text-center dropdown-item small text-gray-500\" href=\"#\">Show All Alerts</a></div>\n                            </div>\n                            <div class=\"shadow dropdown-list dropdown-menu dropdown-menu-right\" aria-labelledby=\"alertsDropdown\"></div>\n                        </li>\n                        <div class=\"d-none d-sm-block topbar-divider\"></div>\n                        <li class=\"nav-item dropdown no-arrow\">\n                            <div class=\"nav-item dropdown no-arrow\"><a class=\"dropdown-toggle nav-link\" data-toggle=\"dropdown\" aria-expanded=\"false\" href=\"#\"><span class=\"d-none d-lg-inline mr-2 text-gray-600 small\">Profile</span><img class=\"border rounded-circle img-profile\" src=\"/img/avatars/avatar1.jpeg\"></a>\n                                <div\n                                        class=\"dropdown-menu shadow dropdown-menu-right animated--grow-in\"><a class=\"dropdown-item\" href=\"#\"><i class=\"fas fa-user fa-sm fa-fw mr-2 text-gray-400\"></i>&nbsp;Profile</a><a class=\"dropdown-item\" href=\"#\"><i class=\"fas fa-cogs fa-sm fa-fw mr-2 text-gray-400\"></i>&nbsp;Settings</a>\n                                    <a\n                                            class=\"dropdown-item\" href=\"#\"><i class=\"fas fa-list fa-sm fa-fw mr-2 text-gray-400\"></i>&nbsp;Activity log</a>\n                                    <div class=\"dropdown-divider\"></div><a class=\"dropdown-item\" href=\"#\"><i class=\"fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400\"></i>&nbsp;Logout</a></div>\n                            </div>\n                        </li>\n                    </ul>\n                </div>\n            </nav>\n            <div class=\"container-fluid\">\n                <div class=\"row\">\n                    <div class=\"col\">\n                        <div class=\"row\">\n                            <div class=\"col\">\n                                <div class=\"card\"></div>\n                            </div>\n                            <div class=\"col\">\n                                <div class=\"card\"></div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"container-fluid\">\n                <div class=\"row\">\n                    <div class=\"col\">\n                        <div class=\"row\">\n                            <div class=\"col\">\n                                <div class=\"card\"></div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            {% for message in app.session.flashBag.get('danger') %}\n                <div class=\"alert alert-danger\">\n                    {{ message }}\n                </div>\n            {% endfor %}\n            {% for message in app.session.flashBag.get('info') %}\n                <div class=\"alert alert-info\">\n                    {{ message }}\n                </div>\n            {% endfor %}\n\n            {% for message in app.session.flashBag.get('succ') %}\n                <div class=\"alert alert-success\">\n                    {{ message }}\n                </div>\n            {% endfor %}\n            <div class=\"card mb-4\" style=\"margin: 10px\">\n                <div>\n                    {% block body %}\n                        Main block page\n                    {% endblock %}\n                </div>\n            </div>\n            <form></form>\n\n            <footer class=\"bg-white sticky-footer\"><a href=\"#\" style=\"margin-left: 50px;\">Contactez nous&nbsp;</a>\n                <div class=\"container my-auto\">\n                    <div class=\"text-center my-auto copyright\"><span>Copyright © Brand 2020</span></div>\n                </div>\n            </footer>\n        </div><a class=\"border rounded d-inline scroll-to-top\" href=\"#page-top\"><i class=\"fas fa-angle-up\"></i></a></div>\n    <script src=\"'/js/jquery.min.js'\"></script>\n    <script src=\"'/css/bootstrap.min.js'\"></script>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js\"></script>\n    <script src=\"/js/theme.js\"></script>\n</div>\n</body>\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- templates/base.html.twig	(revision cfa807befa2f47ca5b591ed3beb8a33514457f0b)
++++ templates/base.html.twig	(date 1607992975040)
+@@ -33,9 +33,11 @@
+                 <li class="nav-item"><a class="nav-link" href="/classe/"><i class="fas fa-table"></i><span>Les Classes </span></a></li>
+                 <li class="nav-item"><a class="nav-link" href="/salle/"><i class="fas fa-table"></i><span>Les Salles </span></a></li>
+                 <li class="nav-item"><a class="nav-link" href="/matiere/"><i class="fas fa-table"></i><span>Les Matieres </span></a></li>
++                <li class="nav-item"><a class="nav-link" href="/cours/"><i class="fas fa-table"></i><span>cours</span></a></li>
+                 <li class="nav-item"><a class="nav-link" href="/note/"><i class="fas fa-table"></i><span>Notes</span></a></li>
+                 <li class="nav-item"><a class="nav-link" href="/demande/"><i class="far fa-user-circle"></i><span>Demande</span></a></li>
+                 <li class="nav-item"><a class="nav-link" href="/absence/"><i class="fas fa-user-circle"></i><span>Marquer l'absences des enseignant</span></a></li>
++                <li class="nav-item"><a class="nav-link" href="/absence/etudiant"><i class="fas fa-user-circle"></i><span>Marquer l'absences des etudiants</span></a></li>
+             </ul>
+             <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
+         </div>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"BranchesTreeState\">\n    <expand />\n    <select />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"889652ea-e43b-4a7b-a717-b2eee9ecbf8b\" name=\"Default Changelist\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/Controller/NewsController.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Controller/NewsController.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/Entity/News.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Entity/News.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/Form/NewsType.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Form/NewsType.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/templates/news/home.html.twig\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/templates/news/home.html.twig\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/templates/news/index.html.twig\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/templates/news/index.html.twig\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ComposerSettings\" doNotAsk=\"true\" synchronizationState=\"SYNCHRONIZE\">\n    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>\n    <execution />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"PhpWorkspaceProjectConfiguration\">\n    <include_path>\n      <path value=\"$PROJECT_DIR$/vendor/monolog/monolog\" />\n      <path value=\"$PROJECT_DIR$/vendor/composer\" />\n      <path value=\"$PROJECT_DIR$/vendor/egulias/email-validator\" />\n      <path value=\"$PROJECT_DIR$/vendor/psr/link\" />\n      <path value=\"$PROJECT_DIR$/vendor/psr/container\" />\n      <path value=\"$PROJECT_DIR$/vendor/psr/event-dispatcher\" />\n      <path value=\"$PROJECT_DIR$/vendor/psr/log\" />\n      <path value=\"$PROJECT_DIR$/vendor/psr/cache\" />\n      <path value=\"$PROJECT_DIR$/vendor/laminas/laminas-eventmanager\" />\n      <path value=\"$PROJECT_DIR$/vendor/laminas/laminas-zendframework-bridge\" />\n      <path value=\"$PROJECT_DIR$/vendor/laminas/laminas-code\" />\n      <path value=\"$PROJECT_DIR$/vendor/twig/twig\" />\n      <path value=\"$PROJECT_DIR$/vendor/twig/extra-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/webmozart/assert\" />\n      <path value=\"$PROJECT_DIR$/vendor/webimpress/safe-writer\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/twig-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/form\" />\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/type-resolver\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-guard\" />\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/yaml\" />\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/reflection-common\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/options-resolver\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/framework-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/cache\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/expression-language\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/sql-formatter\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-client-contracts\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/inflector\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-foundation\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/var-dumper\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/event-manager\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-http\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/doctrine-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/browser-kit\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/lexer\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/mailer\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/collections\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/validator\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/annotations\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/property-access\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/instantiator\" />\n      <path value=\"$PROJECT_DIR$/vendor/ocramius/proxy-manager\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dotenv\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/common\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/migrations\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dependency-injection\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/orm\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/process\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/dbal\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/doctrine-bridge\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/persistence\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/deprecation-contracts\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/console\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/translation-contracts\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/cache\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-mbstring\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/phpunit-bridge\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/twig-bridge\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/notifier\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/event-dispatcher\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/var-exporter\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/mime\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php73\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/monolog-bridge\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/service-contracts\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-csrf\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/web-link\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/translation\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/error-handler\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/asset\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/routing\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/config\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/stopwatch\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-client\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/css-selector\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php80\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/cache-contracts\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/string\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/monolog-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/flex\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/finder\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-kernel\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/web-profiler-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/filesystem\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/property-info\" />\n      <path value=\"$PROJECT_DIR$/vendor/nikic/php-parser\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-core\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/intl\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/serializer\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/maker-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dom-crawler\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/debug-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/sensio/framework-extra-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/data-fixtures\" />\n      <path value=\"$PROJECT_DIR$/vendor/fzaninotto/faker\" />\n    </include_path>\n  </component>\n  <component name=\"ProjectId\" id=\"1kNgPLNqXXXrwgZlJ2aneYE8XcK\" />\n  <component name=\"ProjectLevelVcsManager\">\n    <OptionsSetting value=\"false\" id=\"Update\" />\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"ASKED_ADD_EXTERNAL_FILES\" value=\"true\" />\n    <property name=\"ASKED_SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/../projet\" />\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\n    <property name=\"settings.editor.selected.configurable\" value=\"Symfony2.SettingsForm\" />\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\n  </component>\n  <component name=\"RecentsManager\">\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"C:\\Users\\LENOVO\\Documents\\GitHub\\E-School\\public\" />\n      <recent name=\"C:\\Users\\Achref\\Desktop\\E-School Project\\E-School\\public\" />\n    </key>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"889652ea-e43b-4a7b-a717-b2eee9ecbf8b\" name=\"Default Changelist\" comment=\"\" />\n      <created>1605546437549</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1605546437549</updated>\n      <workItem from=\"1605546439127\" duration=\"1300000\" />\n      <workItem from=\"1605564372699\" duration=\"606000\" />\n      <workItem from=\"1605628681637\" duration=\"10297000\" />\n      <workItem from=\"1605687769437\" duration=\"20420000\" />\n      <workItem from=\"1605954604979\" duration=\"756000\" />\n      <workItem from=\"1606160720356\" duration=\"6088000\" />\n      <workItem from=\"1606167853432\" duration=\"398000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n  <component name=\"WindowStateProjectService\">\n    <state x=\"434\" y=\"187\" key=\"#Notifications\" timestamp=\"1606167934862\">\n      <screen x=\"0\" y=\"0\" width=\"1366\" height=\"728\" />\n    </state>\n    <state x=\"434\" y=\"187\" key=\"#Notifications/0.0.1366.728@0.0.1366.728\" timestamp=\"1606167934862\" />\n    <state x=\"586\" y=\"141\" key=\"#com.intellij.ide.util.MemberChooser\" timestamp=\"1605690523212\">\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"870\" />\n    </state>\n    <state x=\"586\" y=\"141\" key=\"#com.intellij.ide.util.MemberChooser/0.0.1600.870@0.0.1600.870\" timestamp=\"1605690523212\" />\n    <state x=\"465\" y=\"0\" key=\"#com.intellij.refactoring.rename.AutomaticRenamingDialog\" timestamp=\"1606646615630\">\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"870\" />\n    </state>\n    <state x=\"465\" y=\"0\" key=\"#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1600.870@0.0.1600.870\" timestamp=\"1606646615630\" />\n    <state x=\"530\" y=\"180\" key=\"#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog\" timestamp=\"1606648057748\">\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"870\" />\n    </state>\n    <state x=\"530\" y=\"180\" key=\"#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1600.870@0.0.1600.870\" timestamp=\"1606648057748\" />\n    <state x=\"484\" y=\"141\" key=\"#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog\" timestamp=\"1606647145174\">\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"870\" />\n    </state>\n    <state x=\"413\" y=\"118\" key=\"#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728\" timestamp=\"1605911345916\" />\n    <state x=\"484\" y=\"141\" key=\"#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.870@0.0.1600.870\" timestamp=\"1606647145174\" />\n    <state x=\"549\" y=\"167\" key=\"FileChooserDialogImpl\" timestamp=\"1606164991835\">\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\n    </state>\n    <state x=\"549\" y=\"167\" key=\"FileChooserDialogImpl/0.0.1536.824@0.0.1536.824\" timestamp=\"1606164991835\" />\n    <state x=\"672\" y=\"331\" key=\"Github.ShareDialog\" timestamp=\"1605640363031\">\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"870\" />\n    </state>\n    <state x=\"672\" y=\"331\" key=\"Github.ShareDialog/0.0.1600.870@0.0.1600.870\" timestamp=\"1605640363031\" />\n    <state x=\"301\" y=\"78\" key=\"SettingsEditor\" timestamp=\"1605546468779\">\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"870\" />\n    </state>\n    <state x=\"301\" y=\"78\" key=\"SettingsEditor/0.0.1600.870@0.0.1600.870\" timestamp=\"1605546468779\" />\n    <state x=\"392\" y=\"167\" key=\"Vcs.Push.Dialog.v2\" timestamp=\"1605724509748\">\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"870\" />\n    </state>\n    <state x=\"392\" y=\"167\" key=\"Vcs.Push.Dialog.v2/0.0.1600.870@0.0.1600.870\" timestamp=\"1605724509748\" />\n    <state x=\"94\" y=\"14\" width=\"581\" height=\"801\" key=\"find.popup\" timestamp=\"1606166126127\">\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\n    </state>\n    <state x=\"94\" y=\"14\" width=\"581\" height=\"801\" key=\"find.popup/0.0.1536.824@0.0.1536.824\" timestamp=\"1606166126127\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision cfa807befa2f47ca5b591ed3beb8a33514457f0b)
++++ .idea/workspace.xml	(date 1608056089425)
+@@ -1,17 +1,24 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="BranchesTreeState">
+-    <expand />
++    <expand>
++      <path>
++        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
++      </path>
++    </expand>
+     <select />
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="889652ea-e43b-4a7b-a717-b2eee9ecbf8b" name="Default Changelist" comment="">
++      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2020_11_17_PM_[Default_Changelist]/shelved.patch" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2020_11_17_PM__Default_Changelist_.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/Controller/AbsenceEtudiantController.php" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/Form/AbsenceetudiantType.php" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/templates/absence_etudiant/index.html.twig" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Controller/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/NewsController.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Entity/News.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/News.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Form/NewsType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/NewsType.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/templates/news/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/news/home.html.twig" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/templates/news/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/news/index.html.twig" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Entity/Seance.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Seance.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -173,7 +180,16 @@
+       <workItem from="1605954604979" duration="756000" />
+       <workItem from="1606160720356" duration="6088000" />
+       <workItem from="1606167853432" duration="398000" />
++      <workItem from="1608053844793" duration="2242000" />
++    </task>
++    <task id="LOCAL-00001" summary="timestamp">
++      <created>1607900038311</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1607900038311</updated>
+     </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -191,6 +207,10 @@
+     </option>
+     <option name="oldMeFiltersMigrated" value="true" />
+   </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="timestamp" />
++    <option name="LAST_COMMIT_MESSAGE" value="timestamp" />
++  </component>
+   <component name="WindowStateProjectService">
+     <state x="434" y="187" key="#Notifications" timestamp="1606167934862">
+       <screen x="0" y="0" width="1366" height="728" />
+@@ -200,19 +220,19 @@
+       <screen x="0" y="0" width="1600" height="870" />
+     </state>
+     <state x="586" y="141" key="#com.intellij.ide.util.MemberChooser/0.0.1600.870@0.0.1600.870" timestamp="1605690523212" />
+-    <state x="465" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1606646615630">
++    <state x="465" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1605692884231">
+       <screen x="0" y="0" width="1600" height="870" />
+     </state>
+-    <state x="465" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1600.870@0.0.1600.870" timestamp="1606646615630" />
+-    <state x="530" y="180" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606648057748">
+-      <screen x="0" y="0" width="1600" height="870" />
+-    </state>
+-    <state x="530" y="180" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1600.870@0.0.1600.870" timestamp="1606648057748" />
+-    <state x="484" y="141" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606647145174">
+-      <screen x="0" y="0" width="1600" height="870" />
++    <state x="465" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1600.870@0.0.1600.870" timestamp="1605692884231" />
++    <state x="464" y="134" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607997966220">
++      <screen x="0" y="0" width="1536" height="824" />
+     </state>
+     <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1605911345916" />
+-    <state x="484" y="141" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.870@0.0.1600.870" timestamp="1606647145174" />
++    <state x="464" y="134" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1607997966220" />
++    <state x="393" y="0" key="CommitChangelistDialog2" timestamp="1607900037195">
++      <screen x="0" y="0" width="1536" height="824" />
++    </state>
++    <state x="393" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1607900037195" />
+     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1606164991835">
+       <screen x="0" y="0" width="1536" height="824" />
+     </state>
+@@ -225,9 +245,10 @@
+       <screen x="0" y="0" width="1600" height="870" />
+     </state>
+     <state x="301" y="78" key="SettingsEditor/0.0.1600.870@0.0.1600.870" timestamp="1605546468779" />
+-    <state x="392" y="167" key="Vcs.Push.Dialog.v2" timestamp="1605724509748">
+-      <screen x="0" y="0" width="1600" height="870" />
++    <state x="376" y="158" key="Vcs.Push.Dialog.v2" timestamp="1607900049575">
++      <screen x="0" y="0" width="1536" height="824" />
+     </state>
++    <state x="376" y="158" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607900049575" />
+     <state x="392" y="167" key="Vcs.Push.Dialog.v2/0.0.1600.870@0.0.1600.870" timestamp="1605724509748" />
+     <state x="94" y="14" width="581" height="801" key="find.popup" timestamp="1606166126127">
+       <screen x="0" y="0" width="1536" height="824" />
+Index: src/Form/AbsenceetudiantType.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Form/AbsenceetudiantType.php	(date 1608055831250)
++++ src/Form/AbsenceetudiantType.php	(date 1608055831250)
+@@ -0,0 +1,39 @@
++<?php
++
++namespace App\Form;
++
++use App\Entity\Seance;
++use Symfony\Bridge\Doctrine\Form\Type\EntityType;
++use Symfony\Component\Form\AbstractType;
++use Symfony\Component\Form\Extension\Core\Type\SubmitType;
++use Symfony\Component\Form\FormBuilderInterface;
++use Symfony\Component\OptionsResolver\OptionsResolver;
++
++class AbsenceetudiantType extends AbstractType
++{
++    public function buildForm(FormBuilderInterface $builder, array $options)
++    {
++        $builder
++           ->add('seance',EntityType::class,[
++                  'class'=>Seance::class,
++                  'multiple' => true,
++                   'expanded' => true,
++           ]
++   )
++
++            ->add('Chercher',SubmitType::class , [
++                'attr' => [
++                    'class' => 'btn btn-success'
++                ]
++            ])
++        ;
++
++    }
++
++    public function configureOptions(OptionsResolver $resolver)
++    {
++        $resolver->setDefaults([
++            // Configure your form options here
++        ]);
++    }
++}
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_14_12_2020_11_17_PM_[Default_Changelist]/shelved.patch
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/shelf/Uncommitted_changes_before_Update_at_14_12_2020_11_17_PM_[Default_Changelist]/shelved.patch	(date 1607984274419)
++++ .idea/shelf/Uncommitted_changes_before_Update_at_14_12_2020_11_17_PM_[Default_Changelist]/shelved.patch	(date 1607984274419)
+@@ -0,0 +1,59 @@
++Index: .idea/workspace.xml
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
++<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"BranchesTreeState\">\n    <expand>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n    </expand>\n    <select />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"889652ea-e43b-4a7b-a717-b2eee9ecbf8b\" name=\"Default Changelist\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ComposerSettings\" doNotAsk=\"true\" synchronizationState=\"SYNCHRONIZE\">\n    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>\n    <execution />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"PhpWorkspaceProjectConfiguration\">\n    <include_path>\n      <path value=\"$PROJECT_DIR$/vendor/monolog/monolog\" />\n      <path value=\"$PROJECT_DIR$/vendor/composer\" />\n      <path value=\"$PROJECT_DIR$/vendor/egulias/email-validator\" />\n      <path value=\"$PROJECT_DIR$/vendor/psr/link\" />\n      <path value=\"$PROJECT_DIR$/vendor/psr/container\" />\n      <path value=\"$PROJECT_DIR$/vendor/psr/event-dispatcher\" />\n      <path value=\"$PROJECT_DIR$/vendor/psr/log\" />\n      <path value=\"$PROJECT_DIR$/vendor/psr/cache\" />\n      <path value=\"$PROJECT_DIR$/vendor/laminas/laminas-eventmanager\" />\n      <path value=\"$PROJECT_DIR$/vendor/laminas/laminas-zendframework-bridge\" />\n      <path value=\"$PROJECT_DIR$/vendor/laminas/laminas-code\" />\n      <path value=\"$PROJECT_DIR$/vendor/twig/twig\" />\n      <path value=\"$PROJECT_DIR$/vendor/twig/extra-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/webmozart/assert\" />\n      <path value=\"$PROJECT_DIR$/vendor/webimpress/safe-writer\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/twig-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/form\" />\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/type-resolver\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-guard\" />\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/yaml\" />\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/reflection-common\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/options-resolver\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/framework-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/cache\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/expression-language\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/sql-formatter\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-client-contracts\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/inflector\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-foundation\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/var-dumper\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/event-manager\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-http\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/doctrine-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/browser-kit\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/lexer\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/mailer\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/collections\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/validator\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/annotations\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/property-access\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/instantiator\" />\n      <path value=\"$PROJECT_DIR$/vendor/ocramius/proxy-manager\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dotenv\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/common\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/migrations\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dependency-injection\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/orm\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/process\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/dbal\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/doctrine-bridge\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/persistence\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/deprecation-contracts\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/console\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/translation-contracts\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/cache\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-mbstring\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/phpunit-bridge\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/twig-bridge\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/notifier\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/event-dispatcher\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/var-exporter\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/mime\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php73\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/monolog-bridge\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/service-contracts\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-csrf\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/web-link\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/translation\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/error-handler\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/asset\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/routing\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/config\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/stopwatch\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-client\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/css-selector\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php80\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/cache-contracts\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/string\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/monolog-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/flex\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/finder\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-kernel\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/web-profiler-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/filesystem\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/property-info\" />\n      <path value=\"$PROJECT_DIR$/vendor/nikic/php-parser\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-core\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/intl\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/serializer\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/maker-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dom-crawler\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/debug-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/sensio/framework-extra-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/data-fixtures\" />\n      <path value=\"$PROJECT_DIR$/vendor/fzaninotto/faker\" />\n    </include_path>\n  </component>\n  <component name=\"ProjectId\" id=\"1kNgPLNqXXXrwgZlJ2aneYE8XcK\" />\n  <component name=\"ProjectLevelVcsManager\">\n    <OptionsSetting value=\"false\" id=\"Update\" />\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"ASKED_ADD_EXTERNAL_FILES\" value=\"true\" />\n    <property name=\"ASKED_SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/../projet\" />\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\n    <property name=\"settings.editor.selected.configurable\" value=\"Symfony2.SettingsForm\" />\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\n  </component>\n  <component name=\"RecentsManager\">\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"C:\\Users\\LENOVO\\Documents\\GitHub\\E-School\\public\" />\n      <recent name=\"C:\\Users\\Achref\\Desktop\\E-School Project\\E-School\\public\" />\n    </key>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"889652ea-e43b-4a7b-a717-b2eee9ecbf8b\" name=\"Default Changelist\" comment=\"\" />\n      <created>1605546437549</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1605546437549</updated>\n      <workItem from=\"1605546439127\" duration=\"1300000\" />\n      <workItem from=\"1605564372699\" duration=\"606000\" />\n      <workItem from=\"1605628681637\" duration=\"10297000\" />\n      <workItem from=\"1605687769437\" duration=\"20420000\" />\n      <workItem from=\"1605954604979\" duration=\"756000\" />\n      <workItem from=\"1606160720356\" duration=\"6088000\" />\n      <workItem from=\"1606167853432\" duration=\"398000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"timestamp\">\n      <created>1607900038311</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1607900038311</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"2\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"timestamp\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"timestamp\" />\n  </component>\n  <component name=\"WindowStateProjectService\">\n    <state x=\"434\" y=\"187\" key=\"#Notifications\" timestamp=\"1606167934862\">\n      <screen x=\"0\" y=\"0\" width=\"1366\" height=\"728\" />\n    </state>\n    <state x=\"434\" y=\"187\" key=\"#Notifications/0.0.1366.728@0.0.1366.728\" timestamp=\"1606167934862\" />\n    <state x=\"586\" y=\"141\" key=\"#com.intellij.ide.util.MemberChooser\" timestamp=\"1605690523212\">\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"870\" />\n    </state>\n    <state x=\"586\" y=\"141\" key=\"#com.intellij.ide.util.MemberChooser/0.0.1600.870@0.0.1600.870\" timestamp=\"1605690523212\" />\n    <state x=\"465\" y=\"0\" key=\"#com.intellij.refactoring.rename.AutomaticRenamingDialog\" timestamp=\"1605692884231\">\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"870\" />\n    </state>\n    <state x=\"465\" y=\"0\" key=\"#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1600.870@0.0.1600.870\" timestamp=\"1605692884231\" />\n    <state x=\"413\" y=\"118\" key=\"#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog\" timestamp=\"1605911345916\">\n      <screen x=\"0\" y=\"0\" width=\"1366\" height=\"728\" />\n    </state>\n    <state x=\"413\" y=\"118\" key=\"#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728\" timestamp=\"1605911345916\" />\n    <state x=\"393\" y=\"0\" key=\"CommitChangelistDialog2\" timestamp=\"1607900037195\">\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\n    </state>\n    <state x=\"393\" y=\"0\" key=\"CommitChangelistDialog2/0.0.1536.824@0.0.1536.824\" timestamp=\"1607900037195\" />\n    <state x=\"549\" y=\"167\" key=\"FileChooserDialogImpl\" timestamp=\"1606164991835\">\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\n    </state>\n    <state x=\"549\" y=\"167\" key=\"FileChooserDialogImpl/0.0.1536.824@0.0.1536.824\" timestamp=\"1606164991835\" />\n    <state x=\"672\" y=\"331\" key=\"Github.ShareDialog\" timestamp=\"1605640363031\">\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"870\" />\n    </state>\n    <state x=\"672\" y=\"331\" key=\"Github.ShareDialog/0.0.1600.870@0.0.1600.870\" timestamp=\"1605640363031\" />\n    <state x=\"301\" y=\"78\" key=\"SettingsEditor\" timestamp=\"1605546468779\">\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"870\" />\n    </state>\n    <state x=\"301\" y=\"78\" key=\"SettingsEditor/0.0.1600.870@0.0.1600.870\" timestamp=\"1605546468779\" />\n    <state x=\"376\" y=\"158\" key=\"Vcs.Push.Dialog.v2\" timestamp=\"1607900049575\">\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\n    </state>\n    <state x=\"376\" y=\"158\" key=\"Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824\" timestamp=\"1607900049575\" />\n    <state x=\"392\" y=\"167\" key=\"Vcs.Push.Dialog.v2/0.0.1600.870@0.0.1600.870\" timestamp=\"1605724509748\" />\n    <state x=\"94\" y=\"14\" width=\"581\" height=\"801\" key=\"find.popup\" timestamp=\"1606166126127\">\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\n    </state>\n    <state x=\"94\" y=\"14\" width=\"581\" height=\"801\" key=\"find.popup/0.0.1536.824@0.0.1536.824\" timestamp=\"1606166126127\" />\n  </component>\n</project>
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++--- .idea/workspace.xml	(revision 1bbab44c8a149e594ff03fccb2525ddba802841e)
+++++ .idea/workspace.xml	(date 1607980487409)
++@@ -173,6 +173,7 @@
++       <workItem from="1605954604979" duration="756000" />
++       <workItem from="1606160720356" duration="6088000" />
++       <workItem from="1606167853432" duration="398000" />
+++      <workItem from="1607975882919" duration="597000" />
++     </task>
++     <task id="LOCAL-00001" summary="timestamp">
++       <created>1607900038311</created>
++@@ -181,7 +182,14 @@
++       <option name="project" value="LOCAL" />
++       <updated>1607900038311</updated>
++     </task>
++-    <option name="localTasksCounter" value="2" />
+++    <task id="LOCAL-00002" summary="timestamp">
+++      <created>1607900479343</created>
+++      <option name="number" value="00002" />
+++      <option name="presentableId" value="LOCAL-00002" />
+++      <option name="project" value="LOCAL" />
+++      <updated>1607900479343</updated>
+++    </task>
+++    <option name="localTasksCounter" value="3" />
++     <servers />
++   </component>
++   <component name="TypeScriptGeneratedFilesManager">
++@@ -220,10 +228,10 @@
++       <screen x="0" y="0" width="1366" height="728" />
++     </state>
++     <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1605911345916" />
++-    <state x="393" y="0" key="CommitChangelistDialog2" timestamp="1607900037195">
+++    <state x="393" y="0" key="CommitChangelistDialog2" timestamp="1607900478161">
++       <screen x="0" y="0" width="1536" height="824" />
++     </state>
++-    <state x="393" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1607900037195" />
+++    <state x="393" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1607900478161" />
++     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1606164991835">
++       <screen x="0" y="0" width="1536" height="824" />
++     </state>
++@@ -236,10 +244,10 @@
++       <screen x="0" y="0" width="1600" height="870" />
++     </state>
++     <state x="301" y="78" key="SettingsEditor/0.0.1600.870@0.0.1600.870" timestamp="1605546468779" />
++-    <state x="376" y="158" key="Vcs.Push.Dialog.v2" timestamp="1607900049575">
+++    <state x="376" y="158" key="Vcs.Push.Dialog.v2" timestamp="1607900614468">
++       <screen x="0" y="0" width="1536" height="824" />
++     </state>
++-    <state x="376" y="158" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607900049575" />
+++    <state x="376" y="158" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607900614468" />
++     <state x="392" y="167" key="Vcs.Push.Dialog.v2/0.0.1600.870@0.0.1600.870" timestamp="1605724509748" />
++     <state x="94" y="14" width="581" height="801" key="find.popup" timestamp="1606166126127">
++       <screen x="0" y="0" width="1536" height="824" />
+Index: templates/absence_etudiant/index.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- templates/absence_etudiant/index.html.twig	(date 1608055384384)
++++ templates/absence_etudiant/index.html.twig	(date 1608055384384)
+@@ -0,0 +1,26 @@
++{% extends 'base.html.twig' %}
++
++{% block title %} AbsenceEtudiant{% endblock %}
++
++{% block body %}
++    <h1>choisir une seance</h1>
++<table class="table">
++    <thead>
++    <tr>
++        <th>Id</th>
++        <th>Nom</th>
++        <th>prenom</th>
++        <th>actions</th>
++    </tr>
++    </thead>
++    <tbody>
++    {% for absence in absences %}
++    <tr>
++        <td>{{absence }}</td>
++        <td>{{absence.classe_id.eleves.nom}}</td>
++        <td> choisir </td>
++    </tr>
++    {% endfor %}
++    </tbody>
++</table>
++{% endblock %}
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_14_12_2020_11_17_PM__Default_Changelist_.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/shelf/Uncommitted_changes_before_Update_at_14_12_2020_11_17_PM__Default_Changelist_.xml	(date 1608053856711)
++++ .idea/shelf/Uncommitted_changes_before_Update_at_14_12_2020_11_17_PM__Default_Changelist_.xml	(date 1608053856711)
+@@ -0,0 +1,4 @@
++<changelist name="Uncommitted_changes_before_Update_at_14_12_2020_11_17_PM_[Default_Changelist]" date="1607984282049" recycled="true" deleted="true">
++  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2020_11_17_PM_[Default_Changelist]/shelved.patch" />
++  <option name="DESCRIPTION" value="Uncommitted changes before Update at 14/12/2020 11:17 PM [Default Changelist]" />
++</changelist>
+\ No newline at end of file
+Index: src/Controller/AbsenceEtudiantController.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Controller/AbsenceEtudiantController.php	(date 1608055778244)
++++ src/Controller/AbsenceEtudiantController.php	(date 1608055778244)
+@@ -0,0 +1,47 @@
++<?php
++
++namespace App\Controller;
++
++use App\Entity\Classe;
++use App\Entity\Seance;
++use App\Form\AbsenceetudiantType;
++use App\Form\AbType;
++use App\Repository\ClasseRepository;
++use App\Repository\PersonneRepository;
++use App\Repository\SalleRepository;
++use App\Repository\SeanceRepository;
++use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
++use Symfony\Component\HttpFoundation\Request;
++use Symfony\Component\HttpFoundation\Response;
++use Symfony\Component\Routing\Annotation\Route;
++
++/**
++ * @Route("/absence_etudiant")
++ */
++class AbsenceEtudiantController extends AbstractController
++{
++    /**
++     * @Route("/", name="absence_etudiant_index",methods={"GET"})
++     */
++    public function index(SeanceRepository $seanceRepository,Request $request): Response
++    {
++        $form = $this->createForm(AbsenceetudiantType::class);
++        $form->handleRequest($request);
++
++        if ($form->isSubmitted() && $form->isValid()) {
++//            $date = $form['Date']->getData();
++//            return $this->render('absence_etudiant/index.html.twig', [
++//                'absences' => $seanceRepository->findBy(['debut'=>$date]),
++           // ]);}
++          $seance = $form['seance']->getData();
++         return $this->render('absence_etudiant/index.html.twig', [
++              'absences' => $seanceRepository->findBy(['id'=>$seance])]);
++         }
++        return $this->render('absence/search.html.twig', [
++
++            'form' => $form->createView(),
++        ]);
++
++    }
++
++}

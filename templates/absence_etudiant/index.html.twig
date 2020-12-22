@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} AbsenceEtudiant{% endblock %}
+
+{% block body %}
+    <h1>choisir une seance</h1>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>eleve</th>
+        <th>absence</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for absence in absences %}
+    <tr>
+        <td>{{absence.id }}</td>
+
+        <td>
+            <ol>
+                {% for eleve in  (absence.classe.eleves)  %}
+
+                    <li> {{ eleve.nom }} {{ eleve.prenom }}</li>
+
+                {% endfor %}
+            </ol>
+        </td>
+
+        <td>
+            <ol>
+                {% for eleve in  (absence.classe.eleves)  %}
+                   <li> <a href="{{ path('nouvelle_absence', {'idP':absence.enseignant.id,'idS': absence.id }) }}">Marquer l'absence</a></li>
+                {% endfor %}
+            </ol>
+        </td>
+
+
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

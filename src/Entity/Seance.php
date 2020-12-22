@@ -38,6 +38,7 @@ class Seance
 
     /**
      * @ORM\OneToMany(targetEntity=Absence::class, mappedBy="seance", orphanRemoval=true)
+     * @ORM\JoinColumn(nullable=True)
      */
     private $absences;
 
@@ -150,6 +151,7 @@ class Seance
 
         return $this;
     }
+
 
 
 }
