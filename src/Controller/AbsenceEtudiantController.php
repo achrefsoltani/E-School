@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Absence;
 use App\Entity\Classe;
+use App\Entity\Personne;
 use App\Entity\Seance;
 use App\Form\AbsenceetudiantType;
 use App\Form\AbsenceType;
@@ -37,7 +38,7 @@ class AbsenceEtudiantController extends AbstractController
 
 
          return $this->render('absence_etudiant/index.html.twig',
-             ['absences' => $seanceRepository->findby(['id'=>$seance]),
+             ['seances' => $seanceRepository->findby(['id'=>$seance]),
                 ]
             );
          }
@@ -69,7 +70,7 @@ class AbsenceEtudiantController extends AbstractController
             $entityManager->persist($absence);
             $entityManager->flush();
 
-            return $this->redirectToRoute('absence_etudiant_index');
+            return $this->redirectToRoute('consulter_absence',['id'=>$absence->getId()]);
         }
 
         return $this->render('absence_etudiant/nouveau.html.twig', [
@@ -82,6 +83,7 @@ class AbsenceEtudiantController extends AbstractController
      */
     public function show(Absence $absence): Response
     {
+
         return $this->render('absence_etudiant/show.html.twig', [
             'absence' => $absence,
         ]);
@@ -108,7 +110,22 @@ class AbsenceEtudiantController extends AbstractController
         ]);
     }
     /**
-     * @Route("/{id}", name="supprimer_absence", methods={"DELETE"})
+     * @Route("/absence/{id}", name="existance_absence")
+     */
+    public function findAbsenceByPersonne($id) {
+
+        $repository= $this->getDoctrine()->getRepository(Absence::class);
+            $absence=$repository->getAbsencewithIdPersonne($id);
+        if ($absence) {
+            return $this->render('absence_etudiant/supprimer.html.twig',['absence'=>$absence]);
+        } else {
+            $this->addFlash('danger', 'cette eleve na pas dabsence');
+            return $this->redirectToRoute('absence_etudiant_index');
+        }
+
+    }
+    /**
+     * @Route("/supprimer/{id}/", name="supprimer_absence", methods={"DELETE","GET"})
      */
     public function delete(Request $request, Absence $absence): Response
     {
@@ -116,6 +133,10 @@ class AbsenceEtudiantController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($absence);
             $entityManager->flush();
+
+        }else{
+            $this->addFlash('error','le personne nexiste pas ');
+
         }
 
         return $this->redirectToRoute('absence_etudiant_index');

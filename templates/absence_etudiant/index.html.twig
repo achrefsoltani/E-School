@@ -10,17 +10,17 @@
         <th>Id</th>
         <th>eleve</th>
         <th>absence</th>
-
+        <th>absence</th>
     </tr>
     </thead>
     <tbody>
-    {% for absence in absences %}
+    {% for seance in seances %}
     <tr>
-        <td>{{absence.id }}</td>
+        <td>{{seance.id }}</td>
 
         <td>
             <ol>
-                {% for eleve in  (absence.classe.eleves)  %}
+                {% for eleve in  (seance.classe.eleves)  %}
 
                     <li> {{ eleve.nom }} {{ eleve.prenom }}</li>
 
@@ -30,11 +30,19 @@
 
         <td>
             <ol>
-                {% for eleve in  (absence.classe.eleves)  %}
-                   <li> <a href="{{ path('nouvelle_absence', {'idP':absence.enseignant.id,'idS': absence.id }) }}">Marquer l'absence</a></li>
+                {% for eleve in  (seance.classe.eleves)  %}
+                   <li> <a href="{{ path('nouvelle_absence', {'idP':eleve.id,'idS': seance.id }) }}">Marquer l'absence</a></li>
                 {% endfor %}
             </ol>
         </td>
+        <td>
+            <ol>
+                {% for eleve in  (seance.classe.eleves)  %}
+                    <li> <a href="{{ path('existance_absence', {'id':eleve.id}) }}">annuller l'absence </a></li>
+                {% endfor %}
+            </ol>
+        </td>
+
 
 
     </tr>

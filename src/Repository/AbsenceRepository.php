@@ -47,5 +47,15 @@ class AbsenceRepository extends ServiceEntityRepository
         ;
     }
     */
-
+    public function getAbsencewithIdPersonne( $idp) {
+        // select * from absence
+        $qb = $this->createQueryBuilder('a');
+        $qb->innerJoin('a.personne','p')
+            ->where('p.id = :idpersonne')
+            ->setParameter('idpersonne', $idp)
+        ;
+        //$this->$qb;
+        //$qb->orderBy('p.age', 'asc');
+        return $qb->getQuery()->getOneOrNullResult();
+    }
 }

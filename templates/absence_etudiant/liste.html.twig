@@ -9,9 +9,9 @@
         <thead>
         <tr>
             <th>Id</th>
-            <th>Nom enseignant </th>
-            <th>Prenom enseignant</th>
-            <th>Justifie</th>
+            <th>Nom  </th>
+            <th>Prenom</th>
+
             <th>actions</th>
         </tr>
         </thead>
@@ -21,7 +21,7 @@
                 <td>{{ absence.id }}</td>
                 <td>{{ absence.personne.nom }}</td>
                 <td>{{ absence.personne.prenom }}</td>
-                <td>{{ absence.Justifie ? 'Yes' : 'No' }}</td>
+
                 <td>
                     <a href="{{ path('consulter_absence', {'id': absence.id}) }}">consulter</a>
                     <a href="{{ path('modifier_absence', {'id': absence.id}) }}">modifier</a>
