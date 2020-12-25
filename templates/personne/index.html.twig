@@ -67,6 +67,11 @@
                         <a href="{{ path('classeliste', {'id': personne.id}) }}">Liste des classe</a>
                     </td>
                 {% endif %}
+                {%  if (personne.role == 'eleve') %}
+                    <td>
+                        <a href="{{ path('note_show', {'id': personne.id}) }}">Liste des note</a>
+                    </td>
+                {% endif %}
             </tr>
         {% else %}
             <tr>

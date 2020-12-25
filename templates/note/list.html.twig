@@ -29,6 +29,7 @@
                 <td>
 {#                    <a href='{{ path('personne_show',{'id': personne.id}) }}'>Details</a>#}
                     <a href="{{ path('note_new', {'id': personne.id, 'id1': classe.id}) }}">Ajouter note</a>
+                    <a href="{{ path('modifliste', {'id': personne.id}) }}">Modifier note</a>
 
                 </td>
             </tr>
