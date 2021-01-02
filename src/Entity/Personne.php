@@ -72,16 +72,6 @@ class Personne
     private $role;
 
     /**
-     * @ORM\Column(type="string", length=30, nullable=true)
-     */
-    private $login;
-
-    /**
-     * @ORM\Column(type="string", length=30, nullable=true)
-     */
-    private $mdp;
-
-    /**
      * @ORM\ManyToMany(targetEntity=Classe::class, mappedBy="membres")
      */
     private $classe;
@@ -115,6 +105,11 @@ class Personne
      * @ORM\OneToMany(targetEntity=Demande::class, mappedBy="personne")
      */
     private $demandes;
+
+    /**
+     * @ORM\OneToOne(targetEntity=User::class, inversedBy="personne", cascade={"persist", "remove"})
+     */
+    private $user;
 
     public function __construct()
     {
@@ -246,30 +241,6 @@ class Personne
     public function setRole(string $role): self
     {
         $this->role = $role;
-
-        return $this;
-    }
-
-    public function getLogin(): ?string
-    {
-        return $this->login;
-    }
-
-    public function setLogin(?string $login): self
-    {
-        $this->login = $login;
-
-        return $this;
-    }
-
-    public function getMdp(): ?string
-    {
-        return $this->mdp;
-    }
-
-    public function setMdp(?string $mdp): self
-    {
-        $this->mdp = $mdp;
 
         return $this;
     }
@@ -454,6 +425,24 @@ class Personne
             if ($demande->getPersonne() === $this) {
                 $demande->setPersonne(null);
             }
+        }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        // set (or unset) the owning side of the relation if necessary
+        $newPersonne = null === $user ? null : $this;
+        if ($user->getPersonne() !== $newPersonne) {
+            $user->setPersonne($newPersonne);
         }
 
         return $this;

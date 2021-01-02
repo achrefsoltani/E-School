@@ -37,9 +37,7 @@ class PersonneType extends AbstractType
             ->add('cin')
             ->add('email',EmailType::class)
             ->add('num_tel')
-            ->add('adresse')
-            ->add('login')
-            ->add('mdp',PasswordType::class);
+            ->add('adresse');
         if ($options['role'] == 'enseignant'){
             $builder->add('matieres',EntityType::class,[
                 'class' => Matiere::class,

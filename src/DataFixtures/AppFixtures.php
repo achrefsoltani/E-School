@@ -5,12 +5,20 @@ namespace App\DataFixtures;
 use App\Entity\Matiere;
 use App\Entity\Personne;
 use App\Entity\Salle;
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AppFixtures extends Fixture
 {
+    private $passwordEncoder;
+
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
+    {
+        $this->passwordEncoder = $passwordEncoder;
+    }
     public function load(ObjectManager $manager)
     {
         $faker = Faker\Factory::create("fr_FR");
@@ -23,7 +31,7 @@ class AppFixtures extends Fixture
             $manager->persist($matiere);
 
             // Creation des personnes:
-            for ($i = 0; $i < 100; $i++) {
+            for ($i = 0; $i < 10; $i++) {
                 $personne = new Personne();
                 $sexe = $faker->boolean;
                 if ($sexe) {
@@ -42,8 +50,6 @@ class AppFixtures extends Fixture
                     ->setEmail($faker->email)
                     ->setNumTel($faker->randomNumber(8))
                     ->setAdresse($faker->address)
-                    ->setLogin($faker->userName)
-                    ->setMdp($faker->password)
                     ->setRole($faker->randomElement(['eleve', 'eleve', 'eleve', 'eleve', 'eleve', 'eleve', 'eleve', 'eleve', 'eleve', 'eleve', 'parent', 'parent', 'parent', 'parent', 'parent', 'enseignant', 'admin']));
                 if ($personne->getRole() == 'eleve') {
                     $personne->setNiveau($faker->numberBetween(1, 10))
@@ -56,6 +62,21 @@ class AppFixtures extends Fixture
                 }
                 $personne->setListMatieres($personne->getMatieres()->toArray());
 
+                $user = new User();
+                $user->setUsername($faker->userName);
+
+                $user->setPassword($this->passwordEncoder->encodePassword($user,'secret'));
+                /*if ($personne->getRole() == 'eleve'){
+                    $user->setRoles(['ROLE_USER']);
+                }else if ($personne->getRole() == 'parent'){
+                    $user->setRoles(['ROLE_USER']);
+                }else if($personne->getRole() == 'enseignant'){
+                    $user->setRoles(['ROLE_USER']);
+                }else{*/
+                    $user->setRoles(['ROLE_ADMIN']);
+                //}
+                $personne->setUser($user);
+                $manager->persist($user);
                 $manager->persist($personne);
             }
         }
