@@ -16,7 +16,6 @@ class SeanceType extends AbstractType
             ->add('fin')
             ->add('classe')
             ->add('salle')
-            ->add('enseignant')
             ->add('profs')
         ;
     }
