@@ -398,6 +398,15 @@ class Personne
 
         return  $str;
     }
+    public function matiere()
+    {
+        $str = '';
+        foreach ($this->getMatieres() as $mat){
+            $str = $str . $mat->getNom() . " ";
+        }
+
+        return  $str;
+    }
 
     /**
      * @return Collection|Matiere[]

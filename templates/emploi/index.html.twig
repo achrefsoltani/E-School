@@ -4,19 +4,23 @@
 
  {% block style %}
      <style>
-         body{
-             margin-top:20px;
+         body {
+             margin-top: 20px;
          }
+
          .bg-light-gray {
              background-color: #f7f7f7;
          }
+
          .table-bordered thead td, .table-bordered thead th {
              border-bottom-width: 2px;
          }
+
          .table thead th {
              vertical-align: bottom;
              border-bottom: 2px solid #dee2e6;
          }
+
          .table-bordered td, .table-bordered th {
              border: 1px solid #dee2e6;
          }
@@ -83,13 +87,16 @@
              padding-left: 15px;
              padding-right: 15px;
          }
+
          .padding-5px-tb {
              padding-top: 5px;
              padding-bottom: 5px;
          }
+
          .margin-10px-bottom {
              margin-bottom: 10px;
          }
+
          .border-radius-5 {
              border-radius: 5px;
          }
@@ -97,6 +104,7 @@
          .margin-10px-top {
              margin-top: 10px;
          }
+
          .font-size14 {
              font-size: 14px;
          }
@@ -104,6 +112,7 @@
          .text-light-gray {
              color: #d6d5d5;
          }
+
          .font-size13 {
              font-size: 13px;
          }
@@ -111,6 +120,7 @@
          .table-bordered td, .table-bordered th {
              border: 1px solid #dee2e6;
          }
+
          .table td, .table th {
              padding: .75rem;
              vertical-align: top;
@@ -123,7 +133,7 @@
 
     <h1>Emploi {{ classe.nom }}</h1>
 
-     {{ dump(seances) }}
+
 
     <div class="container">
         <div class="timetable-img text-center">
@@ -133,171 +143,318 @@
             <table class="table table-bordered text-center">
                 <thead>
                 <tr class="bg-light-gray">
-                    <th class="text-uppercase">Time
+                    <th class="text-uppercase">Jour
                     </th>
-                    <th class="text-uppercase">Monday</th>
-                    <th class="text-uppercase">Tuesday</th>
-                    <th class="text-uppercase">Wednesday</th>
-                    <th class="text-uppercase">Thursday</th>
-                    <th class="text-uppercase">Friday</th>
-                    <th class="text-uppercase">Saturday</th>
+                    <th class="text-uppercase">Lundi</th>
+                    <th class="text-uppercase">Mardi</th>
+                    <th class="text-uppercase">Mercredi</th>
+                    <th class="text-uppercase">Jeudi</th>
+                    <th class="text-uppercase">Vendredi</th>
+                    <th class="text-uppercase">samedi</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <td class="align-middle">08:00am</td>
+                    <td class="align-middle">08:00</td>
                     <td>
-                        <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13">{{ seances[1].enseignant.fullName }}</span>
-                        <div class="margin-10px-top font-size14">{{ seances[1].debut|date('H:i') }} -- {{ seances[1].fin|date('H:i') }}</div>
-                        <div class="font-size13 text-light-gray">{{ seances[1].salle }}</div>
-                    </td>
-                    <td>
-                        <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Yoga</span>
-                        <div class="margin-10px-top font-size14">9:00-10:00</div>
-                        <div class="font-size13 text-light-gray">Marta Healy</div>
+                        {% for seance in seances %}
+                            {% if ( seance.debut|date('H:i') == '08:00' and seance.debut|date('l') == 'Monday' ) %}
+                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
+                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
+                            {% endif %}
+                        {% endfor %}
+
                     </td>
 
                     <td>
-                        <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
-                        <div class="margin-10px-top font-size14">9:00-10:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
+                        {% for seance in seances %}
+                            {% if ( seance.debut|date('H:i') == '08:00' and seance.debut|date('l') == 'Tuesday' ) %}
+                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
+                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+
+                    <td>
+                        {% for seance in seances %}
+                            {% if ( seance.debut|date('H:i') == '08:00' and seance.debut|date('l') == 'Wednesday' ) %}
+                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
+                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
+                            {% endif %}
+                        {% endfor %}
                     </td>
                     <td>
-                        <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Dance</span>
-                        <div class="margin-10px-top font-size14">9:00-10:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
+                        {% for seance in seances %}
+                            {% if ( seance.debut|date('H:i') == '08:00' and seance.debut|date('l') == 'Thursday' ) %}
+                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
+                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
+                            {% endif %}
+                        {% endfor %}
                     </td>
                     <td>
-                        <span class="bg-purple padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Art</span>
-                        <div class="margin-10px-top font-size14">9:00-10:00</div>
-                        <div class="font-size13 text-light-gray">Kate Alley</div>
+                        {% for seance in seances %}
+                            {% if ( seance.debut|date('H:i') == '08:00' and seance.debut|date('l') == 'Friday' ) %}
+                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
+                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
+                            {% endif %}
+                        {% endfor %}
                     </td>
                     <td>
-                        <span class="bg-pink padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">English</span>
-                        <div class="margin-10px-top font-size14">9:00-10:00</div>
-                        <div class="font-size13 text-light-gray">James Smith</div>
+                        {% for seance in seances %}
+                            {% if ( seance.debut|date('H:i') == '08:00' and seance.debut|date('l') == 'Saturday' ) %}
+                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
+                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
+                            {% endif %}
+                        {% endfor %}
                     </td>
                 </tr>
-
                 <tr>
-                    <td class="align-middle">10:00am</td>
+                    <td class="align-middle">10:00</td>
                     <td>
-                        <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
-                        <div class="margin-10px-top font-size14">10:00-11:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
-                    </td>
-                    <td class="bg-light-gray">
+                        {% for seance in seances %}
+                            {% if ( seance.debut|date('H:i') == '10:00' and seance.debut|date('l') == 'Monday' ) %}
+                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
+                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
+                            {% endif %}
+                        {% endfor %}
 
                     </td>
-                    <td>
-                        <span class="bg-purple padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Art</span>
-                        <div class="margin-10px-top font-size14">10:00-11:00</div>
-                        <div class="font-size13 text-light-gray">Kate Alley</div>
-                    </td>
-                    <td>
-                        <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Yoga</span>
-                        <div class="margin-10px-top font-size14">10:00-11:00</div>
-                        <div class="font-size13 text-light-gray">Marta Healy</div>
-                    </td>
-                    <td>
-                        <span class="bg-pink padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">English</span>
-                        <div class="margin-10px-top font-size14">10:00-11:00</div>
-                        <div class="font-size13 text-light-gray">James Smith</div>
-                    </td>
-                    <td class="bg-light-gray">
 
+                    <td>
+                        {% for seance in seances %}
+                            {% if ( seance.debut|date('H:i') == '10:00' and seance.debut|date('l') == 'Tuesday' ) %}
+                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
+                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+
+                    <td>
+                        {% for seance in seances %}
+                            {% if ( seance.debut|date('H:i') == '10:00' and seance.debut|date('l') == 'Wednesday' ) %}
+                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
+                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for seance in seances %}
+                            {% if ( seance.debut|date('H:i') == '10:00' and seance.debut|date('l') == 'Thursday' ) %}
+                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
+                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for seance in seances %}
+                            {% if ( seance.debut|date('H:i') == '10:00' and seance.debut|date('l') == 'Friday' ) %}
+                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
+                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for seance in seances %}
+                            {% if ( seance.debut|date('H:i') == '10:00' and seance.debut|date('l') == 'Saturday' ) %}
+                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
+                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
+                            {% endif %}
+                        {% endfor %}
                     </td>
                 </tr>
-
                 <tr>
-                    <td class="align-middle">11:00am</td>
+                    <td class="align-middle">12:00</td>
                     <td>
-                        <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
-                        <div class="margin-10px-top font-size14">11:00-12:00</div>
+                        {% for seance in seances %}
+                            {% if ( seance.debut|date('H:i') == '12:00' and seance.debut|date('l') == 'Monday' ) %}
+                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
+                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
+                            {% endif %}
+                        {% endfor %}
+
+                    </td>
+
+                    <td>
+                        {% for seance in seances %}
+                            {% if ( seance.debut|date('H:i') == '12:00' and seance.debut|date('l') == 'Tuesday' ) %}
+                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
+                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+
+                    <td>
+                        {% for seance in seances %}
+                            {% if ( seance.debut|date('H:i') == '12:00' and seance.debut|date('l') == 'Wednesday' ) %}
+                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
+                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
+                            {% endif %}
+                        {% endfor %}
                     </td>
                     <td>
-                        <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
-                        <div class="margin-10px-top font-size14">11:00-12:00</div>
+                        {% for seance in seances %}
+                            {% if ( seance.debut|date('H:i') == '12:00' and seance.debut|date('l') == 'Thursday' ) %}
+                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
+                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
+                            {% endif %}
+                        {% endfor %}
                     </td>
                     <td>
-                        <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
-                        <div class="margin-10px-top font-size14">11:00-12:00</div>
+                        {% for seance in seances %}
+                            {% if ( seance.debut|date('H:i') == '12:00' and seance.debut|date('l') == 'Friday' ) %}
+                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
+                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
+                            {% endif %}
+                        {% endfor %}
                     </td>
                     <td>
-                        <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
-                        <div class="margin-10px-top font-size14">11:00-12:00</div>
-                    </td>
-                    <td>
-                        <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
-                        <div class="margin-10px-top font-size14">11:00-12:00</div>
-                    </td>
-                    <td>
-                        <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
-                        <div class="margin-10px-top font-size14">11:00-12:00</div>
+                        {% for seance in seances %}
+                            {% if ( seance.debut|date('H:i') == '12:00' and seance.debut|date('l') == 'Saturday' ) %}
+                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
+                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
+                            {% endif %}
+                        {% endfor %}
                     </td>
                 </tr>
-
                 <tr>
-                    <td class="align-middle">12:00pm</td>
-                    <td class="bg-light-gray">
+                    <td class="align-middle">14:00</td>
+                    <td>
+                        {% for seance in seances %}
+                            {% if ( seance.debut|date('H:i') == '14:00' and seance.debut|date('l') == 'Monday' ) %}
+                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
+                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
+                            {% endif %}
+                        {% endfor %}
 
                     </td>
-                    <td>
-                        <span class="bg-purple padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Art</span>
-                        <div class="margin-10px-top font-size14">12:00-1:00</div>
-                        <div class="font-size13 text-light-gray">Kate Alley</div>
-                    </td>
-                    <td>
-                        <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Dance</span>
-                        <div class="margin-10px-top font-size14">12:00-1:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
-                    </td>
-                    <td>
-                        <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
-                        <div class="margin-10px-top font-size14">12:00-1:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
-                    </td>
-                    <td class="bg-light-gray">
 
+                    <td>
+                        {% for seance in seances %}
+                            {% if ( seance.debut|date('H:i') == '14:00' and seance.debut|date('l') == 'Tuesday' ) %}
+                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
+                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+
+                    <td>
+                        {% for seance in seances %}
+                            {% if ( seance.debut|date('H:i') == '14:00' and seance.debut|date('l') == 'Wednesday' ) %}
+                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
+                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
+                            {% endif %}
+                        {% endfor %}
                     </td>
                     <td>
-                        <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Yoga</span>
-                        <div class="margin-10px-top font-size14">12:00-1:00</div>
-                        <div class="font-size13 text-light-gray">Marta Healy</div>
+                        {% for seance in seances %}
+                            {% if ( seance.debut|date('H:i') == '14:00' and seance.debut|date('l') == 'Thursday' ) %}
+                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
+                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for seance in seances %}
+                            {% if ( seance.debut|date('H:i') == '14:00' and seance.debut|date('l') == 'Friday' ) %}
+                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
+                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for seance in seances %}
+                            {% if ( seance.debut|date('H:i') == '14:00' and seance.debut|date('l') == 'Saturday' ) %}
+                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
+                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
+                            {% endif %}
+                        {% endfor %}
                     </td>
                 </tr>
-
                 <tr>
-                    <td class="align-middle">01:00pm</td>
+                    <td class="align-middle">16:00</td>
                     <td>
-                        <span class="bg-pink padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">English</span>
-                        <div class="margin-10px-top font-size14">1:00-2:00</div>
-                        <div class="font-size13 text-light-gray">James Smith</div>
-                    </td>
-                    <td>
-                        <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
-                        <div class="margin-10px-top font-size14">1:00-2:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
-                    </td>
-                    <td class="bg-light-gray">
+                        {% for seance in seances %}
+                            {% if ( seance.debut|date('H:i') == '16:00' and seance.debut|date('l') == 'Monday' ) %}
+                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
+                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
+                            {% endif %}
+                        {% endfor %}
 
                     </td>
+
                     <td>
-                        <span class="bg-pink padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">English</span>
-                        <div class="margin-10px-top font-size14">1:00-2:00</div>
-                        <div class="font-size13 text-light-gray">James Smith</div>
+                        {% for seance in seances %}
+                            {% if ( seance.debut|date('H:i') == '16:00' and seance.debut|date('l') == 'Tuesday' ) %}
+                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
+                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+
+                    <td>
+                        {% for seance in seances %}
+                            {% if ( seance.debut|date('H:i') == '16:00' and seance.debut|date('l') == 'Wednesday' ) %}
+                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
+                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
+                            {% endif %}
+                        {% endfor %}
                     </td>
                     <td>
-                        <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Yoga</span>
-                        <div class="margin-10px-top font-size14">1:00-2:00</div>
-                        <div class="font-size13 text-light-gray">Marta Healy</div>
+                        {% for seance in seances %}
+                            {% if ( seance.debut|date('H:i') == '16:00' and seance.debut|date('l') == 'Thursday' ) %}
+                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
+                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
+                            {% endif %}
+                        {% endfor %}
                     </td>
                     <td>
-                        <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
-                        <div class="margin-10px-top font-size14">1:00-2:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
+                        {% for seance in seances %}
+                            {% if ( seance.debut|date('H:i') == '16:00' and seance.debut|date('l') == 'Friday' ) %}
+                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
+                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for seance in seances %}
+                            {% if ( seance.debut|date('H:i') == '16:00' and seance.debut|date('l') == 'Saturday' ) %}
+                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
+                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
+                            {% endif %}
+                        {% endfor %}
                     </td>
                 </tr>
+
                 </tbody>
             </table>
         </div>
