@@ -75,6 +75,11 @@ class Classe
      */
     private $listMatieres = [];
 
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $ListSeances = [];
+
 
 
     public function __construct()
@@ -286,6 +291,18 @@ class Classe
     public function setListMatieres(?array $listMatieres): self
     {
         $this->listMatieres = $listMatieres;
+
+        return $this;
+    }
+
+    public function getListSeances(): ?array
+    {
+        return $this->ListSeances;
+    }
+
+    public function setListSeances(?array $ListSeances): self
+    {
+        $this->ListSeances = $ListSeances;
 
         return $this;
     }
