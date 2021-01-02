@@ -5,9 +5,12 @@ namespace App\Controller;
 use App\Entity\Classe;
 use App\Entity\Note;
 use App\Entity\Personne;
+use App\Form\ENoteType;
 use App\Form\NoteType;
+use App\Repository\MatiereRepository;
 use App\Repository\NoteRepository;
 use App\Repository\PersonneRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -55,6 +58,30 @@ class NoteController extends AbstractController
     {
         return $this->render('note/index.html.twig', [
             'notes' => $noteRepository->findAll(),
+        ]);
+    }
+    /**
+     * @Route("/modif/{id}", name="modifliste")
+     */
+    public function modif($id, Request $request, MatiereRepository $matiereRepository, NoteRepository  $noteRepository): Response
+    {
+        $form = $this->createForm(ENoteType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $date = $form['matieres']->getData();
+            $idM= $matiereRepository->findBy(['nom'=>$date]);
+
+            return $this->render('note/listeM.html.twig', [
+                'notes' => $noteRepository->findBy(['eleve'=>$id, 'matiere'=> $date]),
+            ]);
+
+          //  return $this->redirectToRoute('note_index');
+        }
+
+        return $this->render('note/search.html.twig', [
+
+            'form' => $form->createView(),
         ]);
     }
 
@@ -117,7 +144,7 @@ class NoteController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('note_index');
+            return $this->redirectToRoute('modifliste', ['id'=>$note->getEleve()->getId()]);
         }
 
         return $this->render('note/edit.html.twig', [
