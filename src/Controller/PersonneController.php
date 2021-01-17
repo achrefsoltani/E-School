@@ -3,8 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Personne;
+use App\Form\CompteType;
 use App\Form\PersonneType;
 use App\Repository\PersonneRepository;
+use phpDocumentor\Reflection\Types\Null_;
+use phpDocumentor\Reflection\Types\Nullable;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,7 +18,6 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class PersonneController extends AbstractController
 {
-
 
     /**
      * @Route("/new/{role}", name="personne_new", methods={"GET","POST"})
@@ -106,4 +108,5 @@ class PersonneController extends AbstractController
             'role' => $role
         ]);
     }
+
 }
