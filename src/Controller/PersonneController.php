@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\Personne;
 use App\Form\PersonneType;
 use App\Repository\PersonneRepository;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -98,7 +97,6 @@ class PersonneController extends AbstractController
     }
 
     /**
-     * @IsGranted("ROLE_ADMIN")
      * @Route("/{role}", name="personne_index", methods={"GET"})
      */
     public function index(string $role, PersonneRepository $personneRepository): Response
