@@ -66,15 +66,15 @@ class AppFixtures extends Fixture
                 $user->setUsername($faker->userName);
 
                 $user->setPassword($this->passwordEncoder->encodePassword($user,'secret'));
-                /*if ($personne->getRole() == 'eleve'){
+                if ($personne->getRole() == 'eleve'){
                     $user->setRoles(['ROLE_USER']);
                 }else if ($personne->getRole() == 'parent'){
                     $user->setRoles(['ROLE_USER']);
                 }else if($personne->getRole() == 'enseignant'){
                     $user->setRoles(['ROLE_USER']);
-                }else{*/
+                }else{
                     $user->setRoles(['ROLE_ADMIN']);
-                //}
+                }
                 $personne->setUser($user);
                 $manager->persist($user);
                 $manager->persist($personne);
