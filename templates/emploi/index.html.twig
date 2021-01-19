@@ -170,8 +170,7 @@
                     <td>
                         {% for seance in seances %}
                             {% if ( seance.debut|date('H:i') == '08:00' and seance.debut|date('l') == 'Tuesday' ) %}
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
-                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <a href="{{ path('seance_show', {'id': seance.id}) }}"><span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span></a>                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
                                 <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
                             {% endif %}
                         {% endfor %}
@@ -180,8 +179,7 @@
                     <td>
                         {% for seance in seances %}
                             {% if ( seance.debut|date('H:i') == '08:00' and seance.debut|date('l') == 'Wednesday' ) %}
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
-                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <a href="{{ path('seance_show', {'id': seance.id}) }}"><span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span></a>                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
                                 <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
                             {% endif %}
                         {% endfor %}
@@ -189,8 +187,7 @@
                     <td>
                         {% for seance in seances %}
                             {% if ( seance.debut|date('H:i') == '08:00' and seance.debut|date('l') == 'Thursday' ) %}
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
-                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <a href="{{ path('seance_show', {'id': seance.id}) }}"><span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span></a>                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
                                 <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
                             {% endif %}
                         {% endfor %}
@@ -198,8 +195,7 @@
                     <td>
                         {% for seance in seances %}
                             {% if ( seance.debut|date('H:i') == '08:00' and seance.debut|date('l') == 'Friday' ) %}
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
-                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <a href="{{ path('seance_show', {'id': seance.id}) }}"><span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span></a>                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
                                 <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
                             {% endif %}
                         {% endfor %}
@@ -207,8 +203,7 @@
                     <td>
                         {% for seance in seances %}
                             {% if ( seance.debut|date('H:i') == '08:00' and seance.debut|date('l') == 'Saturday' ) %}
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
-                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <a href="{{ path('seance_show', {'id': seance.id}) }}"><span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span></a>                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
                                 <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
                             {% endif %}
                         {% endfor %}
@@ -219,8 +214,7 @@
                     <td>
                         {% for seance in seances %}
                             {% if ( seance.debut|date('H:i') == '10:00' and seance.debut|date('l') == 'Monday' ) %}
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
-                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <a href="{{ path('seance_show', {'id': seance.id}) }}"><span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span></a>                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
                                 <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
                             {% endif %}
                         {% endfor %}
@@ -230,8 +224,7 @@
                     <td>
                         {% for seance in seances %}
                             {% if ( seance.debut|date('H:i') == '10:00' and seance.debut|date('l') == 'Tuesday' ) %}
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
-                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <a href="{{ path('seance_show', {'id': seance.id}) }}"><span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span></a>                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
                                 <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
                             {% endif %}
                         {% endfor %}
@@ -240,8 +233,7 @@
                     <td>
                         {% for seance in seances %}
                             {% if ( seance.debut|date('H:i') == '10:00' and seance.debut|date('l') == 'Wednesday' ) %}
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
-                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <a href="{{ path('seance_show', {'id': seance.id}) }}"><span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span></a>                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
                                 <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
                             {% endif %}
                         {% endfor %}
@@ -249,8 +241,7 @@
                     <td>
                         {% for seance in seances %}
                             {% if ( seance.debut|date('H:i') == '10:00' and seance.debut|date('l') == 'Thursday' ) %}
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
-                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <a href="{{ path('seance_show', {'id': seance.id}) }}"><span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span></a>                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
                                 <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
                             {% endif %}
                         {% endfor %}
@@ -258,8 +249,7 @@
                     <td>
                         {% for seance in seances %}
                             {% if ( seance.debut|date('H:i') == '10:00' and seance.debut|date('l') == 'Friday' ) %}
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
-                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <a href="{{ path('seance_show', {'id': seance.id}) }}"><span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span></a>                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
                                 <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
                             {% endif %}
                         {% endfor %}
@@ -267,8 +257,7 @@
                     <td>
                         {% for seance in seances %}
                             {% if ( seance.debut|date('H:i') == '10:00' and seance.debut|date('l') == 'Saturday' ) %}
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
-                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <a href="{{ path('seance_show', {'id': seance.id}) }}"><span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span></a>                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
                                 <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
                             {% endif %}
                         {% endfor %}
@@ -279,8 +268,7 @@
                     <td>
                         {% for seance in seances %}
                             {% if ( seance.debut|date('H:i') == '12:00' and seance.debut|date('l') == 'Monday' ) %}
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
-                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <a href="{{ path('seance_show', {'id': seance.id}) }}"><span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span></a>                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
                                 <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
                             {% endif %}
                         {% endfor %}
@@ -290,8 +278,7 @@
                     <td>
                         {% for seance in seances %}
                             {% if ( seance.debut|date('H:i') == '12:00' and seance.debut|date('l') == 'Tuesday' ) %}
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
-                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <a href="{{ path('seance_show', {'id': seance.id}) }}"><span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span></a>                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
                                 <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
                             {% endif %}
                         {% endfor %}
@@ -300,8 +287,7 @@
                     <td>
                         {% for seance in seances %}
                             {% if ( seance.debut|date('H:i') == '12:00' and seance.debut|date('l') == 'Wednesday' ) %}
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
-                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <a href="{{ path('seance_show', {'id': seance.id}) }}"><span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span></a>                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
                                 <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
                             {% endif %}
                         {% endfor %}
@@ -309,8 +295,7 @@
                     <td>
                         {% for seance in seances %}
                             {% if ( seance.debut|date('H:i') == '12:00' and seance.debut|date('l') == 'Thursday' ) %}
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
-                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <a href="{{ path('seance_show', {'id': seance.id}) }}"><span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span></a>                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
                                 <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
                             {% endif %}
                         {% endfor %}
@@ -318,8 +303,7 @@
                     <td>
                         {% for seance in seances %}
                             {% if ( seance.debut|date('H:i') == '12:00' and seance.debut|date('l') == 'Friday' ) %}
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
-                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <a href="{{ path('seance_show', {'id': seance.id}) }}"><span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span></a>                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
                                 <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
                             {% endif %}
                         {% endfor %}
@@ -327,8 +311,7 @@
                     <td>
                         {% for seance in seances %}
                             {% if ( seance.debut|date('H:i') == '12:00' and seance.debut|date('l') == 'Saturday' ) %}
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
-                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <a href="{{ path('seance_show', {'id': seance.id}) }}"><span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span></a>                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
                                 <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
                             {% endif %}
                         {% endfor %}
@@ -339,8 +322,7 @@
                     <td>
                         {% for seance in seances %}
                             {% if ( seance.debut|date('H:i') == '14:00' and seance.debut|date('l') == 'Monday' ) %}
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
-                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <a href="{{ path('seance_show', {'id': seance.id}) }}"><span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span></a>                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
                                 <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
                             {% endif %}
                         {% endfor %}
@@ -350,8 +332,7 @@
                     <td>
                         {% for seance in seances %}
                             {% if ( seance.debut|date('H:i') == '14:00' and seance.debut|date('l') == 'Tuesday' ) %}
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
-                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <a href="{{ path('seance_show', {'id': seance.id}) }}"><span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span></a>                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
                                 <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
                             {% endif %}
                         {% endfor %}
@@ -360,8 +341,7 @@
                     <td>
                         {% for seance in seances %}
                             {% if ( seance.debut|date('H:i') == '14:00' and seance.debut|date('l') == 'Wednesday' ) %}
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
-                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <a href="{{ path('seance_show', {'id': seance.id}) }}"><span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span></a>                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
                                 <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
                             {% endif %}
                         {% endfor %}
@@ -369,8 +349,7 @@
                     <td>
                         {% for seance in seances %}
                             {% if ( seance.debut|date('H:i') == '14:00' and seance.debut|date('l') == 'Thursday' ) %}
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
-                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <a href="{{ path('seance_show', {'id': seance.id}) }}"><span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span></a>                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
                                 <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
                             {% endif %}
                         {% endfor %}
@@ -378,8 +357,7 @@
                     <td>
                         {% for seance in seances %}
                             {% if ( seance.debut|date('H:i') == '14:00' and seance.debut|date('l') == 'Friday' ) %}
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
-                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <a href="{{ path('seance_show', {'id': seance.id}) }}"><span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span></a>                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
                                 <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
                             {% endif %}
                         {% endfor %}
@@ -387,8 +365,7 @@
                     <td>
                         {% for seance in seances %}
                             {% if ( seance.debut|date('H:i') == '14:00' and seance.debut|date('l') == 'Saturday' ) %}
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
-                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <a href="{{ path('seance_show', {'id': seance.id}) }}"><span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span></a>                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
                                 <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
                             {% endif %}
                         {% endfor %}
@@ -399,8 +376,7 @@
                     <td>
                         {% for seance in seances %}
                             {% if ( seance.debut|date('H:i') == '16:00' and seance.debut|date('l') == 'Monday' ) %}
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
-                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <a href="{{ path('seance_show', {'id': seance.id}) }}"><span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span></a>                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
                                 <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
                             {% endif %}
                         {% endfor %}
@@ -410,8 +386,7 @@
                     <td>
                         {% for seance in seances %}
                             {% if ( seance.debut|date('H:i') == '16:00' and seance.debut|date('l') == 'Tuesday' ) %}
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
-                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <a href="{{ path('seance_show', {'id': seance.id}) }}"><span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span></a>                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
                                 <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
                             {% endif %}
                         {% endfor %}
@@ -420,8 +395,7 @@
                     <td>
                         {% for seance in seances %}
                             {% if ( seance.debut|date('H:i') == '16:00' and seance.debut|date('l') == 'Wednesday' ) %}
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
-                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <a href="{{ path('seance_show', {'id': seance.id}) }}"><span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span></a>                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
                                 <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
                             {% endif %}
                         {% endfor %}
@@ -429,8 +403,7 @@
                     <td>
                         {% for seance in seances %}
                             {% if ( seance.debut|date('H:i') == '16:00' and seance.debut|date('l') == 'Thursday' ) %}
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
-                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <a href="{{ path('seance_show', {'id': seance.id}) }}"><span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span></a>                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
                                 <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
                             {% endif %}
                         {% endfor %}
@@ -438,8 +411,7 @@
                     <td>
                         {% for seance in seances %}
                             {% if ( seance.debut|date('H:i') == '16:00' and seance.debut|date('l') == 'Friday' ) %}
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
-                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <a href="{{ path('seance_show', {'id': seance.id}) }}"><span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span></a>                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
                                 <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
                             {% endif %}
                         {% endfor %}
@@ -447,8 +419,7 @@
                     <td>
                         {% for seance in seances %}
                             {% if ( seance.debut|date('H:i') == '16:00' and seance.debut|date('l') == 'Saturday' ) %}
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span>
-                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
+                                <a href="{{ path('seance_show', {'id': seance.id}) }}"><span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13"> {{ seance.profs.matiere|upper }}</span></a>                                <div class="margin-10px-top font-size14"> {{ seance.profs.fullName }}</div>
                                 <div class="font-size13 text-light-gray">Salle {{ seance.salle }}</div>
                             {% endif %}
                         {% endfor %}

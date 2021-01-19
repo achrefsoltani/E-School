@@ -3,7 +3,7 @@
 {% block title %}Seance{% endblock %}
 
 {% block body %}
-    <h1>Seance</h1>
+    <h1>Seance de la classe {{ seance.classe }}</h1>
 
     <table class="table">
         <tbody>
@@ -18,6 +18,16 @@
             <tr>
                 <th>Fin</th>
                 <td>{{ seance.fin ? seance.fin|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+
+            <tr>
+                <th>Prof</th>
+                <td>{{ seance.profs }}</td>
+            </tr>
+
+            <tr>
+                <th>Salle</th>
+                <td>{{ seance.salle }}</td>
             </tr>
         </tbody>
     </table>
