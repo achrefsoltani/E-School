@@ -75,6 +75,7 @@ class AppFixtures extends Fixture
                 }else{
                     $user->setRoles(['ROLE_ADMIN']);
                 }
+                $user->setEmail($personne->getEmail());
                 $personne->setUser($user);
                 $manager->persist($user);
                 $manager->persist($personne);

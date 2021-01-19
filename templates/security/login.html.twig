@@ -23,6 +23,8 @@
     <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}"
     >
+    <li class="nav-item"><a class="nav-link" href="{{ path('app_forgot_password_request') }}"><i class="fas fa-user"></i><span>mot de passe oubliee
+            </span></a></li>
 
     {#
         Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
