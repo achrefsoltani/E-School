@@ -48,12 +48,12 @@ class Seance
     private $salle;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Personne::class, inversedBy="seances")
+     * @ORM\ManyToOne(targetEntity=Personne::class, inversedBy="seances", cascade={"persist"})
      */
     private $enseignant;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Personne::class, inversedBy="seances")
+     * @ORM\ManyToOne(targetEntity=Personne::class, inversedBy="seances", cascade={"persist"})
      */
     private $profs;
 

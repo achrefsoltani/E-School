@@ -102,7 +102,7 @@ class Personne
     private $niveau;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Matiere::class, inversedBy="enseignants")
+     * @ORM\ManyToMany(targetEntity=Matiere::class, inversedBy="enseignants", cascade={"persist"})
      */
     private $matieres;
 
@@ -117,7 +117,7 @@ class Personne
     private $demandes;
 
     /**
-     * @ORM\OneToMany(targetEntity=Seance::class, mappedBy="profs")
+     * @ORM\OneToMany(targetEntity=Seance::class, mappedBy="profs", cascade={"persist"})
      */
     private $seances;
 
@@ -503,6 +503,17 @@ class Personne
 
         return $this;
     }
-
+    public function nomRole()
+    {
+        $str = $this->getNom() . " " . $this->getPrenom();
+        if ($this->getRole() == 'enseignant'){
+            $str = $str . " [ ";
+            foreach ($this->getMatieres() as $mat){
+                $str = $str . $mat->getNom() . " ";
+            }
+            $str = $str . "]";
+        }
+        return  $str;
+    }
 
 }

@@ -32,7 +32,7 @@ class SeanceController extends AbstractController
     public function new(Request $request, int $id, ClasseRepository $classeRepository): Response
     {
         $seance = new Seance();
-        $form = $this->createForm(SeanceType::class, $seance);
+        $form = $this->createForm(SeanceType::class, $seance,array('id'=>$id, 'repo'=>$classeRepository));
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -40,8 +40,11 @@ class SeanceController extends AbstractController
             $seance->setClasse($classe);
             $debut = clone $seance->getDebut();
             $seance->setFin($debut->modify('+2 hours'));
+
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($seance);
+
             $entityManager->flush();
 
             return $this->redirectToRoute('emploi',$parameters = ['id'=> $classe->getId()]);
