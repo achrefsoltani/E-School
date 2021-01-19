@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Seance;
 use App\Form\SeanceType;
+use App\Repository\ClasseRepository;
 use App\Repository\SeanceRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,20 +27,24 @@ class SeanceController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="seance_new", methods={"GET","POST"})
+     * @Route("/new/{id}", name="seance_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, int $id, ClasseRepository $classeRepository): Response
     {
         $seance = new Seance();
         $form = $this->createForm(SeanceType::class, $seance);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $classe = $classeRepository->find($id);
+            $seance->setClasse($classe);
+            $debut = clone $seance->getDebut();
+            $seance->setFin($debut->modify('+2 hours'));
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($seance);
             $entityManager->flush();
 
-            return $this->redirectToRoute('seance_index');
+            return $this->redirectToRoute('emploi',$parameters = ['id'=> $classe->getId()]);
         }
 
         return $this->render('seance/new.html.twig', [

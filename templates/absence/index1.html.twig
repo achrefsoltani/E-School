@@ -18,10 +18,10 @@
         {% for absence in absences %}
             <tr>
                 <td>{{ absence.id }}</td>
-                <td>{{ absence.enseignant.nom }}</td>
-                <td>{{ absence.enseignant.prenom }}</td>
+                <td>{{ absence.profs.nom }}</td>
+                <td>{{ absence.profs.prenom }}</td>
                 <td>
-                    <a href="{{ path('absence_new', {'idP':absence.enseignant.id,'idS': absence.id }) }}">Marquer l'absence</a>
+                    <a href="{{ path('absence_new', {'idP':absence.profs.id,'idS': absence.id }) }}">Marquer l'absence</a>
 
                 </td>
             </tr>
