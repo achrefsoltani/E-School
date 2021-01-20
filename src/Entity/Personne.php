@@ -111,6 +111,11 @@ class Personne
      */
     private $user;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Contacte::class, mappedBy="personne")
+     */
+    private $contactes;
+
     public function __construct()
     {
         $this->classe = new ArrayCollection();
@@ -118,6 +123,7 @@ class Personne
         $this->notes = new ArrayCollection();
         $this->matieres = new ArrayCollection();
         $this->demandes = new ArrayCollection();
+        $this->contactes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -443,6 +449,36 @@ class Personne
         $newPersonne = null === $user ? null : $this;
         if ($user->getPersonne() !== $newPersonne) {
             $user->setPersonne($newPersonne);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Contacte[]
+     */
+    public function getContactes(): Collection
+    {
+        return $this->contactes;
+    }
+
+    public function addContacte(Contacte $contacte): self
+    {
+        if (!$this->contactes->contains($contacte)) {
+            $this->contactes[] = $contacte;
+            $contacte->setPersonne($this);
+        }
+
+        return $this;
+    }
+
+    public function removeContacte(Contacte $contacte): self
+    {
+        if ($this->contactes->removeElement($contacte)) {
+            // set the owning side to null (unless already changed)
+            if ($contacte->getPersonne() === $this) {
+                $contacte->setPersonne(null);
+            }
         }
 
         return $this;
