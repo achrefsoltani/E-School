@@ -92,7 +92,7 @@ class Personne
     private $niveau;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Matiere::class, inversedBy="enseignants")
+     * @ORM\ManyToMany(targetEntity=Matiere::class, inversedBy="enseignants",cascade={"persist"})
      */
     private $matieres;
 

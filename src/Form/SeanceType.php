@@ -25,7 +25,7 @@ class SeanceType extends AbstractType
         $choices = [];
         foreach ($enseignants as $enseignant){
 
-            array_push($choices,[$enseignant->nomRole() =>$enseignant]);
+            array_push($choices,[''.$enseignant =>$enseignant]);
         };
 
         $builder
