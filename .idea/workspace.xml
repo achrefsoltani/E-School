@@ -5,37 +5,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="889652ea-e43b-4a7b-a717-b2eee9ecbf8b" name="Default Changelist" comment="absence enseignant">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_01_2021_12_23_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_01_2021_12_23_AM__Default_Changelist_.xml" afterDir="false" />
+    <list default="true" id="889652ea-e43b-4a7b-a717-b2eee9ecbf8b" name="Default Changelist" comment="bug fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201117190641.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201117195647.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201118132118.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201118142430.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201118184050.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201118200552.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201120091836.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201121191417.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201121194024.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201121211139.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201122120252.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201122130239.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201122132051.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201122223317.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201122230527.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201129104703.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201129121526.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201214205757.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201214210616.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201230002019.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210102155401.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210102163355.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210102200700.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210102201525.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210119000114.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210119001457.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/SeanceType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SeanceType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/emploi/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/emploi/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/emploi/indexEn.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/emploi/indexEn.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,6 +176,14 @@
       <workItem from="1608649384562" duration="10333000" />
       <workItem from="1608909103102" duration="7444000" />
     </task>
+    <task id="LOCAL-00001" summary="bug fix">
+      <created>1611164880193</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1611164880193</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,6 +200,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fix" />
   </component>
   <component name="WindowStateProjectService">
     <state x="395" y="90" key="#Inspections" timestamp="1608652893661">
@@ -259,10 +244,10 @@
       <screen x="0" y="0" width="1600" height="870" />
     </state>
     <state x="301" y="78" key="SettingsEditor/0.0.1600.870@0.0.1600.870" timestamp="1605546468779" />
-    <state x="392" y="167" key="Vcs.Push.Dialog.v2" timestamp="1605724509748">
+    <state x="392" y="167" key="Vcs.Push.Dialog.v2" timestamp="1611164881959">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state x="392" y="167" key="Vcs.Push.Dialog.v2/0.0.1600.870@0.0.1600.870" timestamp="1605724509748" />
+    <state x="392" y="167" key="Vcs.Push.Dialog.v2/0.0.1600.870@0.0.1600.870" timestamp="1611164881959" />
     <state x="94" y="14" width="581" height="801" key="find.popup" timestamp="1606166126127">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
