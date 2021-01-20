@@ -100,7 +100,7 @@ class AutoAuthenticator extends AbstractFormLoginAuthenticator implements Passwo
 
         // For example : return new RedirectResponse($this->urlGenerator->generate('some_route'));
 
-        return new RedirectResponse($this->urlGenerator->generate('profile'));
+        return new RedirectResponse($this->urlGenerator->generate('news_home'));
         //throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 

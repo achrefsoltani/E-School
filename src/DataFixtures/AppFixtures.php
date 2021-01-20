@@ -69,9 +69,9 @@ class AppFixtures extends Fixture
                 if ($personne->getRole() == 'eleve'){
                     $user->setRoles(['ROLE_USER']);
                 }else if ($personne->getRole() == 'parent'){
-                    $user->setRoles(['ROLE_USER']);
+                    $user->setRoles(['ROLE_Parent']);
                 }else if($personne->getRole() == 'enseignant'){
-                    $user->setRoles(['ROLE_USER']);
+                    $user->setRoles(['ROLE_enseignant']);
                 }else{
                     $user->setRoles(['ROLE_ADMIN']);
                 }

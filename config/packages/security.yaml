@@ -37,4 +37,6 @@ security:
     access_control:
         # - { path: ^/list, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
+        # - { path: ^/profile, roles: ROLE_Parent }
+        # - { path: ^/profile, roles: ROLE_enseignant }
        # - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
