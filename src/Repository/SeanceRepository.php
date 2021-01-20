@@ -47,4 +47,12 @@ class SeanceRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findSeancesByProf(int $id)
+    {
+        return $this->createQueryBuilder('s')
+            ->where("s.profs = :i")
+            ->setParameter('i', $id);
+
+    }
 }
