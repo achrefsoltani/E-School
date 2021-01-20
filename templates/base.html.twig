@@ -28,10 +28,14 @@
             <hr class="sidebar-divider my-0">
             <ul class="nav navbar-nav text-light" id="accordionSidebar">
                 <li class="nav-item"><a class="nav-link active" href="/news"><i class="fas fa-tachometer-alt"></i><span>Acceuil</span></a></li>
+                {% if is_granted('ROLE_ADMIN') %}
                 <li class="nav-item"><a class="nav-link" href="/list/admin"><i class="fas fa-user"></i><span>Les Administrateurs </span></a></li>
                 <li class="nav-item"><a class="nav-link" href="/list/enseignant"><i class="fas fa-user"></i><span>Les Enseignants </span></a></li>
                 <li class="nav-item"><a class="nav-link" href="/list/eleve"><i class="fas fa-user"></i><span> Les Eleves </span></a></li>
                 <li class="nav-item"><a class="nav-link" href="/list/parent"><i class="fas fa-user"></i><span> Les Parents </span></a></li>
+                {% endif %}
+                <li class="nav-item"><a class="nav-link" href="/{{ path('app_login') }}"><i class="fas fa-table"></i><span>Login </span></a></li>
+                <li class="nav-item"><a class="nav-link" href="/{{ path('app_logout') }}"><i class="fas fa-table"></i><span>Logout </span></a></li>
                 <li class="nav-item"><a class="nav-link" href="/classe/"><i class="fas fa-table"></i><span>Les Classes </span></a></li>
                 <li class="nav-item"><a class="nav-link" href="/salle/"><i class="fas fa-table"></i><span>Les Salles </span></a></li>
                 <li class="nav-item"><a class="nav-link" href="/matiere/"><i class="fas fa-table"></i><span>Les Matieres </span></a></li>
