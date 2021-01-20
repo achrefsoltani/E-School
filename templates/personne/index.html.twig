@@ -55,10 +55,11 @@
                     <a href="{{ path('personne_edit', {'id': personne.id}) }}">Modifier</a>
                     <a href="{{ path('personne_absence', {'id': personne.id}) }}">liste des absences</a>
                     {%  if (personne.role == 'parent') %}
-
-                    <a href="{{ path('demandeliste', {'id': personne.id}) }}">Liste des demande</a>
-
-                {% endif %}
+                        <a href="{{ path('demandeliste', {'id': personne.id}) }}">Liste des demande</a>
+                    {% endif %}
+                    {%  if (personne.role == 'enseignant') %}
+                        <a href="{{ path('emploi_en', {'id': personne.id}) }}">emploi</a>
+                    {% endif %}
                 </td>
                 {%  if (personne.role == 'enseignant') %}
                     <td>

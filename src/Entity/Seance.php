@@ -48,9 +48,14 @@ class Seance
     private $salle;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Personne::class, inversedBy="seances")
+     * @ORM\ManyToOne(targetEntity=Personne::class, inversedBy="seances", cascade={"persist"})
      */
     private $enseignant;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Personne::class, inversedBy="seances", cascade={"persist"})
+     */
+    private $profs;
 
     public function __construct()
     {
@@ -148,6 +153,18 @@ class Seance
     public function setEnseignant(?Personne $enseignant): self
     {
         $this->enseignant = $enseignant;
+
+        return $this;
+    }
+
+    public function getProfs(): ?Personne
+    {
+        return $this->profs;
+    }
+
+    public function setProfs(?Personne $profs): self
+    {
+        $this->profs = $profs;
 
         return $this;
     }

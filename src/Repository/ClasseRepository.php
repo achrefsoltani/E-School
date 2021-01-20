@@ -47,4 +47,12 @@ class ClasseRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function ProfsClasse(int $id)
+    {
+        return $this->createQueryBuilder('classe')
+            ->select('classe.enseignants')
+            ->where("classe.id = :i")
+            ->setParameter('i', $id);
+    }
 }
