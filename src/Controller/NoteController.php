@@ -33,6 +33,7 @@ class NoteController extends AbstractController
         $repository = $this->getDoctrine()->getRepository(Personne::class);
         $enseignant = $repository->find($id);
         $classe = $enseignant->getClasse();
+
         return $this->render('personne/listeClasse.html.twig', ['classes' => $classe]);
 
     }
