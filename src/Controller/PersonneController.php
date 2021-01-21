@@ -53,7 +53,7 @@ class PersonneController extends AbstractController
         ]);
     }
     /**
-     * @Route("/show1/{id}", name="personne_absence", methods={"GET"})
+     * @Route("/abshow/{id}", name="personne_absence", methods={"GET"})
      */
     public function showAb(Personne $personne): Response
     {
