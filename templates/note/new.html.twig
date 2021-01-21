@@ -1,11 +1,14 @@
-{% extends 'base.html.twig' %}
+{% extends 'form.html.twig' %}
 
 {% block title %}New Note{% endblock %}
 
 {% block body %}
-    <h1>Create new Note</h1>
+    <span class="contact100-form-title">
+				<h1 class="text-secondary">	Ajouter une note</h1>
+				</span>
 
     {{ include('note/_form.html.twig') }}
+    <a href="{{ path('eleveliste', {'id': classe.id}) }}"> <button class="btn btn-secondary">{{ button_label|default('Retour a la liste') }}</button></a>
+    <a href="{{ path('news_home') }}">  <button type="button" class="btn btn-secondary" >Accueil</button> </a>
 
-    <a href="{{ path('eleveliste', {'id': classe.id}) }}">back to list</a>
 {% endblock %}
