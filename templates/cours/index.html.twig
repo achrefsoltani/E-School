@@ -4,26 +4,34 @@
 
 {% block body %}
     <h1>liste des support des cours</h1>
+    {% if is_granted('ROLE_enseignant') %}
     <a type="button" class="btn btn-primary" href="{{ path('cours_new') }}">Ajouter un nouveau support de cours </a>
-
+    {% endif %}
     <table class="table">
         <thead>
             <tr>
+                {% if is_granted('ROLE_enseignant') %}
                 <th>Id</th>
-                <th>Nom</th>
                 <th>Contenu</th>
+                {% endif %}
+                <th>Nom</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for cour in cours %}
             <tr>
+                {% if is_granted('ROLE_enseignant') %}
                 <td>{{ cour.id }}</td>
+                    <td>{{ cour.contenu }}</td>
+                {% endif %}
                 <td>{{ cour.Nom }}</td>
-                <td>{{ cour.contenu }}</td>
+
                 <td>
+                    {% if is_granted('ROLE_enseignant') %}
                     <a href="{{ path('cours_show', {'id': cour.id}) }}">details</a>
                     <a href="{{ path('cours_edit', {'id': cour.id}) }}">modifier</a>
+                    {%endif%}
                     <a href="{{ asset( cour.contenu)}}" class="btn btn-success">voir cour</a>
                 </td>
             </tr>
