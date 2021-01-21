@@ -42,7 +42,7 @@ class AbsenceEtudiantController extends AbstractController
                 ]
             );
          }
-        return $this->render('absence_etudiant/search.html.twig', [
+        return $this->render('absence_etudiant/search.html.twig',[
 
             'form' => $form->createView(),
         ]);

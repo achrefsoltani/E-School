@@ -43,8 +43,6 @@
                     <li class="nav-item"><a class="nav-link" href="{{ path('comfirm') }}"><i class="fas fa-table"></i><span>Confirmer les comptes</span></a></li>
                 {% endif %}
 
-                <li class="nav-item"><a class="nav-link" href="{{ path('app_login') }}"><i class="fas fa-table"></i><span>Login </span></a></li>
-
                 {% if is_granted('ROLE_enseignant') %}
                 <li class="nav-item"><a class="nav-link" href="/cours/"><i class="fas fa-table"></i><span>cours</span></a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ path('personne_absence', {'id': app.user.personne.id}) }}/"><i class="fas fa-table"></i><span>mes absences</span></a></li>
@@ -58,7 +56,6 @@
                 {% endif %}
 
                 {% if is_granted('ROLE_eleve') %}
-                    <li class="nav-item"><a class="nav-link" href="{{ path('existance_absence', {'id': app.user.personne.id}) }}/"><i class="fas fa-table"></i><span>mes absences</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ path('emploi', {'id': app.user.personne.id}) }}/"><i class="fas fa-table"></i><span>mon emplois du temps</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ path('note_show', {'id': app.user.personne.id}) }}"><i class="fas fa-table"></i><span>mes notes</span></a></li>
                 {% endif %}
