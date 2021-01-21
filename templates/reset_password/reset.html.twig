@@ -1,12 +1,11 @@
-{% extends 'base.html.twig' %}
+{% extends 'mdp.html.twig' %}
 
-{% block title %}Reset your password{% endblock %}
-
+{% block title %}réinitialisez votre mot de passe{% endblock %}
+{% block consigne %} entrer votre nouveau mot de passe{% endblock %}
 {% block body %}
-    <h1>Reset your password</h1>
 
     {{ form_start(resetForm) }}
         {{ form_row(resetForm.plainPassword) }}
-        <button class="btn btn-primary">Reset password</button>
+        <button class="btn btn-primary btn-block text-white btn-user">Entrer</button>
     {{ form_end(resetForm) }}
 {% endblock %}
