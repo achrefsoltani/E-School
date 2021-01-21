@@ -14,10 +14,8 @@ Home
                 alt="..."
         />
         <div class="card-body">
-            <h5 class="card-title">{{ news.titre }}</h5>
-            <p class="card-text">
-                {{ news.description}}
-            </p>
+            <h5 class="card-title" ><b >{{ news.titre|upper }}</b></h5>
+
             <a href="{{ path('news_show', {'id': news.id}) }}" class="btn btn-primary">Détails</a>
         </div>
     </div>
@@ -28,7 +26,9 @@ Home
 
 </div>
 <br>
-    <p style="text-align: center"><a href="{{ path('news_index') }}" class="btn btn-primary">Gestion Acceuil</a></p>
+    {% if is_granted('ROLE_ADMIN') %}
+    <p style="text-align: center"><a href="{{ path('news_index') }}" class="btn btn-primary">Gestion des Actualités</a></p>
+    {% endif %}
 {% endblock %}
 
 
