@@ -32,7 +32,7 @@ class CompteController extends AbstractController
             $entityManager->persist($personne);
             $entityManager->flush();
 
-            return $this->redirectToRoute('compte');
+            return $this->redirectToRoute('app_login');
         }
 
         return $this->render('personne/newcompte.html.twig', [

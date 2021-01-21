@@ -1,11 +1,13 @@
-{% extends 'base.html.twig' %}
+{% extends 'form.html.twig' %}
 
-{% block title %}New Salle{% endblock %}
+{% block title %} Nouvelle Salle {% endblock %}
 
 {% block body %}
-    <h1>Create new Salle</h1>
 
+    <span class="contact100-form-title">
+					créer une salle
+				</span>
     {{ include('salle/_form.html.twig') }}
+    <a href="{{ path('news_home') }}">  <button type="button" class="btn btn-secondary" >Accueil</button> </a>
 
-    <a href="{{ path('salle_index') }}">back to list</a>
 {% endblock %}
