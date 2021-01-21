@@ -77,4 +77,15 @@ class PersonneRepository extends ServiceEntityRepository
             ->orderBy('personne.nom', 'ASC');
             //->setParameter('i', $seance);
     }
+    public function getPersonnesBycinAndRole(int $num):array {
+
+            $qb = $this->createQueryBuilder('p')
+                ->where("p.cin = :num and p.role='eleve'")
+                ->setParameter('num', $num)
+                ->orderBy('p.nom', 'ASC');
+            $query = $qb->getQuery();
+
+        return $query->execute();
+
+    }
 }

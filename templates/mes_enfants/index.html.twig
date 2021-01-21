@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MesEnfantsController!{% endblock %}
+
+{% block body %}
+<table class="table">
+    <thead>
+    <tr>
+        <th>nom</th>
+        <th>prenom</th>
+        <th>classe</th>
+        <th>absence</th>
+        <th>note</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for personne in personnes %}
+            <tr>
+            <td>{{ personne.nom }}</td>
+            <td>{{ personne.prenom }}</td>
+            <td>{{ personne.niveau }}</td>
+                <td> <a href="{{ path('consulter_absence', {'id': personne.id}) }}/">voir</a>
+                <br> <a href="{{ path('modifier_absence', {'id': personne.id}) }}">justifier</a>
+                </td>
+                <td> <a href="{{ path('note_show', {'id': personne.id}) }}">voir</a></td>
+            </tr>
+        {% endfor %}
+    <tbody>
+    </tbody>
+</table>
+{% endblock %}
