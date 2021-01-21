@@ -15,20 +15,17 @@
             <th>Nom</th>
             <td>{{ classe.nom }}</td>
         </tr>
-        <tr>
-            <th>Nombre des eleves</th>
-            <td>{{ classe.nbEleve }}</td>
-        </tr>
+
         <tr>
             <th>Capacite</th>
-            <td>{{ classe.capacite }}</td>
+            <td>{{ classe.nbEleve }}/{{ classe.capacite }}</td>
         </tr>
         <tr>
             <th>Niveau</th>
             <td>{{ classe.niveau }}</td>
         </tr>
         <tr>
-            <th>Les eleves</th>
+            <th>Les Elèves</th>
             <td>
                 <ol>
                     {% for eleve in eleves %}
@@ -41,11 +38,11 @@
         </tr>
 
         <tr>
-            <th>Les Matieres</th>
+            <th>Les Enseignants</th>
             <td>
                 <ul>
                     {% for matiere in classe.listMatieres %}
-                        <li> {{ matiere }} :
+                        <li> {{ matiere|upper }} :
                             {% for enseignant in enseignants %}
                                 {% for mat in enseignant.listMatieres %}
                                     {% if (mat.nom == matiere) %}

@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Salle{% endblock %}
+{% block title %}Salle {{ salle.numero }}{% endblock %}
 
 {% block body %}
-    <h1>Salle</h1>
+    <h1>Salle {{ salle.numero }}</h1>
 
     <table class="table">
         <tbody>
@@ -11,26 +11,16 @@
                 <th>Id</th>
                 <td>{{ salle.id }}</td>
             </tr>
-            <tr>
-                <th>Numero</th>
-                <td>{{ salle.numero }}</td>
-            </tr>
+
             <tr>
                 <th>Capacite</th>
                 <td>{{ salle.capacite }}</td>
             </tr>
             <tr>
-                <th>Caracteristique</th>
+                <th>Caracteristiques</th>
                 <td>{{ salle.caracteristique }}</td>
             </tr>
-            <tr>
-                <th>Created</th>
-                <td>{{ salle.created ? salle.created|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Updated</th>
-                <td>{{ salle.updated ? salle.updated|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
+
         </tbody>
     </table>
 

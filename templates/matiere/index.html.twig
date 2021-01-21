@@ -18,7 +18,7 @@
         {% for matiere in matieres %}
             <tr>
                 <td>{{ matiere.id }}</td>
-                <td>{{ matiere.nom }}</td>
+                <td>{{ matiere.nom|upper }}</td>
                 <td>{{ matiere.coefficient }}</td>
                 <td>
                     <a href="{{ path('matiere_show', {'id': matiere.id}) }}">Détails</a>

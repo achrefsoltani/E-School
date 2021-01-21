@@ -3,7 +3,7 @@
 {% block title %}Liste des {{ role }}s{% endblock %}
 
 {% block body %}
-    <h1>Liste des {{ role }}s</h1>
+    <h1>LISTE DES {{ role|upper }}S</h1>
     <div style="text-align: right"><a href="/list/new/{{ role }}">Ajouter</a></div>
     <table class="table">
         <thead>
@@ -18,12 +18,10 @@
                 <th>Email</th>
                 <th>Num_tel</th>
                 {%  if (role == 'enseignant') %}
-                <th>Matieres</th>
+                <th>Matiere</th>
                 {% endif %}
                 <th>actions</th>
-                {%  if (role == 'enseignant') %}
-                    <th>Classe</th>
-                {% endif %}
+
 
             </tr>
         </thead>
@@ -34,7 +32,7 @@
                 <td>{{ personne.nom }}</td>
                 <td>{{ personne.prenom }}</td>
                 {%  if (personne.role == 'eleve') %}
-                <td>{{ personne.dateNaissance ? personne.dateNaissance|date('Y-m-d') : '' }}</td>
+                <td>{{ personne.dateNaissance ? personne.dateNaissance|date('d-m-Y') : '' }}</td>
                 <td>{{ personne.lieuNaissance }}</td>
                 {% endif %}
                 <td>{{ personne.email }}</td>
@@ -43,7 +41,7 @@
                 {%  if (personne.role == 'enseignant') %}
                 <td>{% for matiere in personne.matieres %}
                         <ul style="list-style-type:none;">
-                            <li>{{ matiere }}</li>
+                            <li>{{ matiere|upper }}</li>
                         </ul>
                     {% endfor %}
                 </td>
@@ -53,24 +51,9 @@
                 <td>
                     <a href='{{ path('personne_show',{'id': personne.id}) }}'>Details</a>
                     <a href="{{ path('personne_edit', {'id': personne.id}) }}">Modifier</a>
-                    <a href="{{ path('personne_absence', {'id': personne.id}) }}">liste des absences</a>
-                    {%  if (personne.role == 'parent') %}
-                        <a href="{{ path('demandeliste', {'id': personne.id}) }}">Liste des demande</a>
-                    {% endif %}
-                    {%  if (personne.role == 'enseignant') %}
-                        <a href="{{ path('emploi_en', {'id': personne.id}) }}">emploi</a>
-                    {% endif %}
+
                 </td>
-                {%  if (personne.role == 'enseignant') %}
-                    <td>
-                        <a href="{{ path('classeliste', {'id': personne.id}) }}">Liste des classe</a>
-                    </td>
-                {% endif %}
-                {%  if (personne.role == 'eleve') %}
-                    <td>
-                        <a href="{{ path('note_show', {'id': personne.id}) }}">Liste des note</a>
-                    </td>
-                {% endif %}
+
             </tr>
         {% else %}
             <tr>

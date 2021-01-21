@@ -5,11 +5,16 @@
 {% block body %}
     <h1>{{ personne.nom }} {{ personne.prenom }}</h1>
 
+
     <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
                 <td>{{ personne.id }}</td>
+            </tr>
+            <tr>
+                <th>Role</th>
+                <td>{{ personne.role|upper }}</td>
             </tr>
             <tr>
                 <th>Nom</th>
@@ -21,14 +26,14 @@
             </tr>
             <tr>
                 <th>Sexe</th>
-                <td>{{ personne.sexe }}</td>
+                <td>{{ personne.sexe|upper }}</td>
             </tr>
             {%  if (personne.role == 'enseignant') %}
             <tr>
                 <th>Matieres</th>
                 <td>{% for matiere in personne.matieres %}
                         <ul>
-                        <li>{{ matiere }}</li>
+                        <li>{{ matiere|upper }}</li>
                         </ul>
                     {% endfor %}</td>
             </tr>
@@ -49,7 +54,7 @@
             {% endif %}
             <tr>
                 <th>Date_naissance</th>
-                <td>{{ personne.dateNaissance ? personne.dateNaissance|date('Y-m-d') : '' }}</td>
+                <td>{{ personne.dateNaissance ? personne.dateNaissance|date('d-m-Y') : '' }}</td>
             </tr>
             <tr>
                 <th>Lieu_naissance</th>
@@ -71,10 +76,7 @@
                 <th>Adresse</th>
                 <td>{{ personne.adresse }}</td>
             </tr>
-            <tr>
-                <th>Role</th>
-                <td>{{ personne.role }}</td>
-            </tr>
+
 
         </tbody>
     </table>
@@ -82,6 +84,31 @@
     <a href="/list/{{ personne.role }}">Retour à la liste</a> <br>
 
     <a href="{{ path('personne_edit', {'id': personne.id}) }}">Modifier</a>
+
+    <br>
+    {%  if (personne.role == 'enseignant') %}
+        <td>
+            <a href="{{ path('classeliste', {'id': personne.id}) }}">Classes</a>
+        </td>
+    {% endif %}
+    {%  if (personne.role == 'eleve') %}
+        <td>
+            <a href="{{ path('note_show', {'id': personne.id}) }}">Notes</a>
+        </td>
+    {% endif %}
+
+<br>
+    {%  if (personne.role == 'parent') %}
+        <a href="{{ path('demandeliste', {'id': personne.id}) }}">Demandes</a>
+        <br>
+    {% endif %}
+    {%  if (personne.role == 'enseignant') %}
+        <a href="{{ path('emploi_en', {'id': personne.id}) }}">Emploi</a>
+    {% endif %}
+
+    {%  if (personne.role == 'parent') or (personne.role == 'eleve') %}
+    <a href="{{ path('personne_absence', {'id': personne.id}) }}">Absences</a>
+    {% endif %}
 
     {{ include('personne/_delete_form.html.twig') }}
 {% endblock %}

@@ -5,6 +5,10 @@ h1 {
     color: #3b5998;
     font-style: italic;
 }
+table, th, td {
+    border: 1px solid #3b5998;
+}
+
 th, td {
     padding: 30px;
     font-weight: bold;
@@ -13,12 +17,14 @@ th, td {
 }
 
 th {
-    background-color: #3b5998;
+    background-color: #477ff6;
     color: white;
 }
 
+
+
 td:first-child{
-    color: #3b5998;
+    color: #00a2a7;
     font-style: italic;
     font-weight: bolder;
 }
