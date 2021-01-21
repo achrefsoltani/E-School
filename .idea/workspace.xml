@@ -7,13 +7,15 @@
   <component name="ChangeListManager">
     <list default="true" id="b56982e7-0fe4-4cdd-98a8-5b41815c6c84" name="Default Changelist" comment="css absence">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contacte/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacte/_delete_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contacte/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacte/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contacte/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacte/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contacte/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacte/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cours/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cours/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cours/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cours/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cours/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cours/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/demande/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/demande/_delete_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/demande/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/demande/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/demande/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/demande/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/demande/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/demande/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/demande/pEdit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/demande/pEdit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/matiere/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/matiere/_delete_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/matiere/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/matiere/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/matiere/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/matiere/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/matiere/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/matiere/new.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,10 +245,10 @@
       <screen x="0" y="0" width="1600" height="870" />
     </state>
     <state x="301" y="78" key="SettingsEditor/0.0.1600.870@0.0.1600.870" timestamp="1605546468779" />
-    <state x="335" y="140" key="Vcs.Push.Dialog.v2" timestamp="1611246678387">
+    <state x="335" y="140" key="Vcs.Push.Dialog.v2" timestamp="1611247284908">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="335" y="140" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1611246678387" />
+    <state x="335" y="140" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1611247284908" />
     <state x="392" y="167" key="Vcs.Push.Dialog.v2/0.0.1600.870@0.0.1600.870" timestamp="1605724509748" />
     <state x="94" y="14" width="581" height="801" key="find.popup" timestamp="1606166126127">
       <screen x="0" y="0" width="1536" height="824" />

@@ -3,11 +3,15 @@
 {% block title %}Edit Demande{% endblock %}
 
 {% block body %}
-    <h1>Edit Demande</h1>
+    <span class="contact100-form-title">
+				<h1 class="text-secondary">	Modifier une demande</h1>
+				</span>
 
     {{ include('demande/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('demandeliste', {'id': demande.personne.id}) }}">back to list</a>
+
+    <a href="{{ path('demandeliste', {'id': demande.personne.id}) }}}"> <button class="btn btn-secondary">{{ button_label|default('Retour a la liste') }}</button></a>
+    <a href="{{ path('news_home') }}">  <button type="button" class="btn btn-secondary" >Accueil</button> </a>
 
     {{ include('demande/_delete_form.html.twig') }}
 {% endblock %}
