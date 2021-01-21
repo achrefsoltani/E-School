@@ -1,9 +1,12 @@
-{% extends 'base.html.twig' %}
+{% extends 'form.html.twig' %}
 
 {% block title %}chercher{% endblock %}
 
 {% block body %}
-    <h1>Choisir la classe</h1>
+    <span class="contact100-form-title">
+				<h1 class="text-secondary">	Choisir un classe </h1>
+				</span>
 
     {{ form(form) }}
+   <a href="{{ path('news_home') }}">  <button type="button" class="btn btn-secondary" >Accueil</button> </a>
 {% endblock %}

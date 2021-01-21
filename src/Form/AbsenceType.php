@@ -16,11 +16,11 @@ class AbsenceType extends AbstractType
             ->add('Justifie')
             ->add('personne')
             ->add('seance')
-            ->add('absent',SubmitType::class , [
-                'attr' => [
-                    'class' => 'btn btn-success'
-                ]
-            ])
+//            ->add('absent',SubmitType::class , [
+//                'attr' => [
+//                    'class' => 'btn btn-success'
+//                ]
+//            ])
         ;
     }
 

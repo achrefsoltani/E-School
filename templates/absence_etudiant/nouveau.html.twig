@@ -9,6 +9,8 @@
     Prenom: {{ absence.personne.prenom}} <br>
     {{ include('absence/_form.html.twig') }}
 
-    <a href="{{ path('absence_etudiant_index') }}">retour</a>
+    <a href="{{ path('absence_etudiant_index') }}"> <button type="button" class="btn btn-secondary" >Retour</button></a>
+    <a href="{{ path('news_home') }}">  <button type="button" class="btn btn-secondary" >Accueil</button> </a>
+
 {% endblock %}
 

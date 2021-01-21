@@ -16,7 +16,7 @@ class AbType extends AbstractType
             ->add('Date',DateTimeType::class)
             ->add('Chercher',SubmitType::class , [
                 'attr' => [
-                    'class' => 'btn btn-success'
+                    'class' => 'btn btn-info'
                 ]
             ])
         ;
