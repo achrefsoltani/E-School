@@ -28,7 +28,12 @@
                              <li> numero de la seance : {{ absence.seance.id }}</li>
                              <li> type de l'absence : {{ absence.justifie }}</li>
                         </ul>
-                    {% endfor %}</td>
+                    {% else %}
+        <tr>
+            <td colspan="16">Liste vide...</td>
+        </tr>
+                    {% endfor %}
+        </td>
             </tr>
 
 

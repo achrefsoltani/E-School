@@ -5,13 +5,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="889652ea-e43b-4a7b-a717-b2eee9ecbf8b" name="Default Changelist" comment="compte create">
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_01_2021_20_18_[Default_Changelist]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_01_2021_20_18__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="889652ea-e43b-4a7b-a717-b2eee9ecbf8b" name="Default Changelist" comment="confirmation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210120182817.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210120182817.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20210120193710.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/personne/showab.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personne/showab.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/new.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +181,16 @@
       <workItem from="1610722708852" duration="444000" />
       <workItem from="1610731541364" duration="2732000" />
       <workItem from="1610889887817" duration="860000" />
+      <workItem from="1611224128591" duration="446000" />
     </task>
+    <task id="LOCAL-00001" summary="confirmation">
+      <created>1611172236402</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1611172236402</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,6 +207,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="confirmation" />
+    <option name="LAST_COMMIT_MESSAGE" value="confirmation" />
   </component>
   <component name="WindowStateProjectService">
     <state x="395" y="90" key="#Inspections" timestamp="1608652893661">
@@ -241,9 +252,10 @@
       <screen x="0" y="0" width="1600" height="870" />
     </state>
     <state x="301" y="78" key="SettingsEditor/0.0.1600.870@0.0.1600.870" timestamp="1605546468779" />
-    <state x="392" y="167" key="Vcs.Push.Dialog.v2" timestamp="1605724509748">
-      <screen x="0" y="0" width="1600" height="870" />
+    <state x="335" y="140" key="Vcs.Push.Dialog.v2" timestamp="1611172239919">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="335" y="140" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1611172239919" />
     <state x="392" y="167" key="Vcs.Push.Dialog.v2/0.0.1600.870@0.0.1600.870" timestamp="1605724509748" />
     <state x="94" y="14" width="581" height="801" key="find.popup" timestamp="1606166126127">
       <screen x="0" y="0" width="1536" height="824" />
