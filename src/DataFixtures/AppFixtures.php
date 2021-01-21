@@ -67,7 +67,7 @@ class AppFixtures extends Fixture
 
                 $user->setPassword($this->passwordEncoder->encodePassword($user,'secret'));
                 if ($personne->getRole() == 'eleve'){
-                    $user->setRoles(['ROLE_USER']);
+                    $user->setRoles(['ROLE_eleve']);
                 }else if ($personne->getRole() == 'parent'){
                     $user->setRoles(['ROLE_Parent']);
                 }else if($personne->getRole() == 'enseignant'){
