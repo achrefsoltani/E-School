@@ -1,13 +1,19 @@
-{% extends 'base.html.twig' %}
+{% extends 'form.html.twig' %}
 
-{% block title %}Edit Absence{% endblock %}
+{% block title %}Modifier l'absence{% endblock %}
 
 {% block body %}
-    <h1>Edit Absence</h1>
 
-    {{ include('absence/_form.html.twig', {'button_label': 'Update'}) }}
+    <span class="contact100-form-title">
+				<h1 class="text-secondary">	Modifier l'absence</h1>
+				</span>
+    <div>  Séance numéro:  {{ absence.seance.id }}  </div>
+    <div> Nom:  {{ absence.personne.nom }}  </div>
+    <div>  Prenom:  {{ absence.personne.prenom }}  </div>
 
-    <a href="{{ path('absence_index1') }}">chercher</a>
+    {{ include('absence/_form.html.twig') }}
 
+    <a href="{{ path('absence_index1') }}"><button class="btn btn-info">{{ button_label|default('Enregistrer') }}</button> </a>
+    <a href="{{ path('news_home') }}">  <button type="button" class="btn btn-secondary" >Accueil</button> </a>
     {{ include('absence/_delete_form.html.twig') }}
 {% endblock %}

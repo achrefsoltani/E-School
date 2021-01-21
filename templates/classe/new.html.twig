@@ -1,11 +1,14 @@
-{% extends 'base.html.twig' %}
+{% extends 'form.html.twig' %}
 
 {% block title %}Création classe{% endblock %}
 
 {% block body %}
-    <h1>Création d'une nouvelle classe</h1>
+    <span class="contact100-form-title">
+				<h1 class="text-secondary">	Ajouter un classe</h1>
+				</span>
 
     {{ include('classe/_form.html.twig') }}
 
-    <a href="{{ path('classe_index') }}">Retour a la liste</a>
+    <a href="{{ path('classe_index') }}"> <button class="btn btn-secondary">{{ button_label|default('Retour a la liste') }}</button></a>
+    <a href="{{ path('news_home') }}">  <button type="button" class="btn btn-secondary" >Accueil</button> </a>
 {% endblock %}

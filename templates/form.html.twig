@@ -34,12 +34,12 @@
     <div class="contact100-map" id="google_map" data-map-x="40.722047" data-map-y="-73.986422" data-pin="images/icons/map-marker.png" data-scrollwhell="0" data-draggable="1"></div>
 
     <div class="wrap-contact100">
-
+        {% block body %}
         <form class="contact100-form validate-form">
 {#            	<span class="contact100-form-title">#}
 {#					Contact Us#}
 {#				</span>#}
-            {% block body %}
+
             <div class="wrap-input100 validate-input" data-validate="Please enter your name">
                 <input class="input100" type="text" name="name" placeholder="Full Name">
                 <span class="focus-input100"></span>
@@ -56,14 +56,14 @@
             </div>
 
 
-            {% endblock %}
+
 {#             <div class="container-contact100-form-btn">#}
 {#                <button class="contact100-form-btn">#}
 {#                    Send Email#}
 {#                </button>#}
 {#            </div>#}
         </form>
-
+        {% endblock %}
         <div class="contact100-more">
 {#            Contact our 24/7 call center: <span class="contact100-more-highlight">+001 345 6889</span>#}
         </div>

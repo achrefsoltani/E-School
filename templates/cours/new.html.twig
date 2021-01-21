@@ -1,11 +1,15 @@
-{% extends 'base.html.twig' %}
+{% extends 'form.html.twig' %}
 
 {% block title %}nouveau cours {% endblock %}
 
 {% block body %}
-    <h1>ajout de support de cours </h1>
+    <span class="contact100-form-title">
+				<h1 class="text-secondary">	Ajouter un support du cours</h1>
+				</span>
 
     {{ include('cours/_form.html.twig') }}
+    <a href="{{ path('cours_index') }}"> <button class="btn btn-secondary">{{ button_label|default('Retour a la liste') }}</button></a>
+    <a href="{{ path('news_home') }}">  <button type="button" class="btn btn-secondary" >Accueil</button> </a>
 
-    <a href="{{ path('cours_index') }}">retour a la liste </a>
+
 {% endblock %}

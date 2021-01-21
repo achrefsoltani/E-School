@@ -26,9 +26,9 @@ class AbsenceetudiantType extends AbstractType
            ])
 
 
-            ->add('Chercher',SubmitType::class , [
+            ->add('Enregistrer',SubmitType::class , [
                 'attr' => [
-                    'class' => 'btn btn-success'
+                    'class' => 'btn btn-info'
                 ]
             ])
         ;

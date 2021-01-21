@@ -1,11 +1,16 @@
-{% extends 'base.html.twig' %}
+{% extends 'form.html.twig' %}
 
-{% block title %}chercher{% endblock %}
+{% block title %}Marquer Absence{% endblock %}
 
 {% block body %}
-    <h1>Choisir date</h1>
+    <span class="contact100-form-title">
+				<h1 class="text-secondary">	Choisir une date</h1>
+				</span>
 
     {{ form(form) }}
-    <a href="{{ path('absence_index') }}">Ajouter absence</a>
-    <a href="{{ path('absence_index1') }}">Modifier absence</a>
+
+    <a href="{{ path('absence_index') }}"><button type="button" class="btn btn-secondary">Ajouter absence</button></a>
+    <a href="{{ path('absence_index1') }}"><button type="button" class="btn btn-secondary">Modifier absence</button></a>
+    <a href="{{ path('news_home') }}">  <button type="button" class="btn btn-secondary" >Accueil</button> </a>
+
 {% endblock %}

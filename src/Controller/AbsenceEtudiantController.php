@@ -79,7 +79,7 @@ class AbsenceEtudiantController extends AbstractController
         ]);
     }
     /**
-     * @Route("/{id}", name="consulter_absence", methods={"GET"})
+     * @Route("/abeleve/{id}", name="consulter_absence", methods={"GET"})
      */
     public function show(Absence $absence): Response
     {
@@ -89,7 +89,7 @@ class AbsenceEtudiantController extends AbstractController
         ]);
     }
     /**
-     * @Route("/{id}/modifier", name="modifier_absence", methods={"GET","POST"})
+     * @Route("/modifier/{id}", name="modifier_absence", methods={"GET","POST"})
      */
     public function edit(Request $request, Absence $absence): Response
     {

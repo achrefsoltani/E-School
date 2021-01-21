@@ -1,11 +1,15 @@
-{% extends 'base.html.twig' %}
+{% extends 'form.html.twig' %}
 
 {% block title %}Ajout {{ role }}{% endblock %}
 
 {% block body %}
-    <h1>Ajout d'un {{ role }}</h1>
 
+    <span class="contact100-form-title">
+				<h1 class="text-secondary">	Ajouter un {{ role }}</h1>
+				</span>
     {{ include('personne/_form.html.twig') }}
+    <a href="/list/{{ personne.role }}"> <button class="btn btn-secondary">{{ button_label|default('Retour a la liste') }}</button></a>
+    <a href="{{ path('news_home') }}">  <button type="button" class="btn btn-secondary" >Accueil</button> </a>
 
-    <a href="/list/{{ personne.role }}">Retour à la liste</a>
+
 {% endblock %}

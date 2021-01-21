@@ -1,11 +1,16 @@
-{% extends 'base.html.twig' %}
+{% extends 'form.html.twig' %}
 
 {% block title %}New Matiere{% endblock %}
 
 {% block body %}
-    <h1>Create new Matiere</h1>
+    <span class="contact100-form-title">
+				<h1 class="text-secondary">	Ajouter une matiére</h1>
+				</span>
 
     {{ include('matiere/_form.html.twig') }}
 
-    <a href="{{ path('matiere_index') }}">back to list</a>
+
+    <a href="{{ path('matiere_index') }}"> <button class="btn btn-secondary">{{ button_label|default('Retour a la liste') }}</button></a>
+    <a href="{{ path('news_home') }}">  <button type="button" class="btn btn-secondary" >Accueil</button> </a>
+
 {% endblock %}

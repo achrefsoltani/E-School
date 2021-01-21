@@ -1,13 +1,16 @@
-{% extends 'base.html.twig' %}
+{% extends 'form.html.twig' %}
 
-{% block title %}New Absence{% endblock %}
+{% block title %}Marquer Absence{% endblock %}
 
 {% block body %}
-    <h1>Create new Absence</h1>
+    <span class="contact100-form-title">
+				<h1 class="text-secondary">	Marquer l'absence</h1>
+				</span>
 Numero de la seance: {{ absence.seance.id }} <br>
 Nom de l'enseignant : {{ absence.personne.nom}} <br>
 Prenom de l'enseignant : {{ absence.personne.prenom}} <br>
     {{ include('absence/_form.html.twig') }}
+    <a href="{{ path('absence_index') }}"><button class="btn btn-info">{{ button_label|default('Enregistrer') }}</button> </a>
+    <a href="{{ path('news_home') }}">  <button type="button" class="btn btn-secondary" >Accueil</button> </a>
 
-    <a href="{{ path('absence_index') }}">chercher</a>
 {% endblock %}

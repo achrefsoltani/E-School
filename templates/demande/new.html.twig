@@ -1,11 +1,15 @@
-{% extends 'base.html.twig' %}
+{% extends 'form.html.twig' %}
 
 {% block title %}New Demande{% endblock %}
 
 {% block body %}
-    <h1>Create new Demande</h1>
+    <span class="contact100-form-title">
+				<h1 class="text-secondary">	Ajouter une demande</h1>
+				</span>
 
     {{ include('demande/_form.html.twig') }}
 
-    <a href="{{ path('demande_index') }}">back to list</a>
+    <a href="{{ path('demande_index') }}"> <button class="btn btn-secondary">{{ button_label|default('Retour a la liste') }}</button></a>
+    <a href="{{ path('news_home') }}">  <button type="button" class="btn btn-secondary" >Accueil</button> </a>
+
 {% endblock %}
