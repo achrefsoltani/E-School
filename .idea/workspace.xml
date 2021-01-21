@@ -5,24 +5,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b56982e7-0fe4-4cdd-98a8-5b41815c6c84" name="Default Changelist" comment="css">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_01_2021_11_35_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_01_2021_11_35_AM__Default_Changelist_.xml" afterDir="false" />
+    <list default="true" id="b56982e7-0fe4-4cdd-98a8-5b41815c6c84" name="Default Changelist" comment="absence modif">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_01_2021_8_57_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_01_2021_8_57_PM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/AbType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/AbType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/AbsenceType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/AbsenceType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/AbsenceetudiantType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/AbsenceetudiantType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/absence/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/absence/_delete_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/absence/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/absence/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/absence/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/absence/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/absence/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/absence/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/absence/search.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/absence/search.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/absence_etudiant/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/absence_etudiant/_delete_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/absence_etudiant/modifier.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/absence_etudiant/modifier.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/absence_etudiant/nouveau.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/absence_etudiant/nouveau.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/absence_etudiant/search.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/absence_etudiant/search.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/salle/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/salle/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/salle/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/salle/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/new.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,19 +146,14 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\LENOVO\Documents\GitHub\E-School\templates" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\LENOVO\Documents\GitHub\E-School\public\css" />
       <recent name="C:\Users\LENOVO\Documents\GitHub\E-School\public" />
-      <recent name="C:\Users\LENOVO\Documents\GitHub\E-School\public\img\avatars" />
       <recent name="C:\Users\Achref\Desktop\E-School Project\E-School\public" />
     </key>
   </component>
@@ -200,14 +181,6 @@
       <workItem from="1610731541364" duration="2732000" />
       <workItem from="1610889887817" duration="860000" />
     </task>
-    <task id="LOCAL-00001" summary="absence modif">
-      <created>1611225126725</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1611225126725</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,10 +197,6 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="absence modif" />
-    <option name="LAST_COMMIT_MESSAGE" value="absence modif" />
   </component>
   <component name="WindowStateProjectService">
     <state x="395" y="90" key="#Inspections" timestamp="1608652893661">
@@ -265,26 +234,13 @@
       <screen x="0" y="0" width="1600" height="870" />
     </state>
     <state x="672" y="331" key="Github.ShareDialog/0.0.1600.870@0.0.1600.870" timestamp="1605640363031" />
-    <state x="129" y="55" key="MergeDialog" timestamp="1611238678653">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="129" y="55" key="MergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1611238678653" />
-    <state x="321" y="125" key="MultipleFileMergeDialog" timestamp="1611238665675">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="321" y="125" key="MultipleFileMergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1611238665675" />
     <state x="301" y="78" key="SettingsEditor" timestamp="1605546468779">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
     <state x="301" y="78" key="SettingsEditor/0.0.1600.870@0.0.1600.870" timestamp="1605546468779" />
-    <state x="470" y="79" key="VCS.ChangeListViewerDialog" timestamp="1611238646234">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="392" y="167" key="Vcs.Push.Dialog.v2" timestamp="1605724509748">
+      <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state x="470" y="79" key="VCS.ChangeListViewerDialog/0.0.1366.728@0.0.1366.728" timestamp="1611238646234" />
-    <state x="335" y="140" key="Vcs.Push.Dialog.v2" timestamp="1611238697825">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="335" y="140" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1611238697825" />
     <state x="392" y="167" key="Vcs.Push.Dialog.v2/0.0.1600.870@0.0.1600.870" timestamp="1605724509748" />
     <state x="94" y="14" width="581" height="801" key="find.popup" timestamp="1606166126127">
       <screen x="0" y="0" width="1536" height="824" />
