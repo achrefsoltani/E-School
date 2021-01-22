@@ -32,7 +32,7 @@ class NoteController extends AbstractController
             $enseignant = new Personne();
         $repository = $this->getDoctrine()->getRepository(Personne::class);
         $enseignant = $repository->find($id);
-
+        dd($enseignant);
         $classe = $enseignant->getClasse()->toArray();
 
 

@@ -9,7 +9,7 @@
         {% endblock %}
     </title>
 
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')  }}">
     <link href="/bootstrap/css/styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="/fonts/fontawesome-all.min.css">
@@ -32,18 +32,17 @@
 
 
                 {% if is_granted('ROLE_ADMIN') %}
-                <li class="nav-item"><a class="nav-link" href="/list/admin"><i class="fas fa-user"></i><span>Les Administrateurs </span></a></li>
-                <li class="nav-item"><a class="nav-link" href="/list/enseignant"><i class="fas fa-user"></i><span>Les Enseignants </span></a></li>
-                <li class="nav-item"><a class="nav-link" href="/list/eleve"><i class="fas fa-user"></i><span> Les Eleves </span></a></li>
-                <li class="nav-item"><a class="nav-link" href="/list/parent"><i class="fas fa-user"></i><span> Les Parents </span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/list/admin"><i class="fas fa-user"></i><span>Les Administrateurs </span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/list/enseignant"><i class="fas fa-user"></i><span>Les Enseignants </span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/list/eleve"><i class="fas fa-user"></i><span> Les Eleves </span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/list/parent"><i class="fas fa-user"></i><span> Les Parents </span></a></li>
                     <li class="nav-item"><a class="nav-link" href="/classe/"><i class="fas fa-table"></i><span>Les Classes </span></a></li>
                     <li class="nav-item"><a class="nav-link" href="/salle/"><i class="fas fa-table"></i><span>Les Salles </span></a></li>
                     <li class="nav-item"><a class="nav-link" href="/matiere/"><i class="fas fa-table"></i><span>Les Matieres </span></a></li>
                     <li class="nav-item"><a class="nav-link" href="/absence/"><i class="fas fa-user-circle"></i><span>Marquer l'absences des enseignant</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ path('comfirm') }}"><i class="fas fa-table"></i><span>Confirmer les comptes</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ path('demande_index') }}"><i class="fas fa-table"></i><span>Les demandes</span></a></li>
                 {% endif %}
-
-                <li class="nav-item"><a class="nav-link" href="{{ path('app_login') }}"><i class="fas fa-table"></i><span>Login </span></a></li>
 
                 {% if is_granted('ROLE_enseignant') %}
                 <li class="nav-item"><a class="nav-link" href="/cours/"><i class="fas fa-table"></i><span>cours</span></a></li>
@@ -51,6 +50,7 @@
                 <li class="nav-item"><a class="nav-link" href="{{ path('emploi_en', {'id': app.user.personne.id}) }}/"><i class="fas fa-table"></i><span>mon emplois du temps</span></a></li>
                 <li class="nav-item"><a class="nav-link" href="/absence_etudiant/"><i class="fas fa-user-circle"></i><span>Marquer l'absences des eleves</span></a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ path('classeliste', {'id': app.user.personne.id}) }}/"><i class="fas fa-user-circle"></i><span>Ajouter les notes</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ path('list_message', {'id': app.user.personne.id}) }}/"><i class="fas fa-user-circle"></i><span>message des parents</span></a></li>
                 {% endif %}
 
                 {% if is_granted('ROLE_eleve')or is_granted('ROLE_Parent') %}
@@ -58,14 +58,13 @@
                 {% endif %}
 
                 {% if is_granted('ROLE_eleve') %}
-                    <li class="nav-item"><a class="nav-link" href="{{ path('existance_absence', {'id': app.user.personne.id}) }}/"><i class="fas fa-table"></i><span>mes absences</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ path('emploi', {'id': app.user.personne.id}) }}/"><i class="fas fa-table"></i><span>mon emplois du temps</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ path('note_show', {'id': app.user.personne.id}) }}"><i class="fas fa-table"></i><span>mes notes</span></a></li>
                 {% endif %}
 
                 {% if is_granted('ROLE_Parent') %}
                 <li class="nav-item"><a class="nav-link" href="{{ path('demande_new', {'id': app.user.personne.id}) }}/"><i class="far fa-user-circle"></i><span>Demande</span></a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ path('contacte_new') }}"><i class="far fa-user-circle"></i><span>contacter un enseignant</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ path('mes_message', {'id': app.user.personne}) }}"><i class="far fa-user-circle"></i><span>contacter un enseignant</span></a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ path('trouver_enfants', {'num': app.user.personne.cin}) }}"><i class="far fa-user-circle"></i><span>mes enfants</span></a></li>
                 {% endif %}
 
@@ -121,7 +120,9 @@
                             </div>
                         </li>
                         <li class="nav-item dropdown no-arrow mx-1">
-                            <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="{{ path('app_logout') }}"><span class="badge badge-danger badge-counter">deconnecter</span></a>
+                            <div class="nav-item dropdown no-arrow">
+                                <br>
+                                <a type="submit" class="btn btn-info" href="{{ path('app_logout') }}"><span class="fas fa-sign-out-alt"></span> deconnecter </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in">
                                     <h6 class="dropdown-header">alerts center</h6>
                                     <a class="d-flex align-items-center dropdown-item" href="#">

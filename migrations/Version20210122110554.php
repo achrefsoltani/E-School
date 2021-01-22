@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20210120193710 extends AbstractMigration
+final class Version20210122110554 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -23,7 +23,7 @@ final class Version20210120193710 extends AbstractMigration
         $this->addSql('CREATE TABLE absence (id INT AUTO_INCREMENT NOT NULL, personne_id INT DEFAULT NULL, seance_id INT DEFAULT NULL, justifie TINYINT(1) DEFAULT NULL, INDEX IDX_765AE0C9A21BD112 (personne_id), INDEX IDX_765AE0C9E3797A94 (seance_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE classe (id INT AUTO_INCREMENT NOT NULL, nom VARCHAR(20) NOT NULL, nb_eleve INT NOT NULL, capacite INT NOT NULL, niveau INT NOT NULL, eleves LONGTEXT DEFAULT NULL COMMENT \'(DC2Type:array)\', enseignants LONGTEXT DEFAULT NULL COMMENT \'(DC2Type:array)\', list_matieres LONGTEXT DEFAULT NULL COMMENT \'(DC2Type:array)\', list_seances LONGTEXT DEFAULT NULL COMMENT \'(DC2Type:array)\', PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE classe_personne (classe_id INT NOT NULL, personne_id INT NOT NULL, INDEX IDX_350001418F5EA509 (classe_id), INDEX IDX_35000141A21BD112 (personne_id), PRIMARY KEY(classe_id, personne_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE contacte (id INT AUTO_INCREMENT NOT NULL, personne_id INT DEFAULT NULL, objet VARCHAR(255) DEFAULT NULL, message VARCHAR(255) DEFAULT NULL, distinataire VARCHAR(255) NOT NULL, INDEX IDX_C794A022A21BD112 (personne_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE contacte (id INT AUTO_INCREMENT NOT NULL, personne_id INT DEFAULT NULL, objet VARCHAR(255) DEFAULT NULL, message VARCHAR(255) DEFAULT NULL, distinataire VARCHAR(255) NOT NULL, reponse VARCHAR(255) DEFAULT NULL, etat VARCHAR(255) DEFAULT NULL, INDEX IDX_C794A022A21BD112 (personne_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE cours (id INT AUTO_INCREMENT NOT NULL, matiere_id INT DEFAULT NULL, nom VARCHAR(255) NOT NULL, contenu VARCHAR(255) DEFAULT NULL, INDEX IDX_FDCA8C9CF46CD258 (matiere_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE demande (id INT AUTO_INCREMENT NOT NULL, personne_id INT DEFAULT NULL, categorie VARCHAR(255) DEFAULT NULL, objet VARCHAR(255) DEFAULT NULL, message VARCHAR(255) DEFAULT NULL, etat VARCHAR(255) DEFAULT NULL, reponse VARCHAR(255) DEFAULT NULL, INDEX IDX_2694D7A5A21BD112 (personne_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE matiere (id INT AUTO_INCREMENT NOT NULL, nom VARCHAR(30) NOT NULL, coefficient DOUBLE PRECISION NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');

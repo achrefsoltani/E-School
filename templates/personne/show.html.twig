@@ -81,8 +81,8 @@
         </tbody>
     </table>
 
-    <a href="/list/{{ personne.role }}">Retour à la liste</a> <br>
-
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="/list/{{ personne.role }}">Retour à la liste</a>
     <a href="{{ path('personne_edit', {'id': personne.id}) }}">Modifier</a>
 
     <br>
@@ -98,6 +98,7 @@
     {% endif %}
 
 <br>
+
     {%  if (personne.role == 'parent') %}
         <a href="{{ path('demandeliste', {'id': personne.id}) }}">Demandes</a>
         <br>
@@ -111,4 +112,5 @@
     {% endif %}
 
     {{ include('personne/_delete_form.html.twig') }}
+    {% endif %}
 {% endblock %}

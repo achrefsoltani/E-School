@@ -7,6 +7,7 @@ use App\Entity\Personne;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -18,6 +19,7 @@ class ContacteType extends AbstractType
         $builder
             ->add('distinataire', EntityType::class,[
                 'class' => Personne::class,
+                'choice_label' => 'nom',
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('p')
                         ->where("p.role='enseignant'");
@@ -26,9 +28,21 @@ class ContacteType extends AbstractType
                     'class' => 'select2'
                 ]
             ])
+            ->add('emetteur')
             ->add('objet')
             ->add('message',TextareaType::class)
             ->add('personne')
+            ->add('reponse')
+            ->add('etat',ChoiceType::class,
+                ['choices' =>[
+                    'bien recue' => 'bien recue',
+                    'En cours' => 'En cours',
+                    'Traité' => 'Traité'
+
+                ]
+
+
+                ] )
         ;
     }
 

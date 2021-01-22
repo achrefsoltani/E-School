@@ -37,6 +37,21 @@ class Contacte
      */
     private $distinataire;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $reponse;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $etat;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $emetteur;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +101,42 @@ class Contacte
     public function setDistinataire(string $distinataire): self
     {
         $this->distinataire = $distinataire;
+
+        return $this;
+    }
+
+    public function getReponse(): ?string
+    {
+        return $this->reponse;
+    }
+
+    public function setReponse(?string $reponse): self
+    {
+        $this->reponse = $reponse;
+
+        return $this;
+    }
+
+    public function getEtat(): ?string
+    {
+        return $this->etat;
+    }
+
+    public function setEtat(?string $etat): self
+    {
+        $this->etat = $etat;
+
+        return $this;
+    }
+
+    public function getEmetteur(): ?string
+    {
+        return $this->emetteur;
+    }
+
+    public function setEmetteur(?string $emetteur): self
+    {
+        $this->emetteur = $emetteur;
 
         return $this;
     }
