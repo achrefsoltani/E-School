@@ -7,4 +7,5 @@
 {% endif %}
     {{ form_rest(form) }}
 <button class="btn btn-info">{{ button_label|default('Enregistrer') }}</button>
+{{ include('personne/_delete_form.html.twig') }}
 {{ form_end(form) }}

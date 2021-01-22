@@ -3,8 +3,14 @@
 {% block title %}Demande index{% endblock %}
 
 {% block body %}
-    <h1>Demande index</h1>
-
+{% if is_granted('ROLE_Parent') %}
+    <h1>Mes demandes</h1>
+{%endif%}
+{% if is_granted('ROLE_ADMIN') %}
+    <h1>Les demandes</h1>
+{%endif%}
+<a class ="btn btn-info" href="{{ path('demande_new', {'id': parent.id}) }}">Creer une nouvelle demande</a>
+<hr>
     <table class="table">
         <thead>
         <tr>
@@ -23,8 +29,11 @@
                 <td>{{ demande.objet }}</td>
                 <td>{{ demande.etat }}</td>
                 <td>
-                    <a href="{{ path('showParent', {'id': demande.id}) }}">show</a>
-                    <a href="{{ path('pdemande_edit', {'id': demande.id, 'id1': demande.personne.id}) }}">edit</a>
+
+                    <a href="{{ path('showParent', {'id': demande.id}) }}">details</a>
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('pdemande_edit', {'id': demande.id, 'id1': demande.personne.id}) }}">repondre</a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -35,5 +44,5 @@
         </tbody>
     </table>
 
-        <a href="{{ path('demande_new', {'id': parent.id}) }}">Create new</a>
+
 {% endblock %}

@@ -81,7 +81,11 @@
         </tbody>
     </table>
 {% endblock %}
-
+{% block img %}
+<img class="rounded-circle mt-5"{% if personne.sexe=='female'%} src="/img/avatars/avatarfemme.jpg" {% endif %}
+        {% if personne.sexe=='male'%} src="/img/avatars/avatarhomme.png" {% endif %}
+     width="90"><span class="font-weight-bold">{{ personne.fullName }}</span><span class="text-black-50">{{ personne.email }}</span></div>
+{% endblock %}
  {% block action %}
      <a class="btn btn-info" href="{{ path('news_home') }}">acceuil</a>
      <hr>

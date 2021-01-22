@@ -75,7 +75,7 @@ class AbsenceEtudiantController extends AbstractController
             $entityManager->persist($absence);
             $entityManager->flush();
 
-            return $this->redirectToRoute('consulter_absence',['id'=>$absence->getId()]);
+            return $this->redirectToRoute('absence_etudiant_index',['id'=>$absence->getSeance()->getId()]);
         }
 
         return $this->render('absence_etudiant/nouveau.html.twig', [
@@ -131,7 +131,7 @@ class AbsenceEtudiantController extends AbstractController
 
     }
     /**
-     * @Route("/supprimer/{id}/", name="supprimer_absence", methods={"DELETE","GET"})
+     * @Route("/supprimer/{id}/", name="supprimer_absence", methods={"DELETE"})
      */
     public function delete(Request $request, Absence $absence): Response
     {
@@ -139,13 +139,12 @@ class AbsenceEtudiantController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($absence);
             $entityManager->flush();
-
         }else{
             $this->addFlash('error','le personne nexiste pas ');
 
         }
 
-        return $this->redirectToRoute('absence_etudiant_index');
+        return $this->redirectToRoute('news_home');
     }
 
     /**

@@ -4,7 +4,11 @@
 
 {% block body %}
     <h1>LISTE DES {{ role|upper }}S</h1>
-    <div style="text-align: right"><a href="/list/new/{{ role }}">Ajouter</a></div>
+    <a href="/list/new/{{ role }}" class="btn btn-danger">Ajouter</a>
+    <div>
+        <br>
+    </div>
+
     <table class="table">
         <thead>
             <tr>

@@ -59,9 +59,11 @@
     <div class="row">
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                {% block img %}
                 <img class="rounded-circle mt-5"{% if app.user.personne.sexe=='female'%} src="/img/avatars/avatarfemme.jpg" {% endif %}
                         {% if app.user.personne.sexe=='male'%} src="/img/avatars/avatarhomme.png" {% endif %}
                      width="90"><span class="font-weight-bold">{{ app.user.personne }}</span><span class="text-black-50">{{ app.user.personne.email }}</span></div>
+        {% endblock %}
         </div>
         <div class="col-md-5 border-right">
             <div class="p-3 py-5">

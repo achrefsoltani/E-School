@@ -4,14 +4,16 @@
 
 {% block body %}
     <span class="contact100-form-title">
-				<h1 class="text-secondary">	Modifier un personne</h1>
+				<h1 class="text-secondary">	Modifier une personne</h1>
 				</span>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        {{ include('personne/_form.html.twig', {'button_label': 'Modifier'}) }}
+    </div>
+    <hr>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a href="/list/{{ role }}"> <button class="btn btn-info me-md-2">{{ button_label|default('Retour a la liste') }}</button></a>
+        <a href="{{ path('news_home') }}">  <button type="button" class="btn btn-info" >Accueil</button> </a>
+    </div>
 
-    {{ include('personne/_form.html.twig', {'button_label': 'Update'}) }}
-    <a href="/list/{{ role }}"> <button class="btn btn-secondary">{{ button_label|default('Retour a la liste') }}</button></a>
-    <a href="{{ path('news_home') }}">  <button type="button" class="btn btn-secondary" >Accueil</button> </a>
 
-
-
-    {{ include('personne/_delete_form.html.twig') }}
 {% endblock %}

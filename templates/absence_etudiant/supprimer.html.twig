@@ -28,5 +28,5 @@
 
     {{ include('absence_etudiant/_delete_form.html.twig', {'button_label': 'supprimer'}) }}
 
-    <a href="{{ path('absence_etudiant_index') }}">retour</a>
+    <a href="{{ path('absence_etudiant_index',{'id':absence.seance.id}) }}">retour</a>
 {% endblock %}

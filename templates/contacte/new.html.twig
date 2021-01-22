@@ -1,13 +1,14 @@
 {% extends 'form.html.twig' %}
 
-{% block title %}Nouvelle demande{% endblock %}
+{% block title %}message{% endblock %}
 
 {% block body %}
-    <h1>Créer une nouvelle demande</h1>
+    <h1>contacter un enseignant</h1>
 
     {{ include('contacte/_form.html.twig') }}
-
-    <a href="{{ path('contacte_index') }}"> <button class="btn btn-secondary">{{ button_label|default('Retour a la liste') }}</button></a>
-    <a href="{{ path('news_home') }}">  <button type="button" class="btn btn-secondary" >Accueil</button> </a>
-
+<hr>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a href="{{ path('mes_message',{'id': app.user.personne.id})  }}" class="btn btn-info me-md-2" >{{ button_label|default('Retour a la liste') }}</a>
+        <a href="{{ path('news_home') }}" class="btn btn-info" >Accueil</a>
+    </div>
 {% endblock %}

@@ -26,7 +26,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('absence_etudiant_index') }}">retour</a>
+    <a href="{{ path('absence_etudiant_index',{'id':absence.seance.id}) }}">retour</a>
 
     <a href="{{ path('modifier_absence', {'id': absence.id}) }}">modifier</a>
     <a href="{{ path('supprimer_absence', {'id': absence.id}) }}">supprimer</a>

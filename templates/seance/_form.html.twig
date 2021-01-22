@@ -1,4 +1,5 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
 <button class="btn btn-info">{{ button_label|default('Enregistrer') }}</button>
+<a href="{{ path('news_home') }}">  <button type="button" class="btn btn-info" >Accueil</button> </a>
 {{ form_end(form) }}

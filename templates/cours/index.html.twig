@@ -5,15 +5,15 @@
 {% block body %}
     <h1>liste des support des cours</h1>
     {% if is_granted('ROLE_enseignant') %}
-    <a type="button" class="btn btn-primary" href="{{ path('cours_new') }}">Ajouter un nouveau support de cours </a>
+    <a type="button" class="btn btn-danger" href="{{ path('cours_new') }}">Ajouter un nouveau support de cours </a>
+        <div>
+            <br>
+        </div>
     {% endif %}
-    <table class="table">
+
+    <table class="table" style="text-align: center">
         <thead>
             <tr>
-                {% if is_granted('ROLE_enseignant') %}
-                <th>Id</th>
-                <th>Contenu</th>
-                {% endif %}
                 <th>Nom</th>
                 <th>actions</th>
             </tr>
@@ -21,10 +21,7 @@
         <tbody>
         {% for cour in cours %}
             <tr>
-                {% if is_granted('ROLE_enseignant') %}
-                <td>{{ cour.id }}</td>
-                    <td>{{ cour.contenu }}</td>
-                {% endif %}
+
                 <td>{{ cour.Nom }}</td>
 
                 <td>

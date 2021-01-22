@@ -4,12 +4,15 @@
 
 {% block body %}
     <h1>Marquer l'absence</h1>
+    <div>
     classe: {{ absence.seance.classe }} <br>
     Nom: {{ absence.personne.nom}} <br>
     Prenom: {{ absence.personne.prenom}} <br>
-    {{ include('absence/_form.html.twig') }}
+    </div>
+    <br>
+    {{ include('absence_etudiant/_form.html.twig') }}
 
-    <a href="{{ path('absence_etudiant_index') }}"> <button type="button" class="btn btn-secondary" >Retour</button></a>
+    <a href="{{ path('absence_etudiant_index',{'id':absence.seance.id}) }}"> <button type="button" class="btn btn-secondary" >Retour</button></a>
     <a href="{{ path('news_home') }}">  <button type="button" class="btn btn-secondary" >Accueil</button> </a>
 
 {% endblock %}

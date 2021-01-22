@@ -1,6 +1,5 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
-{{ form_label(form.personne) }}
-<div style="height:500px;width:auto;overflow:auto;border:8px ;padding:2%; column-count: 3">{{ form_widget(form.eleves) }}</div>
 
+<button class="btn btn-info">{{ button_label|default('Enregistrer') }}</button>
 {{ form_end(form) }}

@@ -6,10 +6,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b56982e7-0fe4-4cdd-98a8-5b41815c6c84" name="Default Changelist" comment="css absence">
-      <change afterPath="$PROJECT_DIR$/templates/contacte/affmes.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AbsenceEtudiantController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AbsenceEtudiantController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ContacteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ContacteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/absence/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/absence/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/absence/index1.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/absence/index1.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/absence/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/absence/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/absence_etudiant/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/absence_etudiant/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/absence_etudiant/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/absence_etudiant/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/absence_etudiant/nouveau.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/absence_etudiant/nouveau.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/absence_etudiant/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/absence_etudiant/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/absence_etudiant/supprimer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/absence_etudiant/supprimer.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/classe/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/classe/_delete_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/classe/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/classe/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/classe/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/classe/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contacte/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacte/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contacte/affmes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacte/affmes.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contacte/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacte/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contacte/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacte/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contacte/parentmes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacte/parentmes.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cours/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cours/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cours/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cours/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cours/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cours/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/demande/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/demande/_delete_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/demande/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/demande/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/demande/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/demande/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/demande/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/demande/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/demande/index1.html.tiwg" beforeDir="false" afterPath="$PROJECT_DIR$/templates/demande/index1.html.tiwg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/demande/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/demande/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/demande/showP.html.tiwg" beforeDir="false" afterPath="$PROJECT_DIR$/templates/demande/showP.html.tiwg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/emploi/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/emploi/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/matiere/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/matiere/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/personne/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personne/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/personne/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personne/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/personne/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personne/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/personne/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personne/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/personne/showab.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personne/showab.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/salle/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/salle/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/seance/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/seance/_delete_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/seance/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/seance/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/seance/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/seance/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/seance/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/seance/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,13 +186,14 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/img/avatars" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\GitHub\test-projet\public\img\avatars" />
       <recent name="C:\Users\LENOVO\Documents\GitHub\E-School\public" />
       <recent name="C:\Users\Achref\Desktop\E-School Project\E-School\public" />
     </key>
@@ -243,11 +283,11 @@
       <screen x="0" y="0" width="1600" height="870" />
     </state>
     <state x="301" y="78" key="SettingsEditor/0.0.1600.870@0.0.1600.870" timestamp="1605546468779" />
-    <state x="377" y="158" key="Vcs.Push.Dialog.v2" timestamp="1611277986972">
+    <state x="377" y="158" key="Vcs.Push.Dialog.v2" timestamp="1611329795780">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="335" y="140" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1611245322514" />
-    <state x="377" y="158" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1611277986972" />
+    <state x="377" y="158" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1611329795780" />
     <state x="392" y="167" key="Vcs.Push.Dialog.v2/0.0.1600.870@0.0.1600.870" timestamp="1605724509748" />
     <state x="94" y="14" width="581" height="801" key="find.popup" timestamp="1606166126127">
       <screen x="0" y="0" width="1536" height="824" />

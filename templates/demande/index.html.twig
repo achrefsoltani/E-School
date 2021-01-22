@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Demande index{% endblock %}
+{% block title %}mes Demande{% endblock %}
 
 {% block body %}
-    <h1>Demande index</h1>
+    <h1>Mes Demandes</h1>
 
     <table class="table">
         <thead>
@@ -12,6 +12,7 @@
                 <th>Categorie</th>
                 <th>Objet</th>
                 <th>Etat</th>
+
                 <th>actions</th>
             </tr>
         </thead>
@@ -22,10 +23,14 @@
                 <td>{{ demande.categorie }}</td>
                 <td>{{ demande.objet }}</td>
                 <td>{{ demande.etat }}</td>
+
                 <td>
-                    <a href="{{ path('demande_show', {'id': demande.id}) }}">show</a>
-                    <a href="{{ path('demande_edit', {'id': demande.id}) }}">edit</a>
+                    <a href="{{ path('demande_show', {'id': demande.id}) }}">details</a>
+
+                    <a href="{{ path('demande_edit', {'id': demande.id}) }}">repondre</a>
+
                 </td>
+
             </tr>
         {% else %}
             <tr>

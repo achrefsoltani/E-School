@@ -8,8 +8,11 @@
 				</span>
 
     {{ include('demande/_form.html.twig') }}
+    <hr>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a href="{{ path('demande_index') }}"> <button class="btn btn-info me-md-2">{{ button_label|default('Retour a la liste') }}</button></a>
+        <a href="{{ path('news_home') }}">  <button type="button" class="btn btn-info" >Accueil</button> </a>
+    </div>
 
-    <a href="{{ path('demande_index') }}"> <button class="btn btn-secondary">{{ button_label|default('Retour a la liste') }}</button></a>
-    <a href="{{ path('news_home') }}">  <button type="button" class="btn btn-secondary" >Accueil</button> </a>
 
 {% endblock %}

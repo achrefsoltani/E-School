@@ -21,8 +21,8 @@
                 <td>{{ con.objet }}</td>
                 <td>{{ con.message }}</td>
                 <td>
-                    <a href="{{ path('contacte_show', {'id': con.id}) }}">show</a>
-                    <a href="{{ path('contacte_edit', {'id': con.id}) }}">edit</a>
+                    <a href="{{ path('contacte_show', {'id': con.id}) }}">details</a>
+                    <a href="{{ path('contacte_edit', {'id': con.id}) }}">repondre</a>
                 </td>
             </tr>
         {% else %}
@@ -33,5 +33,4 @@
         </tbody>
     </table>
 
-    <a href="{{ path('contacte_new') }}">Create new</a>
 {% endblock %}

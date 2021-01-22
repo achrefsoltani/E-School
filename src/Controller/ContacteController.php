@@ -104,13 +104,13 @@ class ContacteController extends AbstractController
         } else {
             $this->addFlash('danger', "vous n'avez pas des messages");
             //return $this->redirectToRoute('trouver_enfants');
-            return $this->redirect($_SERVER['HTTP_REFERER']);
+            return $this->redirectToRoute('contacte_new');
         }
 
     }
 
     /**
-     * @Route("/{id}/edit", name="contacte_edit", methods={"GET","POST"})
+     * @Route("/edit/{id}", name="contacte_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Contacte $contacte): Response
     {
@@ -118,7 +118,6 @@ class ContacteController extends AbstractController
         $form = $this->createForm(ContacteType::class, $contacte);
         $form->remove('personne');
         $form->remove('distinataire');
-        $form->remove('emetteur');
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

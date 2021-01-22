@@ -4,7 +4,7 @@
 
 {% block body %}
     <h1>Contacte index</h1>
-
+    <a href="{{ path('contacte_new') }}"><button class="btn btn-info" >nouveau message</button></a>
     <table class="table">
         <thead>
             <tr>
@@ -35,5 +35,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('contacte_new') }}">Create new</a>
+
 {% endblock %}

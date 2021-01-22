@@ -3,8 +3,14 @@
 {% block title %}Absence index{% endblock %}
 
 {% block body %}
-    <h1>Absence index</h1>
+    <h1>{{ absences[0].debut | date('d-m-Y H') }}H</h1>
+<div style="text-align: center">
+    <a href="{{ path('absence_index') }}" ><button class="btn btn-info" style="width: 400px">changer la date </button> </a>
+</div>
 
+    <div>
+        <br>
+    </div>
     <table class="table">
         <thead>
         <tr>
@@ -33,5 +39,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('absence_index') }}">chercher</a>
+
 {% endblock %}
