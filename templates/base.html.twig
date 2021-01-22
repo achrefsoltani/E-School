@@ -50,7 +50,7 @@
                 <li class="nav-item"><a class="nav-link" href="{{ path('emploi_en', {'id': app.user.personne.id}) }}/"><i class="fas fa-table"></i><span>mon emplois du temps</span></a></li>
                 <li class="nav-item"><a class="nav-link" href="/absence_etudiant/"><i class="fas fa-user-circle"></i><span>Marquer l'absences des eleves</span></a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ path('classeliste', {'id': app.user.personne.id}) }}/"><i class="fas fa-user-circle"></i><span>Ajouter les notes</span></a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ path('classeliste', {'id': app.user.personne.id}) }}/"><i class="fas fa-user-circle"></i><span>Ajouter les notes</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ path('list_message', {'id': app.user.personne.id}) }}/"><i class="fas fa-user-circle"></i><span>message des parents</span></a></li>
                 {% endif %}
 
                 {% if is_granted('ROLE_eleve')or is_granted('ROLE_Parent') %}

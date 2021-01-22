@@ -6,12 +6,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b56982e7-0fe4-4cdd-98a8-5b41815c6c84" name="Default Changelist" comment="css absence">
+      <change afterPath="$PROJECT_DIR$/templates/contacte/affmes.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AbsenceEtudiantController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AbsenceEtudiantController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/NoteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/NoteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ContacteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ContacteController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/mes_enfants/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mes_enfants/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/personne/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personne/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,11 +224,11 @@
       <screen x="0" y="0" width="1600" height="870" />
     </state>
     <state x="530" y="180" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1600.870@0.0.1600.870" timestamp="1606648057748" />
-    <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1609633864451">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="465" y="134" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1611281067600">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1609633864451" />
-    <state x="465" y="134" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1608660401163" />
+    <state x="465" y="134" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1611281067600" />
     <state x="484" y="141" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.870@0.0.1600.870" timestamp="1606647145174" />
     <state x="488" y="148" key="FileChooserDialogImpl" timestamp="1610733895608">
       <screen x="0" y="0" width="1366" height="728" />
@@ -245,11 +243,11 @@
       <screen x="0" y="0" width="1600" height="870" />
     </state>
     <state x="301" y="78" key="SettingsEditor/0.0.1600.870@0.0.1600.870" timestamp="1605546468779" />
-    <state x="377" y="158" key="Vcs.Push.Dialog.v2" timestamp="1611261225172">
+    <state x="377" y="158" key="Vcs.Push.Dialog.v2" timestamp="1611277986972">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="335" y="140" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1611245322514" />
-    <state x="377" y="158" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1611261225172" />
+    <state x="377" y="158" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1611277986972" />
     <state x="392" y="167" key="Vcs.Push.Dialog.v2/0.0.1600.870@0.0.1600.870" timestamp="1605724509748" />
     <state x="94" y="14" width="581" height="801" key="find.popup" timestamp="1606166126127">
       <screen x="0" y="0" width="1536" height="824" />

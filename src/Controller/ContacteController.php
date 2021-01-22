@@ -63,6 +63,27 @@ class ContacteController extends AbstractController
         ]);
     }
 
+    //show pour enseignant
+
+    /**
+     * @Route("/ens/{id}", name="list_message")
+     */
+    public function affiche($id)
+    {
+        $repository = $this->getDoctrine()->getRepository(Contacte::class);
+        $contacte = $repository->findBy(['personne'=>$id]);
+        if ($contacte) {
+            return $this->render('contacte/affmes.html.twig', [
+                'contacte' => $contacte,
+            ]);
+        } else {
+            $this->addFlash('danger', "vous n'avez pas des messages");
+            //return $this->redirectToRoute('trouver_enfants');
+            return $this->redirect($_SERVER['HTTP_REFERER']);
+        }
+
+    }
+
     /**
      * @Route("/{id}/edit", name="contacte_edit", methods={"GET","POST"})
      */
