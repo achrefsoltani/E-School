@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'profile.html.twig' %}
 
 {% block title %}{{ personne.nom }} {{ personne.prenom }}{% endblock %}
 
@@ -80,37 +80,48 @@
 
         </tbody>
     </table>
+{% endblock %}
 
+ {% block action %}
+     <a class="btn btn-info" href="{{ path('news_home') }}">acceuil</a>
+     <hr>
     {% if is_granted('ROLE_ADMIN') %}
-    <a href="/list/{{ personne.role }}">Retour à la liste</a>
-    <a href="{{ path('personne_edit', {'id': personne.id}) }}">Modifier</a>
+        <a class="btn btn-info" href="{{ path('personne_edit', {'id': personne.id}) }}">Modifier</a>
+        <hr>
+    <a class="btn btn-info" href="/list/{{ personne.role }}">Retour à la liste</a>
 
-    <br>
+        <hr>
+
+        {{ include('personne/_delete_form.html.twig') }}
+        <hr>
+
     {%  if (personne.role == 'enseignant') %}
-        <td>
-            <a href="{{ path('classeliste', {'id': personne.id}) }}">Classes</a>
-        </td>
+
+            <a class="btn btn-info"href="{{ path('classeliste', {'id': personne.id}) }}">Classes</a>
+        <hr>
     {% endif %}
     {%  if (personne.role == 'eleve') %}
-        <td>
-            <a href="{{ path('note_show', {'id': personne.id}) }}">Notes</a>
-        </td>
+            <a  class="btn btn-info" href="{{ path('note_show', {'id': personne.id}) }}">Notes</a>
+        <hr>
     {% endif %}
-
-<br>
 
     {%  if (personne.role == 'parent') %}
-        <a href="{{ path('demandeliste', {'id': personne.id}) }}">Demandes</a>
-        <br>
+        <a class="btn btn-info" href="{{ path('demandeliste', {'id': personne.id}) }}">Demandes</a>
+        <hr>
     {% endif %}
+
     {%  if (personne.role == 'enseignant') %}
-        <a href="{{ path('emploi_en', {'id': personne.id}) }}">Emploi</a>
+        <a class="btn btn-info" href="{{ path('emploi_en', {'id': personne.id}) }}">Emploi</a>
+        <hr>
     {% endif %}
 
     {%  if (personne.role == 'parent') or (personne.role == 'eleve') %}
-    <a href="{{ path('personne_absence', {'id': personne.id}) }}">Absences</a>
+    <a class="btn btn-info" href="{{ path('personne_absence', {'id': personne.id}) }}">Absences</a>
+        <hr>
     {% endif %}
 
-    {{ include('personne/_delete_form.html.twig') }}
+
     {% endif %}
+
 {% endblock %}
+
