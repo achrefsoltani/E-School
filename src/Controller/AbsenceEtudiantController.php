@@ -26,11 +26,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class AbsenceEtudiantController extends AbstractController
 {
     /**
-     * @Route("/", name="absence_etudiant_index")
+     * @Route("/{id}", name="absence_etudiant_index")
      */
-    public function index(SeanceRepository $seanceRepository,Request $request): Response
+    public function index(SeanceRepository $seanceRepository,Request $request,$id): Response
     {
-        $form = $this->createForm(AbsenceetudiantType::class);
+       $seance=$seanceRepository->find($id);
+        return $this->render('absence_etudiant/index.html.twig',
+            ['seance' => $seance,
+            ]
+        );
+        /*$form = $this->createForm(AbsenceetudiantType::class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -45,7 +50,7 @@ class AbsenceEtudiantController extends AbstractController
         return $this->render('absence_etudiant/search.html.twig',[
 
             'form' => $form->createView(),
-        ]);
+        ]);*/
 
     }
 

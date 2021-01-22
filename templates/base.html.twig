@@ -64,7 +64,7 @@
 
                 {% if is_granted('ROLE_Parent') %}
                 <li class="nav-item"><a class="nav-link" href="{{ path('demande_new', {'id': app.user.personne.id}) }}/"><i class="far fa-user-circle"></i><span>Demande</span></a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ path('contacte_new') }}"><i class="far fa-user-circle"></i><span>contacter un enseignant</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ path('mes_message', {'id': app.user.personne}) }}"><i class="far fa-user-circle"></i><span>contacter un enseignant</span></a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ path('trouver_enfants', {'num': app.user.personne.cin}) }}"><i class="far fa-user-circle"></i><span>mes enfants</span></a></li>
                 {% endif %}
 

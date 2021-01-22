@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Contacte;
 use App\Form\ContacteType;
 use App\Repository\ContacteRepository;
+use App\Repository\PersonneRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -33,8 +34,12 @@ class ContacteController extends AbstractController
         $contacte = new Contacte();
         $form = $this->createForm(ContacteType::class, $contacte);
         $form->remove('personne');
+        $form->remove('reponse');
+        $form->remove('etat');
+        $form->remove('emetteur');
         $form->handleRequest($request);
-
+        $contacte->setEtat('En cours');
+        $contacte->setEmetteur($this->getUser()->getPersonne());
         if ($form->isSubmitted() && $form->isValid()) {
             $dest = $form->get('distinataire')->getData();
             if ($dest) {
@@ -83,13 +88,37 @@ class ContacteController extends AbstractController
         }
 
     }
+    //show pour parent
+
+    /**
+     * @Route("/parent/{id}", name="mes_message")
+     */
+    public function afficheparent($id)
+    {
+        $repository = $this->getDoctrine()->getRepository(Contacte::class);
+        $contacte = $repository->findBy(['emetteur'=>$id]);
+        if ($contacte) {
+            return $this->render('contacte/parentmes.html.twig', [
+                'contacte' => $contacte,
+            ]);
+        } else {
+            $this->addFlash('danger', "vous n'avez pas des messages");
+            //return $this->redirectToRoute('trouver_enfants');
+            return $this->redirect($_SERVER['HTTP_REFERER']);
+        }
+
+    }
 
     /**
      * @Route("/{id}/edit", name="contacte_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Contacte $contacte): Response
     {
+
         $form = $this->createForm(ContacteType::class, $contacte);
+        $form->remove('personne');
+        $form->remove('distinataire');
+        $form->remove('emetteur');
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
