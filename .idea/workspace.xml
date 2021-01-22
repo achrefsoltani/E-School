@@ -5,10 +5,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b56982e7-0fe4-4cdd-98a8-5b41815c6c84" name="Default Changelist" comment="absence modif">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_01_2021_8_57_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_01_2021_8_57_PM__Default_Changelist_.xml" afterDir="false" />
+    <list default="true" id="b56982e7-0fe4-4cdd-98a8-5b41815c6c84" name="Default Changelist" comment="css absence">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_21_2021_10_09_AM__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/NoteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/NoteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/compte.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/compte.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mdp.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mdp.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +163,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="889652ea-e43b-4a7b-a717-b2eee9ecbf8b" name="Default Changelist" comment="" />
+      <changelist id="b56982e7-0fe4-4cdd-98a8-5b41815c6c84" name="Default Changelist" comment="css absence" />
       <created>1605546437549</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -180,6 +183,8 @@
       <workItem from="1610722708852" duration="444000" />
       <workItem from="1610731541364" duration="2732000" />
       <workItem from="1610889887817" duration="860000" />
+      <workItem from="1611274388966" duration="595000" />
+      <workItem from="1611320439509" duration="2734000" />
     </task>
     <servers />
   </component>
@@ -238,9 +243,10 @@
       <screen x="0" y="0" width="1600" height="870" />
     </state>
     <state x="301" y="78" key="SettingsEditor/0.0.1600.870@0.0.1600.870" timestamp="1605546468779" />
-    <state x="392" y="167" key="Vcs.Push.Dialog.v2" timestamp="1605724509748">
-      <screen x="0" y="0" width="1600" height="870" />
+    <state x="335" y="140" key="Vcs.Push.Dialog.v2" timestamp="1611248656503">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="335" y="140" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1611248656503" />
     <state x="392" y="167" key="Vcs.Push.Dialog.v2/0.0.1600.870@0.0.1600.870" timestamp="1605724509748" />
     <state x="94" y="14" width="581" height="801" key="find.popup" timestamp="1606166126127">
       <screen x="0" y="0" width="1536" height="824" />

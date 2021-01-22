@@ -16,7 +16,7 @@
         <div class="card-body p-0">
             <div class="row">
                 <div class="col-lg-5 d-none d-lg-flex">
-                    <img src="{{ asset('img/avatars/istockphoto-1031384160-612x612.jpg') }}" alt="Stickman" width="500" height="1200">
+                    <img src="{{ asset('img/avatars/istockphoto-1031384160-612x612.jpg') }}" alt="Stickman" width="500" height="700">
                 </div>
 
                 <div class="col-lg-7">
@@ -40,7 +40,7 @@
                         </form>
                         {% endblock %}
 
-                        <div class="text-center"><a class="small" href="app_login">Already have an account? Login!</a></div>
+                        <div class="text-center"><a class="small" href="{{ path('app_login') }}">se connecter!</a></div>
                     </div>
                 </div>
             </div>
