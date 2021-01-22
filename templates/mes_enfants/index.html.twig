@@ -9,6 +9,7 @@
         <th>nom</th>
         <th>prenom</th>
         <th>niveau</th>
+        <th>emploi</th>
         <th>absence</th>
         <th>note</th>
     </tr>
@@ -16,12 +17,11 @@
     <tbody>
         {% for personne in personnes %}
             <tr>
-            <td>{{ personne.nom }}</td>
-            <td>{{ personne.prenom }}</td>
-            <td>{{ personne.niveau }}</td>
-                <td> <a href="{{ path('existance_absence', {'id': personne.id}) }}/">voir</a>
-
-                </td>
+                <td>{{ personne.nom }}</td>
+                <td>{{ personne.prenom }}</td>
+                <td>{{ personne.niveau }}</td>
+                <td> <a href="{{ path('emploi', {'id': personne.id}) }}/">voir</a></td>
+                <td> <a href="{{ path('existance_absence', {'id': personne.id}) }}/">voir</a></td>
                 <td> <a href="{{ path('note_show', {'id': personne.id}) }}">voir</a></td>
             </tr>
         {% endfor %}

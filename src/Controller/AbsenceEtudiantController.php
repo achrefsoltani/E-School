@@ -119,8 +119,9 @@ class AbsenceEtudiantController extends AbstractController
         if ($absence) {
             return $this->render('absence_etudiant/supprimer.html.twig',['absence'=>$absence]);
         } else {
-            $this->addFlash('danger', 'cette eleve na pas dabsence');
-            return $this->redirectToRoute('absence_etudiant_index');
+            $this->addFlash('danger', "cette eleve n'a pas d'absence");
+            //return $this->redirectToRoute('trouver_enfants');
+            return $this->redirect($_SERVER['HTTP_REFERER']);
         }
 
     }
