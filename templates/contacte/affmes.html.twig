@@ -9,6 +9,7 @@
         <thead>
         <tr>
             <th>Id</th>
+            <th>emetteur</th>
             <th>Objet</th>
             <th>Message</th>
             <th>actions</th>
@@ -18,6 +19,7 @@
         {% for con in contacte %}
             <tr>
                 <td>{{ con.id }}</td>
+                <td>{{ con.emetteur}}</td>
                 <td>{{ con.objet }}</td>
                 <td>{{ con.message }}</td>
                 <td>

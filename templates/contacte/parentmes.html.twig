@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Contacte index{% endblock %}
+{% block title %}mes messages {% endblock %}
 
 {% block body %}
     <h1>mes messages</h1>
@@ -24,7 +24,7 @@
                 <td>{{ con.id }}</td>
                 <td>{{ con.objet }}</td>
                 <td>{{ con.message }}</td>
-                <td>{{ con.distinataire }}</td>
+                <td>{{ con.personne }}</td>
                 <td>
                     <a href="{{ path('contacte_show', {'id': con.id}) }}">show</a>
                 </td>

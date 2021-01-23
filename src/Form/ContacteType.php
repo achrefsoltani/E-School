@@ -14,15 +14,16 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ContacteType extends AbstractType
 {
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('distinataire', EntityType::class,[
+            ->add('personne', EntityType::class,[
                 'class' => Personne::class,
-                'choice_label' => 'nom',
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('p')
                         ->where("p.role='enseignant'");
+
                 },
                 'attr' => [
                     'class' => 'select2'
@@ -31,7 +32,6 @@ class ContacteType extends AbstractType
             ->add('emetteur')
             ->add('objet')
             ->add('message',TextareaType::class)
-            ->add('personne')
             ->add('reponse')
             ->add('etat',ChoiceType::class,
                 ['choices' =>[

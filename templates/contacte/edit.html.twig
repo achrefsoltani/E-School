@@ -7,11 +7,21 @@
 				<h1 class="text-secondary">	Répondre au parent</h1>
 				</span>
 
-    {{ include('contacte/_form.html.twig', {'button_label': 'Update'}) }}
-
-
-    <a href="{{ path('contacte_index') }}"> <button class="btn btn-secondary">{{ button_label|default('Retour a la liste') }}</button></a>
-    <a href="{{ path('news_home') }}">  <button type="button" class="btn btn-secondary" >Accueil</button> </a>
-
+    {{ include('contacte/_form.html.twig', {'button_label': 'repondre'}) }}
     {{ include('contacte/_delete_form.html.twig') }}
+
+
+    {% if is_granted('ROLE_Parent') %}
+        <a href="{{ path('mes_message', {'id': app.user.personne}) }}"><button class="btn btn-info">Retour a la liste</button></a>
+        {{ include('contacte/_delete_form.html.twig') }}
+    {% endif %}
+    {% if is_granted('ROLE_enseignant') %}
+
+
+        <a href="{{ path('list_message',{'id': app.user.personne.id}) }}"><button class="btn btn-info">Retour a la liste</button> </a>
+    {% endif %}
+
+
+    <a href="{{ path('news_home') }}">  <button type="button" class="btn btn-info" >Accueil</button> </a>
+
 {% endblock %}

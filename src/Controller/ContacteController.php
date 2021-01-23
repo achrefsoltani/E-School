@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Contacte;
+use App\Entity\Personne;
 use App\Form\ContacteType;
 use App\Repository\ContacteRepository;
 use App\Repository\PersonneRepository;
@@ -31,9 +32,9 @@ class ContacteController extends AbstractController
      */
     public function new(Request $request): Response
     {
+        $id=$this->getUser()->getPersonne();
         $contacte = new Contacte();
         $form = $this->createForm(ContacteType::class, $contacte);
-        $form->remove('personne');
         $form->remove('reponse');
         $form->remove('etat');
         $form->remove('emetteur');
@@ -41,15 +42,11 @@ class ContacteController extends AbstractController
         $contacte->setEtat('En cours');
         $contacte->setEmetteur($this->getUser()->getPersonne());
         if ($form->isSubmitted() && $form->isValid()) {
-            $dest = $form->get('distinataire')->getData();
-            if ($dest) {
-                $contacte->setPersonne($dest);
-            }
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($contacte);
             $entityManager->flush();
 
-            return $this->redirectToRoute('contacte_index');
+            return $this->redirectToRoute('mes_message',['id'=>$id]);
         }
 
         return $this->render('contacte/new.html.twig', [
@@ -84,9 +81,9 @@ class ContacteController extends AbstractController
         } else {
             $this->addFlash('danger', "vous n'avez pas des messages");
             //return $this->redirectToRoute('trouver_enfants');
-            return $this->redirect($_SERVER['HTTP_REFERER']);
-        }
 
+        }
+        return $this->redirectToRoute('news_home');
     }
     //show pour parent
 
@@ -103,10 +100,8 @@ class ContacteController extends AbstractController
             ]);
         } else {
             $this->addFlash('danger', "vous n'avez pas des messages");
-            //return $this->redirectToRoute('trouver_enfants');
-            return $this->redirectToRoute('contacte_new');
         }
-
+        return $this->redirectToRoute('news_home');
     }
 
     /**
@@ -114,16 +109,13 @@ class ContacteController extends AbstractController
      */
     public function edit(Request $request, Contacte $contacte): Response
     {
-
         $form = $this->createForm(ContacteType::class, $contacte);
-        $form->remove('personne');
-        $form->remove('distinataire');
         $form->handleRequest($request);
-
+        $contacte->setDistinataire($this->getUser()->getPersonne());
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('contacte_index');
+            return $this->redirectToRoute('list_message',['id'=>$this->getUser()->getPersonne()->getId()]);
         }
 
         return $this->render('contacte/edit.html.twig', [

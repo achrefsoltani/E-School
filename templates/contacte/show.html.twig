@@ -16,16 +16,16 @@
                 <td>{{ contacte.emetteur }}</td>
             </tr>
             <tr>
+                <th>Distinataire</th>
+                <td>{{ contacte.personne}}</td>
+            </tr>
+            <tr>
                 <th>Objet</th>
                 <td>{{ contacte.objet }}</td>
             </tr>
             <tr>
                 <th>Message</th>
                 <td>{{ contacte.message }}</td>
-            </tr>
-            <tr>
-                <th>Distinataire</th>
-                <td>{{ contacte.distinataire }}</td>
             </tr>
             <tr>
                 <th>Etat</th>
@@ -37,10 +37,16 @@
             </tr>
         </tbody>
     </table>
+    {% if is_granted('ROLE_Parent') %}
+        <a href="{{ path('mes_message', {'id': app.user.personne}) }}"><button class="btn btn-info">Retour a la liste</button></a>
+        {{ include('contacte/_delete_form.html.twig') }}
+    {% endif %}
+    {% if is_granted('ROLE_enseignant') %}
 
-    <a href="{{ path('contacte_index') }}">back to list</a>
+        <a href="{{ path('contacte_edit', {'id': contacte.id}) }}"><button class="btn btn-info">repondre</button></a>
+        <a href="{{ path('list_message',{'id': app.user.personne.id}) }}"><button class="btn btn-info">Retour a la liste</button> </a>
+    {% endif %}
 
-    <a href="{{ path('contacte_edit', {'id': contacte.id}) }}">edit</a>
 
-    {{ include('contacte/_delete_form.html.twig') }}
+
 {% endblock %}
