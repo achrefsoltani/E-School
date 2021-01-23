@@ -129,6 +129,6 @@ class AbsenceController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('absence_etudiant_index');
+        return $this->redirectToRoute('absence_index');
     }
 }

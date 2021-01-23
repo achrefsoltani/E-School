@@ -135,16 +135,15 @@ class AbsenceEtudiantController extends AbstractController
      */
     public function delete(Request $request, Absence $absence): Response
     {
+        $id=$absence->getSeance()->getId();
         if ($this->isCsrfTokenValid('delete'.$absence->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($absence);
             $entityManager->flush();
-        }else{
-            $this->addFlash('error','le personne nexiste pas ');
 
         }
+        return $this->redirectToRoute('absence_etudiant_index',['id'=>$id]);
 
-        return $this->redirectToRoute('news_home');
     }
 
     /**
